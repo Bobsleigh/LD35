@@ -59,17 +59,17 @@
    eJztllEKACAIQ/X+l44OUGlsLMkHfgl7wy/dzFw8K3Y7BCc/m9f97H6RfGaHaLbaz6KKX31/1p0yuYwO2czf/Wiq+dF9b/Lar/UjqehHdlb/3XMGDlkAgQ==
   </data>
  </layer>
- <layer name="Background" width="32" height="24" visible="0">
+ <layer name="Background" width="32" height="24">
   <data encoding="base64" compression="zlib">
    eJyrY2BgaMCBjfHIUQM3AnER1J6BwJ1A3DQE7Tehklp6+H+g7R+s8W8yiP1PSvqitv0mRNpPDTdSEv7E2l+MhKlpPy3jnx4YFs9NVIpLUu1Ftp/acU6p/cTmAVLciG4vOf6npr8p8SO17CbHfs8Btt8Xi7nk2k1OORtIQ/uJcU8oFcOeHPujgTiKSnaTm/6JCQNi7AZhAEqXrOo=
   </data>
  </layer>
- <layer name="Terrain" width="32" height="24" visible="0">
+ <layer name="Terrain" width="32" height="24">
   <data encoding="base64" compression="zlib">
    eJy9lkkOwjAMRXsn5nmeFr0AUBbcAiG2LEBihvPyKzVSFKWWUxu+9KQorfPd1k4aRflaENe0VQFVULPmYmu8JmKpa1zVQQM0rbmNwrp5cnNugTboWHNbBZ9EELsCS4UcJPpXDlQN5fVB9xeJeCSpwwu4gptgDUkd3sEDPANi3Jotug+l3/QF3uBTcI1U0hr09WDonvWvPihZuNI+D3aB/rFnTrL3h/prnAdlC58/JU4fUvt9kvmacai/Rg2aZ48y/2M25n5HqgapNXzvxfZP1QN9MGDmIpXrPwQjMGbGS852n/8ETMGMiNH8J3L9OSp6Fpl3NRf6a8n03wmcA4kY9+wZHMAX9zo1Aw==
   </data>
  </layer>
- <layer name="Sprite_Layer" width="32" height="24" visible="0">
+ <layer name="Sprite_Layer" width="32" height="24">
   <data encoding="base64" compression="zlib">
    eJztwQEBAAAAgiD/r25IQAEAAC8GDAAAAQ==
   </data>

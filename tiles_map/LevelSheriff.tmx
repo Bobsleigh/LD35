@@ -43,7 +43,7 @@
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 </data>
  </layer>
- <layer name="Background" width="42" height="30" visible="0">
+ <layer name="Background" width="42" height="30">
   <data encoding="csv">
 27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,
 27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,
@@ -161,11 +161,23 @@
   </object>
  </objectgroup>
  <objectgroup name="enemyLayer">
-  <object id="51" name="Sheriff" type="enemy" x="832" y="866" width="60" height="56"/>
-  <object id="52" name="Sheriff" type="enemy" x="98" y="66" width="60" height="60"/>
-  <object id="53" name="Sheriff" type="enemy" x="356" y="408" width="64" height="68"/>
+  <object id="51" name="enemyShooter" type="enemy" x="832" y="866" width="60" height="56">
+   <properties>
+    <property name="direction" value="Right"/>
+   </properties>
+  </object>
+  <object id="52" name="enemyShooter" type="enemy" x="98" y="66" width="60" height="60">
+   <properties>
+    <property name="direction" value="Right"/>
+   </properties>
+  </object>
+  <object id="53" name="enemyShooter" type="enemy" x="356" y="408" width="64" height="68">
+   <properties>
+    <property name="direction" value="Right"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup name="itemLayer" visible="0" offsetx="222" offsety="-2">
+ <objectgroup name="itemLayer" offsetx="222" offsety="-2">
   <object id="5" name="Cupcake" type="Item" x="-188" y="96" width="26" height="30"/>
   <object id="7" name="StarMoney" type="Item" x="-180" y="318"/>
   <object id="18" name="StarMoney" type="Item" x="271.333" y="334"/>
