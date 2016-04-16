@@ -1,10 +1,9 @@
-from app.settings import *
-from app.titleScreen.titleScreen import TitleScreen
-from app.creatureScreen.creatureScreen import CreatureScreen
-from app.platformScreen.platformScreen import PlatformScreen
-from app.worldMap.worldMap import WorldMap
 from app.gameData import GameData
-
+from app.scene.creatureScreen.creatureScreen import CreatureScreen
+from app.scene.platformScreen.platformScreen import PlatformScreen
+from app.scene.titleScreen.titleScreen import TitleScreen
+from app.scene.worldMap.worldMap import WorldMap
+from app.settings import *
 
 
 class SceneHandler():

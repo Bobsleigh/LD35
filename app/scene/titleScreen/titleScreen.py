@@ -1,17 +1,15 @@
-  # Imports
-
-
+# Imports
 import os
-
-import pygame
 import sys
 
-from app.titleScreen.eventHandlerTitleScreen import EventHandlerTitleScreen
+import pygame
+
 from app.menu.menu import Menu
+from app.scene.titleScreen.eventHandlerTitleScreen import EventHandlerTitleScreen
 from app.settings import *
 
 
-class TitleScreen():
+class TitleScreen:
     def __init__(self, screen):
         self.screen = screen
 

@@ -1,14 +1,10 @@
-#from app.MenuPause import MenuPause
-#from app.drawing.drawerGame import DrawerGame
-#from app.event.eventHandlerFactory import EventHandlerFactory
+from app.scene.worldMap.eventHandlerWorldMap import EventHandlerWorldMap
+from app.scene.worldMap.logicHandlerWorldMap import LogicHandlerWorldMap
 
-#from app.map.gameMemory import GameMemory
 from app.mapData import MapData
-from app.sprites.playerWorldMap import Player
-from app.worldMap.eventHandlerWorldMap import EventHandlerWorldMap
-from app.worldMap.logicHandlerWorldMap import LogicHandlerWorldMap
-from app.worldMap.drawerWorldMap import DrawerWorldMap
+from app.scene.worldMap.drawerWorldMap import DrawerWorldMap
 from app.settings import *
+from app.sprites.playerWorldMap import Player
 
 
 class WorldMap:

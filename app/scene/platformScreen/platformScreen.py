@@ -1,11 +1,12 @@
-from app.platformScreen.eventHandlerPlatformScreen import EventHandlerPlatformScreen
-from app.platformScreen.logicHandlerPlatformScreen import LogicHandlerPlatformScreen
-from app.sprites.playerPlatform import PlayerPlatform
+import pygame
+
 from app.mapData import MapData
 from app.menuPause.menuPause import MenuPause
+from app.scene.platformScreen.eventHandlerPlatformScreen import EventHandlerPlatformScreen
+from app.scene.platformScreen.logicHandlerPlatformScreen import LogicHandlerPlatformScreen
 from app.settings import *
+from app.sprites.playerPlatform import PlayerPlatform
 
-import pygame
 
 class PlatformScreen:
     def __init__(self, screen, gameData):

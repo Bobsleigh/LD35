@@ -1,13 +1,11 @@
-import pygame
 import os
 import sys
 
+import pygame
+
+from app.scene.sceneHandler import SceneHandler
+from app.scene.titleScreen.titleScreen import TitleScreen
 from app.settings import *
-
-from app.titleScreen.titleScreen import TitleScreen
-from app.sceneHandler import SceneHandler
-
-
 
 if __name__ == '__main__':
     #Code to check if the code is running from a PyInstaller --onefile .exe
