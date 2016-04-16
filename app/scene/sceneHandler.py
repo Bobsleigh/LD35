@@ -6,7 +6,7 @@ from app.scene.platformScreen.platformScreen import PlatformScreen
 from app.gameData import GameData
 
 
-class SceneHandler():
+class SceneHandler:
     def __init__(self, screen, firstScene):
 
         self.handlerRunning = True
