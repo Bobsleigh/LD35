@@ -33,7 +33,7 @@ MODE = DEV_MODE
 #Scenes self.nextScene commands, used to tell SceneHandler what next scene to run after this one ends
 TITLE_SCREEN = 0
 WORLD_MAP = 1
-CREATURE_SCREEN = 2
+PET_SCREEN = 2
 PLATFORM_SCREEN = 42
 
 # Sprite Layer
