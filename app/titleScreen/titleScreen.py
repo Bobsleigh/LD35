@@ -28,8 +28,8 @@ class TitleScreen():
         self.nextScene = None
 
     def mainLoop(self):
-        self.menuRunning = True
-        while self.menuRunning:
+        self.sceneRunning = True
+        while self.sceneRunning:
             self.eventHandler.eventHandle(self.menu.optionList, self.menu.selector)
             self.menu.spritesMenu.update()  # This would be in the logic
             self.draw()  # Drawer in THIS file, below
@@ -40,7 +40,5 @@ class TitleScreen():
         pygame.display.flip()
 
     def startGame(self):
-        pass
-
-        #self.nextScene = GAME
-        #self.menuRunning = False
+        self.nextScene = CREATURE_SCREEN
+        self.sceneRunning = False

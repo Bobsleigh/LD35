@@ -2,6 +2,7 @@ __author__ = 'Bobsleigh'
 
 from app.settings import *
 from app.titleScreen.titleScreen import TitleScreen
+from app.creatureScreen.creatureScreen import CreatureScreen
 
 
 class SceneHandler():
@@ -17,9 +18,9 @@ class SceneHandler():
             self.runningScene.mainLoop()
 
             #When we exit the scene, this code executes
-            #if self.runningScene.nextScene == GAME:
-            #    self.runningScene = Game(self.screen)
-            #elif self.runningScene.nextScene == TITLE_SCREEN:
-            #    self.runningScene = TitleScreen(self.screen)
-            #    self.runningScene.mainLoop()
+            if self.runningScene.nextScene == TITLE_SCREEN:
+                self.runningScene = TitleScreen(self.screen)
+            elif self.runningScene.nextScene == CREATURE_SCREEN:
+                self.runningScene = CreatureScreen(self.screen)
+                self.runningScene.mainLoop()
 

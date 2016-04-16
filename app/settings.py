@@ -30,3 +30,4 @@ MODE = DEV_MODE
 
 #Scenes self.nextScene commands, used to tell SceneHandler what next scene to run after this one ends
 TITLE_SCREEN = 0
+CREATURE_SCREEN = 2

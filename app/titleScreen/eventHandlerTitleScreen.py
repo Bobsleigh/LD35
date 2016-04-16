@@ -1,4 +1,4 @@
-from pygame import event,QUIT,KEYDOWN,K_RIGHT,K_LEFT,K_UP,K_DOWN,K_SPACE,K_RETURN
+import pygame
 from sys import exit
 
 class EventHandlerTitleScreen():
@@ -8,27 +8,27 @@ class EventHandlerTitleScreen():
     def eventHandle(self,optionList,selector):
         self.optionList = optionList
         self.selector = selector
-        for dummyEv in event.get():
-            if dummyEv.type == QUIT:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
                 exit()
-            elif dummyEv.type == KEYDOWN:
-                if dummyEv.key == K_RIGHT: #Does nothing for now...
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RIGHT: #Does nothing for now...
                     self.optionList[self.selector.vPos].deselect()
                     self.selector.moveRight()
                     self.optionList[self.selector.vPos].select()
-                elif dummyEv.key == K_LEFT: #Does nothing for now...
+                elif event.key == pygame.K_LEFT: #Does nothing for now...
                     self.optionList[self.selector.vPos].deselect()
                     self.selector.moveLeft()
                     self.optionList[self.selector.vPos].select()
-                elif dummyEv.key == K_UP:
+                elif event.key == pygame.K_UP:
                     self.optionList[self.selector.vPos].deselect()
                     self.selector.moveUp()
                     self.optionList[self.selector.vPos].select()
-                elif dummyEv.key == K_DOWN:
+                elif event.key == pygame.K_DOWN:
                     self.optionList[self.selector.vPos].deselect()
                     self.selector.moveDown()
                     self.optionList[self.selector.vPos].select()
-                elif dummyEv.key == K_SPACE:
+                elif event.key == pygame.K_SPACE:
                     self.optionList[self.selector.vPos].doOption()
-                elif dummyEv.key == K_RETURN:
+                elif event.key == pygame.K_RETURN:
                     self.optionList[self.selector.vPos].doOption()
