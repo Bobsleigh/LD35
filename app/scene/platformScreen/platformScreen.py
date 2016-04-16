@@ -20,7 +20,7 @@ class PlatformScreen:
         # TODO: BP need to set up things / position of the player and name of the map / use self.gameData BP
         self.mapData = MapData("Map_01")
         # Set the Player
-        self.player = PlayerPlatform(540, 445)
+        self.player = PlayerPlatform(300, 300)
 
         self.mapData.allSprites.add(self.player)
         self.mapData.camera.add(self.player)

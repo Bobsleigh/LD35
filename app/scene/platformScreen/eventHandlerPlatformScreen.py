@@ -19,9 +19,28 @@ class EventHandlerPlatformScreen():
                     self.menuPause.mainLoop()
                 elif event.key == pygame.K_RIGHT:
                     self.player.updateSpeedRight()
+                    self.player.rightPressed = True
                 elif event.key == pygame.K_LEFT:
                     self.player.updateSpeedLeft()
+                    self.player.leftPressed = True
                 elif event.key == pygame.K_UP:
                     self.player.updateSpeedUp()
                 elif event.key == pygame.K_DOWN:
                     self.player.updateSpeedDown()
+                elif event.key == pygame.K_SPACE:
+                    self.player.jump()
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_RIGHT:
+                    self.player.rightPressed = False
+                elif event.key == pygame.K_LEFT:
+                    self.player.leftPressed = False
+
+        self.updatePressedKeys()
+
+    def updatePressedKeys(self):
+        if self.player.rightPressed:
+            self.player.updateSpeedRight()
+        if self.player.leftPressed:
+            self.player.updateSpeedLeft()
+

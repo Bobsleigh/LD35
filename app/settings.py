@@ -56,4 +56,4 @@ JUMP = 1
 
 #Physics
 GRAVITY = 1
-FRICTION = 1
+FRICTION = 0.8

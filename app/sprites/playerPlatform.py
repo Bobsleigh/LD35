@@ -45,8 +45,11 @@ class PlayerPlatform(pygame.sprite.Sprite):
         self.invincibleFrameCounter = 0
         self.invincibleFrameDuration = 60
 
+        self.rightPressed = False
+        self.leftPressed = False
+
     def update(self):
-        # self.capSpeed()
+        self.capSpeed()
         self.rect.x += self.speedx
         self.rect.y += self.speedy
 
