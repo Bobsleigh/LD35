@@ -61,3 +61,7 @@ TIGER = 10
 #Physics
 GRAVITY = 1
 FRICTION = 0.8
+
+# Dimension base player
+TILEDIMX = (int)(1688/50*12/10)
+TILEDIMY = (int)(3183/50*6/5)
