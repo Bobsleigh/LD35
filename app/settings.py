@@ -20,10 +20,13 @@ FONT_NAME = 'arial'
 FPS = 60
 
 #DIMENSION
-SCREEN_WIDTH = 600
-SCREEN_HEIGHT = 500
+SCREEN_WIDTH = 1024
+SCREEN_HEIGHT = 768
 
 # Development mode, DEV or OPT
 DEV_MODE = 1
 OPT_MODE = 0
 MODE = DEV_MODE
+
+#Scenes self.nextScene commands, used to tell SceneHandler what next scene to run after this one ends
+TITLE_SCREEN = 0
