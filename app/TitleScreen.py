@@ -4,6 +4,7 @@
 import os
 
 import pygame
+import sys
 
 from app.event.eventHandlerTitleScreen import EventHandlerTitleScreen
 from app.menu.menu import Menu
@@ -20,7 +21,7 @@ class TitleScreen():
         # Define MainMenu
         self.menu = Menu(pygame.Rect(SCREEN_WIDTH / 2, SCREEN_HEIGHT * 13 / 16, SCREEN_WIDTH / 3, SCREEN_HEIGHT * 0.25))
         self.menu.addOption('Start', self.startGame)
-        self.menu.addOption('Exit', quit)
+        self.menu.addOption('Exit', sys.exit)
 
         self.eventHandler = EventHandlerTitleScreen()
 
@@ -39,5 +40,7 @@ class TitleScreen():
         pygame.display.flip()
 
     def startGame(self):
-        self.nextScene = GAME
-        self.menuRunning = False
+        pass
+
+        #self.nextScene = GAME
+        #self.menuRunning = False
