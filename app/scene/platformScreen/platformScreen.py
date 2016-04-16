@@ -18,7 +18,7 @@ class PlatformScreen:
 
         #For testing
         # TODO: BP need to set up things / position of the player and name of the map / use self.gameData BP
-        self.mapData = MapData("Map_02")
+        self.mapData = MapData("Map_01")
         # Set the Player
         self.player = PlayerPlatform(540, 445)
 
@@ -41,12 +41,6 @@ class PlatformScreen:
             self.eventHandler.eventHandle()
             self.logicHandler.handle(self.player, self.mapData)
             self.drawer.draw(self.screen, self.mapData.camera, self.mapData.spritesHUD, self.player)
-
-    # def draw(self):
-    #     self.camera.center(self.player.rect.center)
-    #     self.camera.draw(self.screen)
-    #     # self.mapData.spritesHUD.draw(self.screen)
-    #     pygame.display.flip()
 
     def close(self):
         self.sceneRunning = False
