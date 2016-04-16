@@ -41,5 +41,5 @@ class TitleScreen():
         pygame.display.flip()
 
     def startGame(self):
-        self.nextScene = CREATURE_SCREEN
+        self.nextScene = PET_SCREEN
         self.sceneRunning = False
