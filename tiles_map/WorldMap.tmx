@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="18" tilewidth="32" tileheight="32" nextobjectid="17">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" nextobjectid="19">
  <tileset firstgid="1" name="Set_1" tilewidth="32" tileheight="32" tilecount="25" columns="5">
   <image source="img/Set_01.png" width="160" height="160"/>
  </tileset>
@@ -54,24 +54,24 @@
  <tileset firstgid="142" name="icone_maison" tilewidth="32" tileheight="32" tilecount="9" columns="3">
   <image source="img/icone_maison.png" width="102" height="96"/>
  </tileset>
- <layer name="Collision_Layer" width="32" height="18">
+ <layer name="Collision_Layer" width="32" height="24">
   <data encoding="base64" compression="zlib">
-   eJztwQEBAAAAgiD/r25IQAEAfBkJAAAB
+   eJxjZGBgYBxgjAvgk6MGGOz20xoQ439auo8Y82npBmLNHun20woMFf/TKpxIMZcWbiDVzFH7B9Z+agNy/E9N95Jj3qj9I9t+agJy/U8tNw90uxuEASg9AIU=
   </data>
  </layer>
- <layer name="Background" width="32" height="18">
+ <layer name="Background" width="32" height="24">
   <data encoding="base64" compression="zlib">
-   eJyrY2BgaMCBjfHIUQM3AnER1J6BwJ1A3DQE7Tehklp6+H+g7R+s8W8yiP1PSvqitv0mRNpPDTdSEv7E2l+MhKlpPy3jnx4YFH6lUPvpld5g9pqg2U/tOKfUfmLzACluNMGCSfU/tfyNbH8XEHeTgEFm9ZCIa3DgWiAGAATikRk=
+   eJyrY2BgaMCBjfHIUQM3AnER1J6BwJ1A3DQE7Tehklp6+H+g7R+s8W8yiP1PSvqitv0mRNpPDTdSEv7E2l+MhKlpPy3jnx4YFs9NVIpLUu1Ftp/acU6p/cTmAVLciG4vOf6npr8p8SO17CbHfs8Btt8Xi7nk2k1OORtIQ/uJcU8oFcOeHPujgTiKSnaTm/6JCQNi7AZhAEqXrOo=
   </data>
  </layer>
- <layer name="Terrain" width="32" height="18">
+ <layer name="Terrain" width="32" height="24">
   <data encoding="base64" compression="zlib">
-   eJy9lUkOwzAIRXOpjuncdFpk0W2nI7XpeN7+7FAExAnEX3qSBTFGMeAkkXVQfN7qgT4YEFtO1hdlr+YL1RCMwJjYjg5xJVVzTsEETInt5nDO1bD3DE4OOVgUKwethqQ+mHWRCKO8/hNRd/AAhSGGpQ6f4AXeDfZUa7btHCrv9AO+4NcyRilrDXI92HRmxeqDOViAJeOL8R6swBpkjI/rA4/ZT7UBW7BjfF2+ByEK6UPLvK+TRw3uyZrmGnqPWg1qMaT/8gfapxcI
+   eJy9lckOwiAQhnkn933fDj14Vet7GOPVgybu+rz+TUpCCODAYP/kSwiU+aftDAhh18KxFlsVUAU1ZS5RxhvHXtcaVXXQAE1lbhkhrk16zi3QBh1lbhvBJ2XsXYNVhBw4KioHVw3Z+qD7j0QMSn4/YtUFXMGNEYNTh3fwAE+PPXrNhp5D2T99gTf4BMbIxK1BUw/6nllF9UFJQVfs+2Dn6W/qA87Z7+sf4z4oK5j8XaL0oeu8T3NfOfb1j1GD8t1F7n/Mx9T/6KpBVwzTd1H9M/VAHwyIuXCl+w/BCIyJ+zl3u8l/AqZgxowb6k9R6F0kv9Wc6R9Lsv9O4OyJIDyzJ3AAX5K4NGo=
   </data>
  </layer>
- <layer name="Sprite_Layer" width="32" height="18">
+ <layer name="Sprite_Layer" width="32" height="24" visible="0">
   <data encoding="base64" compression="zlib">
-   eJztwQEBAAAAgiD/r25IQAEAfBkJAAAB
+   eJztwQEBAAAAgiD/r25IQAEAAC8GDAAAAQ==
   </data>
  </layer>
  <objectgroup name="outZoneLayer">
@@ -93,17 +93,17 @@
     <property name="LevelZone" value="LevelHome"/>
    </properties>
   </object>
-  <object id="15" name="OutZone" x="926.667" y="478.667" width="33.3333" height="64">
-   <properties>
-    <property name="InZone" value="StartPointDesert"/>
-    <property name="LevelZone" value="LevelDesert"/>
-   </properties>
-  </object>
  </objectgroup>
  <objectgroup name="inZoneLayer">
   <object id="14" name="InZone" x="800" y="352" width="32" height="32">
    <properties>
     <property name="StartPoint" value="StartPointWorld"/>
+   </properties>
+  </object>
+  <object id="17" name="OutZone" x="929.333" y="640" width="29.3333" height="62.6667">
+   <properties>
+    <property name="InZone" value="StartPointDesert"/>
+    <property name="LevelZone" value="LevelDesert"/>
    </properties>
   </object>
  </objectgroup>
