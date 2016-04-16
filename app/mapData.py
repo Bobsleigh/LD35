@@ -4,6 +4,7 @@ import pytmx
 import re
 import pygame
 from app.settings import *
+from app.tools.functionTools import *
 import os
 
 from app.sprites.enemyFactory import EnemyFactory
@@ -12,7 +13,7 @@ from app.sprites.itemFactory import ItemFactory
 # from app.sprites.player import *
 
 class MapData:
-    def __init__(self, mapName="Map_01", screenSize=(SCREEN_WIDTH, SCREEN_HEIGHT)):
+    def __init__(self, mapName="Map_01", nameInZone="_none", screenSize=(SCREEN_WIDTH, SCREEN_HEIGHT)):
 
         self.nameMap = mapName
 
@@ -31,25 +32,27 @@ class MapData:
         eFactory = EnemyFactory()
         iFactory = ItemFactory()
 
-        for obj in self.tmxData.objects:
-            if obj.type == "enemy":
-                enemy = eFactory.create(obj)
-                self.allSprites.add(enemy)
-                self.enemyGroup.add(enemy)
-
-            if obj.type == "item":
-                item = iFactory.create(obj)
-                self.allSprites.add(item)
-                self.itemGroup.add(item)
+        # for obj in self.tmxData.objects:
+        #     if obj.type == "enemy":
+        #         enemy = eFactory.create(obj)
+        #         self.allSprites.add(enemy)
+        #         self.enemyGroup.add(enemy)
+        #
+        #     if obj.type == "item":
+        #         item = iFactory.create(obj)
+        #         self.allSprites.add(item)
+        #         self.itemGroup.add(item)
 
         # Put camera in mapData
         self.camera = pyscroll.PyscrollGroup(map_layer=self.cameraPlayer, default_layer=SPRITE_LAYER)
         self.camera.add(self.allSprites)
 
-    # TODO: BP Need to delete this / regularize all map name BP
-    # Map names are "Map_XX" where XX is the number 01 to 99
-    # Tiled names are "theme_vX.tmx" where X is the number 1 to 99
-    # Changes will come.
+        # Spawn point de the player
+        for obj in self.tmxData.objects:
+            if obj.name == "InZone":
+                if obj.StartPoint == nameInZone:
+                    self.spawmPointPlayerx = obj.x
+                    self.spawmPointPlayery = obj.y
+
     def reqImageName(self, nameMap):
-        numberOfTheMap = int((re.findall("\d+", nameMap))[0])
-        return os.path.join('tiles_map', "theme_v" + str(numberOfTheMap) + ".tmx")
+        return os.path.join('tiles_map', nameMap + ".tmx")
