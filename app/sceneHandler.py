@@ -1,8 +1,7 @@
-__author__ = 'Bobsleigh'
-
 from app.settings import *
 from app.titleScreen.titleScreen import TitleScreen
 from app.creatureScreen.creatureScreen import CreatureScreen
+from app.gameData import GameData
 
 
 class SceneHandler():
@@ -11,6 +10,7 @@ class SceneHandler():
         self.handlerRunning = True
         self.runningScene = firstScene
         self.screen = screen
+        self.gameData = GameData()
 
     def mainLoop(self):
         self.handlerRunning = True
@@ -21,6 +21,5 @@ class SceneHandler():
             if self.runningScene.nextScene == TITLE_SCREEN:
                 self.runningScene = TitleScreen(self.screen)
             elif self.runningScene.nextScene == CREATURE_SCREEN:
-                self.runningScene = CreatureScreen(self.screen)
-                self.runningScene.mainLoop()
+                self.runningScene = CreatureScreen(self.screen,self.gameData)
 

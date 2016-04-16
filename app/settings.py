@@ -22,6 +22,8 @@ FPS = 60
 #DIMENSION
 SCREEN_WIDTH = 1024
 SCREEN_HEIGHT = 768
+TILE_WIDTH = 32
+TILE_HEIGHT = 32
 
 # Development mode, DEV or OPT
 DEV_MODE = 1
@@ -30,4 +32,11 @@ MODE = DEV_MODE
 
 #Scenes self.nextScene commands, used to tell SceneHandler what next scene to run after this one ends
 TITLE_SCREEN = 0
+
 CREATURE_SCREEN = 2
+
+#Facing Sides
+RIGHT = 0
+LEFT = 1
+UP = 2
+DOWN = 3
