@@ -11,6 +11,8 @@ class Player(pygame.sprite.Sprite):
 
         self.name = "player"
 
+        self.image = pygame.image.load(os.path.join('img', 'Cochon.png'))
+
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y

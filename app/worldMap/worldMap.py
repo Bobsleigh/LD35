@@ -1,23 +1,24 @@
 #from app.MenuPause import MenuPause
 #from app.drawing.drawerGame import DrawerGame
 #from app.event.eventHandlerFactory import EventHandlerFactory
-#from app.logic.logicHandler import LogicHandler
+
 #from app.map.gameMemory import GameMemory
-#from app.map.mapData import MapData
+from app.mapData import MapData
 from app.sprites.playerWorldMap import Player
 from app.worldMap.eventHandlerWorldMap import EventHandlerWorldMap
+from app.worldMap.logicHandlerWorldMap import LogicHandlerWorldMap
 from app.worldMap.drawerWorldMap import DrawerWorldMap
 from app.settings import *
 
 
 class WorldMap:
-    def __init__(self, screen):
+    def __init__(self, screen, gameMemory):
         # Écran
         self.screen = screen
 
         #Map : HardCoded
-        self.mapData = MapData("Map_01")
-        self.gameData = GameMemory()
+        self.mapData = MapData("theme_v1.tmx")
+        self.gameMemory = gameMemory
 
         # TODO: See where to put player. In mapData? But he will reset with each map change..?
         self.player = Player(540, 445)
@@ -27,22 +28,22 @@ class WorldMap:
         self.camera = self.mapData.camera
 
         # Handler
-        self.eventHandlerGame = self.eventHandlerWorldMap.create(self.screenType, self.camera, self.mapData)
-        self.logicHandler = LogicHandler(self.mapData)
+        self.eventHandlerWorldMap = EventHandlerWorldMap()
+        self.logicHandler = LogicHandlerWorldMap(self.mapData)
         self.drawer = DrawerWorldMap()
 
         self.nextScene = None
 
         #Menu
-        self.menuPause = MenuPause(screen,self.backToMain)
-        self.eventHandlerGame.menuPause = self.menuPause
+        # self.menuPause = MenuPause(screen,self.backToMain)
+        # self.eventHandlerWorldMap.menuPause = self.menuPause
 
     def mainLoop(self):
         self.sceneRunning = True
         while self.sceneRunning:
-            self.sceneRunning = self.eventHandlerGame.sceneRunning and self.logicHandler.sceneRunning
-            self.eventHandlerGame.handle()
-            self.sceneRunning = self.eventHandlerGame.sceneRunning and self.logicHandler.sceneRunning
+            self.sceneRunning = self.eventHandlerWorldMap.sceneRunning and self.logicHandler.sceneRunning
+            self.eventHandlerWorldMap.handle()
+            self.sceneRunning = self.eventHandlerWorldMap.sceneRunning and self.logicHandler.sceneRunning
 
             self.logicHandler.handle(self.player, self.gameMemory)
             self.checkNewMap(self.logicHandler.newMap)
@@ -69,15 +70,15 @@ class WorldMap:
             self.gameMemory.enteringMap(self.mapData)
             self.gameMemory.updateMap(self.mapData)
 
-            self.eventHandlerGame.newMap(self.mapData)
-            self.eventHandlerGame.eventHandlerPlayer.soundControllerPlayer = self.mapData.soundController
+            self.eventHandlerWorldMap.newMap(self.mapData)
+            self.eventHandlerWorldMap.eventHandlerPlayer.soundControllerPlayer = self.mapData.soundController
 
             self.logicHandler.mapData = self.mapData
             self.logicHandler.collisionChecker.soundControl = self.mapData.soundController
             self.logicHandler.newMap = None
 
     def close(self):
-        self.eventHandlerGame.sceneRunning = False #To stop game running
+        self.eventHandlerWorldMap.sceneRunning = False #To stop game running
 
     def backToMain(self):
         self.nextScene = TITLE_SCREEN
