@@ -12,20 +12,23 @@ class PlatformScreen:
     def __init__(self, screen, gameData):
         self.screen = screen
         self.gameData = gameData
-        self.eventHandler = EventHandlerPlatformScreen()
-        self.logicHandler = LogicHandlerPlatformScreen()
+
 
         self.nextScene = None
+
+        #For testing
+        self.mapData = MapData("Map_02")
+
+        # Set the Player
+        self.player = PlayerPlatform(540, 445)
+
+        #Set Handlers
+        self.eventHandler = EventHandlerPlatformScreen(self.player)
+        self.logicHandler = LogicHandlerPlatformScreen(self.mapData)
 
         #Menu
         self.menuPause = MenuPause(screen, self.backToMain)
         self.eventHandler.menuPause = self.menuPause
-
-        #For testing
-        self.mapData = MapData("Map_01")
-
-        # Set the Player
-        self.player = PlayerPlatform(540, 445)
 
         self.mapData.allSprites.add(self.player)
         self.mapData.camera.add(self.player)

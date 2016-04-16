@@ -2,6 +2,7 @@ from app.settings import *
 from app.scene.worldMap.worldMap import WorldMap
 from app.scene.titleScreen.titleScreen import TitleScreen
 from app.scene.petScreen.petScreen import PetScreen
+from app.scene.platformScreen.platformScreen import PlatformScreen
 from app.gameData import GameData
 
 

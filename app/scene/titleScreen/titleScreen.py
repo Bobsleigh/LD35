@@ -22,6 +22,7 @@ class TitleScreen:
         self.menu.addOption('Start', self.startGame)
         self.menu.addOption('Exit', sys.exit)
         self.menu.addOption('TitleScreen', self.startWorldMap)
+        self.menu.addOption('Level 1', self.startFirstLevel)
 
         self.eventHandler = EventHandlerTitleScreen()
 
@@ -45,4 +46,8 @@ class TitleScreen:
 
     def startWorldMap(self):
         self.nextScene = WORLD_MAP
+        self.sceneRunning = False
+
+    def startFirstLevel(self):
+        self.nextScene = PLATFORM_SCREEN
         self.sceneRunning = False
