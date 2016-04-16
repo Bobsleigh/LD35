@@ -20,16 +20,17 @@ class LogicHandlerPlatformScreen:
         self.applyGravity(self.mapData.allSprites)
         self.applyFriction(self.mapData.allSprites)
         self.collisionChecker.collisionAllSprites(player, self.mapData, mapData)
-        self.handleZoneCollision(player, self.mapData)
+        self.handleZoneCollision(player)
         self.mapData.allSprites.update()
 
     def handleZoneCollision(self, player):
 
         for obj in self.mapData.tmxData.objects:
-            if self.isPlayerIsInObject(player, obj) == True:
+            if self.isPlayerIsInZone(player, obj) == True:
                 if obj.name == "OutZone":
-                    nameNewZone = seekAtt(obj, "LevelZone")
-                    nameInZone = seekAtt(obj, "InZone")
+
+                    nameNewZone = obj.LevelZone
+                    nameInZone = obj.InZone
 
                     # Initializing new map
                     self.newMap = MapData(nameNewZone, nameInZone)
