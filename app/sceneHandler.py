@@ -1,5 +1,3 @@
-__author__ = 'Bobsleigh'
-
 from app.settings import *
 from app.titleScreen.titleScreen import TitleScreen
 
