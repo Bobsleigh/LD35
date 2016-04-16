@@ -20,24 +20,3 @@ class LogicHandlerPlatformScreen:
         # self.handleBullets(self.mapData, player)
         # self.handleObjectCollision(player, self.mapData)
         # self.gameOverCondition(player, self.mapData)
-
-        self.mapData.allSprites.update()
-
-    def applyGravity(self, allSprites):
-        for sprite in allSprites:
-            if sprite.isPhysicsApplied == True or sprite.isGravityApplied == True:
-                sprite.speedy += GRAVITY
-
-    def applyFriction(self, allSprites):
-        for sprite in allSprites:
-            if sprite.isPhysicsApplied == True or sprite.isFrictionApplied == True:
-                pass
-                if sprite.speedx > 0 and sprite.speedx - FRICTION > 0:
-                    sprite.speedx -= FRICTION
-                elif sprite.speedx > 0:
-                    sprite.speedx = 0
-
-                if sprite.speedx < 0 and sprite.speedx + FRICTION < 0:
-                    sprite.speedx += FRICTION
-                elif sprite.speedx < 0:
-                    sprite.speedx = 0
