@@ -2,13 +2,14 @@ import pygame
 import pyscroll
 import pytmx
 import re
+import pygame
+from app.settings import *
 import os
 
 # from app.enemy.enemyFactory import EnemyFactory
 # from app.powerup.powerUpFactory import PowerUpFactory
 # from app.sound.soundPlayerController import *
-# from app.player import *
-from app.settings import *
+from app.player import *
 
 class MapData:
     def __init__(self, mapName="Map_01", screenSize=(SCREEN_WIDTH, SCREEN_HEIGHT)):

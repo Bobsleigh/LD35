@@ -23,6 +23,7 @@ class TitleScreen():
         self.menu = Menu(pygame.Rect(SCREEN_WIDTH / 2, SCREEN_HEIGHT * 13 / 16, SCREEN_WIDTH / 3, SCREEN_HEIGHT * 0.25))
         self.menu.addOption('Start', self.startGame)
         self.menu.addOption('Exit', sys.exit)
+        self.menu.addOption('TitleScreen', self.startWorldMap)
 
         self.eventHandler = EventHandlerTitleScreen()
 
@@ -42,4 +43,8 @@ class TitleScreen():
 
     def startGame(self):
         self.nextScene = CREATURE_SCREEN
+        self.sceneRunning = False
+
+    def startWorldMap(self):
+        self.nextScene = WORLD_MAP
         self.sceneRunning = False

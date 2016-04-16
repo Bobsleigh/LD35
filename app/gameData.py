@@ -7,10 +7,3 @@ class GameData:
         self.inventory = {}
         self.inventory["coin"] = 0
         self.inventory["apple"] = 0
-
-
-
-
-
-
-

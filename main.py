@@ -18,6 +18,7 @@ if __name__ == '__main__':
     pygame.mixer.pre_init(44100, -16, 2, 2048)
     pygame.init()
     pygame.font.init()
+    pygame.key.set_repeat(100, 100)
 
     # Écran
     screenSize = (SCREEN_WIDTH, SCREEN_HEIGHT)

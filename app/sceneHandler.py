@@ -2,7 +2,9 @@ from app.settings import *
 from app.titleScreen.titleScreen import TitleScreen
 from app.creatureScreen.creatureScreen import CreatureScreen
 from app.platformScreen.platformScreen import PlatformScreen
+from app.worldMap.worldMap import WorldMap
 from app.gameData import GameData
+
 
 
 class SceneHandler():
@@ -21,6 +23,8 @@ class SceneHandler():
             #When we exit the scene, this code executes
             if self.runningScene.nextScene == TITLE_SCREEN:
                 self.runningScene = TitleScreen(self.screen)
+            elif self.runningScene.nextScene == WORLD_MAP:
+                self.runningScene = WorldMap(self.screen, self.gameData)
             elif self.runningScene.nextScene == CREATURE_SCREEN:
                 self.runningScene = CreatureScreen(self.screen, self.gameData)
             elif self.runningScene.nextScene == PLATFORM_SCREEN:

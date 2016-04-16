@@ -8,7 +8,7 @@ class DrawerWorldMap:
         self.clock = pygame.time.Clock()
         self.FPS = FPS
 
-    def draw(self, screen, camera, spritesHUD, player):
+    def draw(self, screen, camera, spritesHUD, player, allSprites):
         camera.center(player.rect.center)
         camera.draw(screen)
         spritesHUD.draw(screen)
