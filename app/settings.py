@@ -36,6 +36,9 @@ TITLE_SCREEN = 0
 CREATURE_SCREEN = 2
 PLATFORM_SCREEN = 42
 
+# Sprite Layer
+SPRITE_LAYER = 4
+
 #Facing Sides
 RIGHT = 0
 LEFT = 1
