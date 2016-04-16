@@ -32,6 +32,7 @@ class PlatformScreen:
         self.camera = self.mapData.camera
 
     def mainLoop(self):
+
         self.sceneRunning = True
         while self.sceneRunning:
             self.eventHandler.eventHandle()

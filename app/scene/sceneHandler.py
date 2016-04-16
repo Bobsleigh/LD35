@@ -6,7 +6,7 @@ from app.scene.worldMap.worldMap import WorldMap
 from app.settings import *
 
 
-class SceneHandler():
+class SceneHandler:
     def __init__(self, screen, firstScene):
 
         self.handlerRunning = True
