@@ -53,3 +53,7 @@ SPIKE = 2
 #Player jump states
 GROUNDED = 0
 JUMP = 1
+
+#Physics
+GRAVITY = 1
+FRICTION = 1

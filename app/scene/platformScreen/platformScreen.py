@@ -39,7 +39,7 @@ class PlatformScreen:
         self.sceneRunning = True
         while self.sceneRunning:
             self.eventHandler.eventHandle()
-            self.logicHandler.logicHandle()
+            self.logicHandler.handle(self.player, self.mapData)
             self.draw()
 
     def draw(self):
