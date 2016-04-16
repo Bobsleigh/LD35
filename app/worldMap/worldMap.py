@@ -1,14 +1,16 @@
-from app.MenuPause import MenuPause
-from app.drawing.drawerGame import DrawerGame
-from app.event.eventHandlerFactory import EventHandlerFactory
-from app.logic.logicHandler import LogicHandler
-from app.map.gameMemory import GameMemory
-from app.map.mapData import MapData
-from app.player import Player
+#from app.MenuPause import MenuPause
+#from app.drawing.drawerGame import DrawerGame
+#from app.event.eventHandlerFactory import EventHandlerFactory
+#from app.logic.logicHandler import LogicHandler
+#from app.map.gameMemory import GameMemory
+#from app.map.mapData import MapData
+from app.sprites.playerWorldMap import Player
+from app.worldMap.eventHandlerWorldMap import EventHandlerWorldMap
+from app.worldMap.drawerWorldMap import DrawerWorldMap
 from app.settings import *
 
 
-class Game:
+class WorldMap:
     def __init__(self, screen):
         # Écran
         self.screen = screen
@@ -16,29 +18,19 @@ class Game:
 
         #Map : HardCoded
         self.mapData = MapData("Map_01")
-        self.gameMemory = GameMemory()
-        self.gameMemory.enteringMap(self.mapData)
+        self.gameData = GameMemory()
 
         # TODO: See where to put player. In mapData? But he will reset with each map change..?
         self.player = Player(540, 445)
-
-        # For debugging
-        if MODE == DEV_MODE:
-            self.player.lifeMax = 4
-            self.player.life = 4
 
         self.mapData.allSprites.add(self.player)
         self.mapData.camera.add(self.player)
         self.camera = self.mapData.camera
 
-
-
         # Handler
-        self.eventHandlerFactory = EventHandlerFactory()
-        self.eventHandlerFactory.setPlayer(self.player)
-        self.eventHandlerGame = self.eventHandlerFactory.create(self.screenType, self.camera, self.mapData)
+        self.eventHandlerGame = self.eventHandlerWorldMap.create(self.screenType, self.camera, self.mapData)
         self.logicHandler = LogicHandler(self.mapData)
-        self.drawer = DrawerGame()
+        self.drawer = DrawerWorldMap()
 
         self.nextScene = None
 
