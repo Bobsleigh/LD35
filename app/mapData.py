@@ -6,8 +6,8 @@ import pygame
 from app.settings import *
 import os
 
-# from app.enemy.enemyFactory import EnemyFactory
-# from app.powerup.powerUpFactory import PowerUpFactory
+from app.sprites.enemyFactory import EnemyFactory
+from app.sprites.itemFactory import ItemFactory
 # from app.sound.soundPlayerController import *
 # from app.sprites.player import *
 
@@ -22,33 +22,34 @@ class MapData:
         # self.soundController = soundPlayerController()
 
         self.allSprites = pygame.sprite.Group()
-        # self.enemyGroup = pygame.sprite.Group()
-        # self.powerUpGroup = pygame.sprite.Group()
+        self.enemyGroup = pygame.sprite.Group()
+        self.itemGroup = pygame.sprite.Group()
         # self.friendlyBullet = pygame.sprite.Group()
         # self.enemyBullet = pygame.sprite.Group()
         self.spritesHUD = pygame.sprite.Group()
 
-        # eFactory = EnemyFactory()
-        # pUpFactory = PowerUpFactory()
+        eFactory = EnemyFactory()
+        iFactory = ItemFactory()
 
-        for object in self.tmxData.objects:
-            # if object.type == "enemy":
-            #     enemy = eFactory.create(object, self)
-            #     self.allSprites.add(enemy)
-            #     self.enemyGroup.add(enemy)
+        for obj in self.tmxData.objects:
+            if obj.type == "enemy":
+                enemy = eFactory.create(obj)
+                self.allSprites.add(enemy)
+                self.enemyGroup.add(enemy)
 
-            # if object.type == "powerUp":
-            #     powerUp = pUpFactory.create(object)
-            #     self.allSprites.add(powerUp)
-            #     self.powerUpGroup.add(powerUp)
-            pass
+            if obj.type == "item":
+                item = iFactory.create(obj)
+                self.allSprites.add(item)
+                self.itemGroup.add(item)
 
-        # TODO: Put camera in mapData
+        # Put camera in mapData
         self.camera = pyscroll.PyscrollGroup(map_layer=self.cameraPlayer, default_layer=SPRITE_LAYER)
         self.camera.add(self.allSprites)
 
+    # For now.
     # Map names are "Map_XX" where XX is the number 01 to 99
     # Tiled names are "theme_vX.tmx" where X is the number 1 to 99
+    # Changes will come.
     def reqImageName(self, nameMap):
         numberOfTheMap = int((re.findall("\d+", nameMap))[0])
         return os.path.join('tiles_map', "theme_v" + str(numberOfTheMap) + ".tmx")
