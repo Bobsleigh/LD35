@@ -18,7 +18,7 @@ class PetScreen:
         self.screen.blit(self.background, (0, 0))
 
         self.gameData = gameData
-        self.screenData = PetScreenData()
+        self.screenData = PetScreenData(self.gameData)
         self.eventHandler = EventHandlerPetScreen()
         self.logicHandler = LogicHandlerPetScreen(self.gameData,self.screenData)
 
@@ -35,7 +35,7 @@ class PetScreen:
         #Get rabbit button
         self.getRabbitButton = Menu(
             pygame.Rect(1*SCREEN_WIDTH / 2, 3*SCREEN_HEIGHT / 4, self.menuFeed.optionList[1].image.get_width()/0.9, self.menuFeed.optionList[1].image.get_height()/0.7))
-        self.getRabbitButton.addOption('Get rabbit', self.close)
+        self.getRabbitButton.addOption('Get rabbit', self.logicHandler.getRabbit)
         self.screenData.allSprites.add(self.getRabbitButton.spritesMenu) #Add sprite
 
         #Back to world button
