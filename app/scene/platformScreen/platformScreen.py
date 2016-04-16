@@ -20,7 +20,7 @@ class PlatformScreen:
         # TODO: BP need to set up things / position of the player and name of the map / use self.gameData BP
         self.mapData = MapData("Map_01")
         # Set the Player
-        self.player = PlayerPlatform(540, 445)
+        self.player = PlayerPlatform(300, 300)
 
         self.mapData.allSprites.add(self.player)
         self.mapData.camera.add(self.player)
@@ -40,7 +40,7 @@ class PlatformScreen:
         self.sceneRunning = True
         while self.sceneRunning:
             self.eventHandler.eventHandle()
-            self.logicHandler.logicHandle(self.player)
+            self.logicHandler.handle(self.player, self.mapData)
             self.drawer.draw(self.screen, self.mapData.camera, self.mapData.spritesHUD, self.player)
 
     def close(self):
