@@ -15,6 +15,7 @@ class LogicHandlerPetScreen:
 
     #Get rabbit back
     def getRabbit(self):
+
         self.data.messageLog.message = 'You cooked your ' + self.gameData.myPet.name + ' and took another rabbit.'
         self.gameData.myPet.type = RABBIT
         self.updatePet()
@@ -27,7 +28,9 @@ class LogicHandlerPetScreen:
 
     #Place temporaire?
     def giveApple(self):
-        if self.gameData.inventory["apple"] > 0:
+        if self.gameData.inventory["apple"] == 0:
+            self.data.messageLog.message = 'You\'re out of apple.'
+        elif self.gameData.inventory["apple"] > 0:
             self.gameData.inventory["apple"] += -1
 
             if self.gameData.myPet.type == RABBIT:
