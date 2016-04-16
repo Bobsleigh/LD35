@@ -13,7 +13,7 @@ class WorldMap:
         self.screen = screen
 
         #Map : HardCoded
-        self.mapData = MapData("theme_v2.tmx")
+        self.mapData = MapData("WorldMap", "StartPointWorld")
         self.gameMemory = gameData
 
         # TODO: See where to put player. In mapData? But he will reset with each map change..?

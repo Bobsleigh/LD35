@@ -10,10 +10,11 @@ class PlayerPlatform(pygame.sprite.Sprite):
 
         self.name = "player"
 
-        self.image = pygame.image.load(os.path.join('img', 'Cochon.png'))
-
-        self.imageShapeRight = pygame.image.load(os.path.join('img', 'Cochon.png'))
-        self.imageShapeLeft = pygame.image.load(os.path.join('img', 'Cochon.png'))
+        imageD = pygame.image.load(os.path.join('img', 'joueur_droite.png'))
+        imageG = pygame.image.load(os.path.join('img', 'joueur_gauche.png'))
+        self.imageShapeRight = pygame.transform.scale(imageD, (TILEDIMX, TILEDIMY))
+        self.imageShapeLeft = pygame.transform.scale(imageG, (TILEDIMX, TILEDIMY))
+        self.image = self.imageShapeRight
 
         self.rect = self.image.get_rect()
         self.rect.x = x
