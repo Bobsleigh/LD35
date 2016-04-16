@@ -56,17 +56,17 @@
  </tileset>
  <layer name="Collision_Layer" width="32" height="24">
   <data encoding="base64" compression="zlib">
-   eJxjZGBgYBxgjAvgk6MGGOz20xoQ439auo8Y82npBmLNHun20woMFf/TKpxIMZcWbiDVzFH7B9Z+agNy/E9N95Jj3qj9I9t+agJy/U8tNw90uxuEASg9AIU=
+   eJztllEKACAIQ/X+l44OUGlsLMkHfgl7wy/dzFw8K3Y7BCc/m9f97H6RfGaHaLbaz6KKX31/1p0yuYwO2czf/Wiq+dF9b/Lar/UjqehHdlb/3XMGDlkAgQ==
   </data>
  </layer>
- <layer name="Background" width="32" height="24">
+ <layer name="Background" width="32" height="24" visible="0">
   <data encoding="base64" compression="zlib">
    eJyrY2BgaMCBjfHIUQM3AnER1J6BwJ1A3DQE7Tehklp6+H+g7R+s8W8yiP1PSvqitv0mRNpPDTdSEv7E2l+MhKlpPy3jnx4YFs9NVIpLUu1Ftp/acU6p/cTmAVLciG4vOf6npr8p8SO17CbHfs8Btt8Xi7nk2k1OORtIQ/uJcU8oFcOeHPujgTiKSnaTm/6JCQNi7AZhAEqXrOo=
   </data>
  </layer>
- <layer name="Terrain" width="32" height="24">
+ <layer name="Terrain" width="32" height="24" visible="0">
   <data encoding="base64" compression="zlib">
-   eJy9lckOwiAQhnkn933fDj14Vet7GOPVgybu+rz+TUpCCODAYP/kSwiU+aftDAhh18KxFlsVUAU1ZS5RxhvHXtcaVXXQAE1lbhkhrk16zi3QBh1lbhvBJ2XsXYNVhBw4KioHVw3Z+qD7j0QMSn4/YtUFXMGNEYNTh3fwAE+PPXrNhp5D2T99gTf4BMbIxK1BUw/6nllF9UFJQVfs+2Dn6W/qA87Z7+sf4z4oK5j8XaL0oeu8T3NfOfb1j1GD8t1F7n/Mx9T/6KpBVwzTd1H9M/VAHwyIuXCl+w/BCIyJ+zl3u8l/AqZgxowb6k9R6F0kv9Wc6R9Lsv9O4OyJIDyzJ3AAX5K4NGo=
+   eJy9lkkOwjAMRXsn5nmeFr0AUBbcAiG2LEBihvPyKzVSFKWWUxu+9KQorfPd1k4aRflaENe0VQFVULPmYmu8JmKpa1zVQQM0rbmNwrp5cnNugTboWHNbBZ9EELsCS4UcJPpXDlQN5fVB9xeJeCSpwwu4gptgDUkd3sEDPANi3Jotug+l3/QF3uBTcI1U0hr09WDonvWvPihZuNI+D3aB/rFnTrL3h/prnAdlC58/JU4fUvt9kvmacai/Rg2aZ48y/2M25n5HqgapNXzvxfZP1QN9MGDmIpXrPwQjMGbGS852n/8ETMGMiNH8J3L9OSp6Fpl3NRf6a8n03wmcA4kY9+wZHMAX9zo1Aw==
   </data>
  </layer>
  <layer name="Sprite_Layer" width="32" height="24" visible="0">
