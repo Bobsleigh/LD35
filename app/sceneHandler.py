@@ -1,6 +1,7 @@
 from app.settings import *
 from app.titleScreen.titleScreen import TitleScreen
 from app.creatureScreen.creatureScreen import CreatureScreen
+from app.platformScreen.platformScreen import PlatformScreen
 from app.gameData import GameData
 
 
@@ -21,5 +22,7 @@ class SceneHandler():
             if self.runningScene.nextScene == TITLE_SCREEN:
                 self.runningScene = TitleScreen(self.screen)
             elif self.runningScene.nextScene == CREATURE_SCREEN:
-                self.runningScene = CreatureScreen(self.screen,self.gameData)
+                self.runningScene = CreatureScreen(self.screen, self.gameData)
+            elif self.runningScene.nextScene == PLATFORM_SCREEN:
+                self.runningScene = PlatformScreen(self.screen, self.gameData)
 
