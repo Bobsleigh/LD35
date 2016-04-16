@@ -6,4 +6,6 @@ class GameData:
 
         self.inventory = {}
         self.inventory["coin"] = 0
-        self.inventory["apple"] = 0
+        self.inventory["apple"] = 10
+
+        self.myPet = RABBIT

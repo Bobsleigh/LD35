@@ -1,13 +1,14 @@
 import pygame
-
 import os
+
+from app.settings import *
 
 
 class Pet(pygame.sprite.Sprite):
-    def __init__(self, x, y):
+    def __init__(self):
         super().__init__()
 
+        self.name = None
         self.image = pygame.image.load(os.path.join('img', 'cochon.png'))
         self.rect = self.image.get_rect()
-        self.rect.x = x
-        self.rect.y = y
+        self.rect.midbottom = (SCREEN_WIDTH / 3,2*SCREEN_HEIGHT / 3)
