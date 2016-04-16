@@ -42,7 +42,7 @@ class MapData:
         #         self.powerUpGroup.add(powerUp)
 
         # TODO: Put camera in mapData
-        self.camera = pyscroll.PyscrollGroup(map_layer=self.cameraPlayer, default_layer=0)
+        self.camera = pyscroll.PyscrollGroup(map_layer=self.cameraPlayer, default_layer=2)
         self.camera.add(self.allSprites)
 
     # Map names are "Map_XX" where XX is the number 01 to 99

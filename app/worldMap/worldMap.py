@@ -12,16 +12,16 @@ from app.settings import *
 
 
 class WorldMap:
-    def __init__(self, screen, gameMemory):
+    def __init__(self, screen, gameData):
         # Écran
         self.screen = screen
 
         #Map : HardCoded
-        self.mapData = MapData("theme_v1.tmx")
-        self.gameMemory = gameMemory
+        self.mapData = MapData("theme_v2.tmx")
+        self.gameMemory = gameData
 
         # TODO: See where to put player. In mapData? But he will reset with each map change..?
-        self.player = Player(540, 445)
+        self.player = Player(600, 600)
 
         self.mapData.allSprites.add(self.player)
         self.mapData.camera.add(self.player)
@@ -41,14 +41,12 @@ class WorldMap:
     def mainLoop(self):
         self.sceneRunning = True
         while self.sceneRunning:
-            self.sceneRunning = self.eventHandlerWorldMap.sceneRunning and self.logicHandler.sceneRunning
-            self.eventHandlerWorldMap.handle()
-            self.sceneRunning = self.eventHandlerWorldMap.sceneRunning and self.logicHandler.sceneRunning
+            self.eventHandlerWorldMap.eventHandle(self.player)
 
             self.logicHandler.handle(self.player, self.gameMemory)
-            self.checkNewMap(self.logicHandler.newMap)
+            # self.checkNewMap(self.logicHandler.newMap)
 
-            self.drawer.draw(self.screen, self.mapData.camera, self.mapData.spritesHUD, self.player)
+            self.drawer.draw(self.screen, self.mapData.camera, self.mapData.spritesHUD, self.player, self.mapData.allSprites)
 
         if self.nextScene == None:
             self.nextScene = self.logicHandler.endState
@@ -58,24 +56,24 @@ class WorldMap:
         if newMap is not None:
             self.changeMap(newMap)
 
-    def changeMap(self, newMap):
-
-            self.player.rect.x = self.logicHandler.spawmPointPlayerx
-            self.player.rect.y = self.logicHandler.spawmPointPlayery
-
-            self.mapData = newMap
-            self.mapData.allSprites.add(self.player)
-            self.mapData.camera.add(self.player)
-
-            self.gameMemory.enteringMap(self.mapData)
-            self.gameMemory.updateMap(self.mapData)
-
-            self.eventHandlerWorldMap.newMap(self.mapData)
-            self.eventHandlerWorldMap.eventHandlerPlayer.soundControllerPlayer = self.mapData.soundController
-
-            self.logicHandler.mapData = self.mapData
-            self.logicHandler.collisionChecker.soundControl = self.mapData.soundController
-            self.logicHandler.newMap = None
+    # def changeMap(self, newMap):
+    #
+    #         self.player.rect.x = self.logicHandler.spawmPointPlayerx
+    #         self.player.rect.y = self.logicHandler.spawmPointPlayery
+    #
+    #         self.mapData = newMap
+    #         self.mapData.allSprites.add(self.player)
+    #         self.mapData.camera.add(self.player)
+    #
+    #         self.gameMemory.enteringMap(self.mapData)
+    #         self.gameMemory.updateMap(self.mapData)
+    #
+    #         self.eventHandlerWorldMap.newMap(self.mapData)
+    #         self.eventHandlerWorldMap.eventHandlerPlayer.soundControllerPlayer = self.mapData.soundController
+    #
+    #         self.logicHandler.mapData = self.mapData
+    #         self.logicHandler.collisionChecker.soundControl = self.mapData.soundController
+    #         self.logicHandler.newMap = None
 
     def close(self):
         self.eventHandlerWorldMap.sceneRunning = False #To stop game running
