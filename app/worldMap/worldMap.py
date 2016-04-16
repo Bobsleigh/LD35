@@ -14,7 +14,6 @@ class WorldMap:
     def __init__(self, screen):
         # Écran
         self.screen = screen
-        self.screenType = type(self)
 
         #Map : HardCoded
         self.mapData = MapData("Map_01")

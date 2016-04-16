@@ -15,8 +15,9 @@ class TitleScreen():
     def __init__(self, screen):
         self.screen = screen
 
-        titleMenu = pygame.image.load(os.path.join('img', 'cochon.png'))
-        self.screen.blit(titleMenu, (0, 0))
+        self.screen.fill((0,0,0))
+        titleImage = pygame.image.load(os.path.join('img', 'cochon.png'))
+        self.screen.blit(titleImage, (0, 0))
 
         # Define MainMenu
         self.menu = Menu(pygame.Rect(SCREEN_WIDTH / 2, SCREEN_HEIGHT * 13 / 16, SCREEN_WIDTH / 3, SCREEN_HEIGHT * 0.25))
@@ -28,8 +29,8 @@ class TitleScreen():
         self.nextScene = None
 
     def mainLoop(self):
-        self.menuRunning = True
-        while self.menuRunning:
+        self.sceneRunning = True
+        while self.sceneRunning:
             self.eventHandler.eventHandle(self.menu.optionList, self.menu.selector)
             self.menu.spritesMenu.update()  # This would be in the logic
             self.draw()  # Drawer in THIS file, below
@@ -40,7 +41,5 @@ class TitleScreen():
         pygame.display.flip()
 
     def startGame(self):
-        pass
-
-        #self.nextScene = GAME
-        #self.menuRunning = False
+        self.nextScene = CREATURE_SCREEN
+        self.sceneRunning = False
