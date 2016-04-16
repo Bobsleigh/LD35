@@ -46,7 +46,7 @@ class PlayerPlatform(pygame.sprite.Sprite):
         self.invincibleFrameDuration = 60
 
     def update(self):
-        self.capSpeed()
+        # self.capSpeed()
         self.rect.x += self.speedx
         self.rect.y += self.speedy
 
@@ -89,17 +89,14 @@ class PlayerPlatform(pygame.sprite.Sprite):
     def gainLife(self):
         if self.life < self.lifeMax:
             self.life = self.lifeMax
-            self.setShapeMax()
 
     def loseLife(self):
         if not self.isInvincible:
             if self.life > 1:
-                self.loseLifeChangeShape()
                 self.life -= 1
                 self.invincibleOnHit()
                 self.visualFlash()
             elif self.life > 0:
-                self.loseLifeChangeShape()
                 self.life -= 1
 
 
@@ -107,11 +104,9 @@ class PlayerPlatform(pygame.sprite.Sprite):
         if self.lifeMax < self.lifeMaxCap:
             self.lifeMax += 1
             self.life = self.lifeMax
-            self.setShapeMax()
         else:
             self.lifeMax = self.lifeMaxCap
             self.life = self.lifeMax
-            self.setShapeMax()
 
 
     def knockedBack(self):
@@ -137,7 +132,6 @@ class PlayerPlatform(pygame.sprite.Sprite):
 
     def dead(self):
         self.life = 0
-        self.changeEdge()
 
     def pickedPowerUpMaxHealth(self):
         self.gainLifeMax()

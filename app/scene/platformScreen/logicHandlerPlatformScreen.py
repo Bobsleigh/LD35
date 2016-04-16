@@ -14,9 +14,31 @@ class LogicHandlerPlatformScreen:
         self.mapData = mapData
 
     def handle(self, player, mapData):
-        self.applyGravity(self.mapData.allSprites)
-        self.applyFriction(self.mapData.allSprites)
-        self.collisionChecker.collisionAllSprites(player, self.mapData, mapData)
+        # self.applyGravity(self.mapData.allSprites)
+        # self.applyFriction(self.mapData.allSprites)
+        # self.collisionChecker.collisionAllSprites(player, self.mapData, mapData)
+        self.mapData.allSprites.update()
+
+
         # self.handleBullets(self.mapData, player)
         # self.handleObjectCollision(player, self.mapData)
         # self.gameOverCondition(player, self.mapData)
+
+    def applyGravity(self, allSprites):
+        for sprite in allSprites:
+            if sprite.isPhysicsApplied == True or sprite.isGravityApplied == True:
+                sprite.speedy += GRAVITY
+
+    def applyFriction(self, allSprites):
+        for sprite in allSprites:
+            if sprite.isPhysicsApplied == True or sprite.isFrictionApplied == True:
+                pass
+                if sprite.speedx > 0 and sprite.speedx - FRICTION > 0:
+                    sprite.speedx -= FRICTION
+                elif sprite.speedx > 0:
+                    sprite.speedx = 0
+
+                if sprite.speedx < 0 and sprite.speedx + FRICTION < 0:
+                    sprite.speedx += FRICTION
+                elif sprite.speedx < 0:
+                    sprite.speedx = 0

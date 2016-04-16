@@ -17,9 +17,9 @@ class EventHandlerPlatformScreen():
                     self.menuPause.mainLoop()
                 elif event.key == pygame.K_ESCAPE:
                     self.menuPause.mainLoop()
-                elif event.key == pygame.K_RIGHT: #Does nothing for now...
+                elif event.key == pygame.K_RIGHT:
                     self.player.updateSpeedRight()
-                elif event.key == pygame.K_LEFT: #Does nothing for now...
+                elif event.key == pygame.K_LEFT:
                     self.player.updateSpeedLeft()
                 elif event.key == pygame.K_UP:
                     self.player.updateSpeedUp()
