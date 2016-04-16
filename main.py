@@ -5,6 +5,7 @@ import sys
 from app.settings import *
 
 from app.titleScreen.titleScreen import TitleScreen
+from app.sceneHandler import SceneHandler
 
 
 
@@ -30,4 +31,5 @@ if __name__ == '__main__':
 
         titleScreen = TitleScreen(screen)
 
-        titleScreen.mainLoop()
+        sceneHandler = SceneHandler(screen, titleScreen)
+        sceneHandler.mainLoop()
