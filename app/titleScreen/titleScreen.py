@@ -6,7 +6,7 @@ import os
 import pygame
 import sys
 
-from app.event.eventHandlerTitleScreen import EventHandlerTitleScreen
+from app.titleScreen.eventHandlerTitleScreen import EventHandlerTitleScreen
 from app.menu.menu import Menu
 from app.settings import *
 

@@ -4,7 +4,7 @@ import sys
 
 from app.settings import *
 
-from app.titleScreen import TitleScreen
+from app.titleScreen.titleScreen import TitleScreen
 
 
 
