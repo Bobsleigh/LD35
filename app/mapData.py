@@ -46,7 +46,7 @@ class MapData:
         self.camera = pyscroll.PyscrollGroup(map_layer=self.cameraPlayer, default_layer=SPRITE_LAYER)
         self.camera.add(self.allSprites)
 
-    # For now.
+    # TODO: BP Need to delete this / regularize all map name BP
     # Map names are "Map_XX" where XX is the number 01 to 99
     # Tiled names are "theme_vX.tmx" where X is the number 1 to 99
     # Changes will come.
