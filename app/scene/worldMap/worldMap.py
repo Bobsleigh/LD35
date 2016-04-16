@@ -2,7 +2,7 @@ from app.scene.worldMap.eventHandlerWorldMap import EventHandlerWorldMap
 from app.scene.worldMap.logicHandlerWorldMap import LogicHandlerWorldMap
 
 from app.mapData import MapData
-from app.scene.worldMap.drawerWorldMap import DrawerWorldMap
+from app.scene.drawer import Drawer
 from app.settings import *
 from app.sprites.playerWorldMap import Player
 
@@ -26,7 +26,7 @@ class WorldMap:
         # Handler
         self.eventHandlerWorldMap = EventHandlerWorldMap()
         self.logicHandler = LogicHandlerWorldMap(self.mapData)
-        self.drawer = DrawerWorldMap()
+        self.drawer = Drawer()
 
         self.nextScene = None
 
@@ -42,7 +42,7 @@ class WorldMap:
             self.logicHandler.handle(self.player, self.gameMemory)
             # self.checkNewMap(self.logicHandler.newMap)
 
-            self.drawer.draw(self.screen, self.mapData.camera, self.mapData.spritesHUD, self.player, self.mapData.allSprites)
+            self.drawer.draw(self.screen, self.mapData.camera, self.mapData.spritesHUD, self.player)
 
         if self.nextScene == None:
             self.nextScene = self.logicHandler.endState

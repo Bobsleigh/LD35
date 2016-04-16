@@ -57,3 +57,7 @@ JUMP = 1
 #Animal list
 RABBIT = 0
 TIGER = 10
+
+#Physics
+GRAVITY = 1
+FRICTION = 0.8
