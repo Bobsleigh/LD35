@@ -8,6 +8,7 @@ class Pet(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
 
+        self.type = None
         self.name = None
         self.image = pygame.image.load(os.path.join('img', 'cochon.png'))
         self.rect = self.image.get_rect()
