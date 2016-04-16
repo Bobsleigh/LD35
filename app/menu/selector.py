@@ -1,9 +1,7 @@
-
-
-#Objets
 class Selector():
     def __init__(self,num):
         #Default position
+        self.hPos = 0
         self.vPos = 0
         self.maxOpt = num
 

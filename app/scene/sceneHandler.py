@@ -1,11 +1,8 @@
 from app.settings import *
-from app.titleScreen.titleScreen import TitleScreen
-from app.petScreen.petScreen import PetScreen
-from app.gameData import GameData
-from app.scene.platformScreen.platformScreen import PlatformScreen
-from app.scene.titleScreen.titleScreen import TitleScreen
 from app.scene.worldMap.worldMap import WorldMap
-from app.settings import *
+from app.scene.titleScreen.titleScreen import TitleScreen
+from app.scene.petScreen.petScreen import PetScreen
+from app.gameData import GameData
 
 
 class SceneHandler():
@@ -26,8 +23,8 @@ class SceneHandler():
                 self.runningScene = TitleScreen(self.screen)
             elif self.runningScene.nextScene == WORLD_MAP:
                 self.runningScene = WorldMap(self.screen, self.gameData)
+            elif self.runningScene.nextScene == PET_SCREEN:
+                self.runningScene = PetScreen(self.screen, self.gameData)
             elif self.runningScene.nextScene == PLATFORM_SCREEN:
                 self.runningScene = PlatformScreen(self.screen, self.gameData)
-            elif self.runningScene.nextScene == PET_SCREEN:
-                self.runningScene = PetScreen(self.screen,self.gameData)
 
