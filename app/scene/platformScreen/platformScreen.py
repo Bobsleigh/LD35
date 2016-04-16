@@ -26,7 +26,7 @@ class PlatformScreen:
         self.mapData.camera.add(self.player)
         self.camera = self.mapData.camera
 
-        self.eventHandler = EventHandlerPlatformScreen()
+        self.eventHandler = EventHandlerPlatformScreen(self.player)
         self.logicHandler = LogicHandlerPlatformScreen(self.mapData)
         self.drawer = Drawer()
 
@@ -42,15 +42,6 @@ class PlatformScreen:
             self.eventHandler.eventHandle()
             self.logicHandler.logicHandle()
             self.drawer.draw(self.screen, self.mapData.camera, self.mapData.spritesHUD, self.player)
-
-    # def draw(self):
-    #
-    #     self.drawer.draw(self.screen, self.mapData.camera, self.mapData.spritesHUD, self.player, self.mapData.allSprites)
-    #
-    #     self.camera.center(self.player.rect.center)
-    #     self.camera.draw(self.screen)
-    #     # self.mapData.spritesHUD.draw(self.screen)
-    #     pygame.display.flip()
 
     def close(self):
         self.sceneRunning = False
