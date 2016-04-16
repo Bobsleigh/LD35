@@ -9,7 +9,7 @@ import os
 # from app.enemy.enemyFactory import EnemyFactory
 # from app.powerup.powerUpFactory import PowerUpFactory
 # from app.sound.soundPlayerController import *
-from app.player import *
+# from app.sprites.player import *
 
 class MapData:
     def __init__(self, mapName="Map_01", screenSize=(SCREEN_WIDTH, SCREEN_HEIGHT)):
@@ -26,7 +26,7 @@ class MapData:
         # self.powerUpGroup = pygame.sprite.Group()
         # self.friendlyBullet = pygame.sprite.Group()
         # self.enemyBullet = pygame.sprite.Group()
-        # self.spritesHUD = pygame.sprite.Group()
+        self.spritesHUD = pygame.sprite.Group()
 
         # eFactory = EnemyFactory()
         # pUpFactory = PowerUpFactory()
