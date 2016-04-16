@@ -1,8 +1,9 @@
-from app.creatureScreen.eventHandlerCreatureScreen import EventHandlerCreatureScreen
+import pygame
+
 from app.menuPause.menuPause import MenuPause
+from app.scene.creatureScreen.eventHandlerCreatureScreen import EventHandlerCreatureScreen
 from app.settings import *
 
-import pygame
 
 class CreatureScreen:
     def __init__(self, screen, gameData):

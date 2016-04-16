@@ -22,3 +22,4 @@ class EventHandlerWorldMap():
                     pass
                 elif dummyEv.key == K_RETURN:
                     pass
+        pass

@@ -1,17 +1,15 @@
-  # Imports
-
-
+# Imports
 import os
-
-import pygame
 import sys
 
-from app.titleScreen.eventHandlerTitleScreen import EventHandlerTitleScreen
+import pygame
+
 from app.menu.menu import Menu
+from app.scene.titleScreen.eventHandlerTitleScreen import EventHandlerTitleScreen
 from app.settings import *
 
 
-class TitleScreen():
+class TitleScreen:
     def __init__(self, screen):
         self.screen = screen
 
@@ -23,6 +21,7 @@ class TitleScreen():
         self.menu = Menu(pygame.Rect(SCREEN_WIDTH / 2, SCREEN_HEIGHT * 13 / 16, SCREEN_WIDTH / 3, SCREEN_HEIGHT * 0.25))
         self.menu.addOption('Start', self.startGame)
         self.menu.addOption('Exit', sys.exit)
+        self.menu.addOption('TitleScreen', self.startWorldMap)
 
         self.eventHandler = EventHandlerTitleScreen()
 
@@ -42,4 +41,8 @@ class TitleScreen():
 
     def startGame(self):
         self.nextScene = PET_SCREEN
+        self.sceneRunning = False
+
+    def startWorldMap(self):
+        self.nextScene = WORLD_MAP
         self.sceneRunning = False

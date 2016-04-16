@@ -34,9 +34,24 @@ MODE = DEV_MODE
 TITLE_SCREEN = 0
 
 PET_SCREEN = 2
+WORLD_MAP = 1
+CREATURE_SCREEN = 2
+PLATFORM_SCREEN = 42
+
+# Sprite Layer
+SPRITE_LAYER = 4
 
 #Facing Sides
 RIGHT = 0
 LEFT = 1
 UP = 2
 DOWN = 3
+
+#Collisions
+COLLISION_LAYER = 0
+SOLID = 1 #Booléen de GID pour collision
+SPIKE = 2
+
+#Player jump states
+GROUNDED = 0
+JUMP = 1
