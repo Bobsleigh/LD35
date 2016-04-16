@@ -9,16 +9,26 @@ class GameData:
         self.inventory = {}
         self.inventory["coin"] = 0
         self.inventory["apple"] = 10
-        self.inventory["orange"] = 0
+        self.inventory["item2"] = 0
         self.inventory["item3"] = 0
         self.inventory["item4"] = 0
+        self.inventory["item5"] = 0
+        self.inventory["item6"] = 0
+        self.inventory["item7"] = 0
+        self.inventory["item8"] = 0
+        self.inventory["item9"] = 0
 
         #Was item discovered?
         self.itemUnlock = {}
         self.itemUnlock["apple"] = True
-        self.itemUnlock["orange"] = False
+        self.itemUnlock["item2"] = False
         self.itemUnlock["item3"] = False
         self.itemUnlock["item4"] = False
+        self.itemUnlock["item5"] = False
+        self.itemUnlock["item6"] = False
+        self.itemUnlock["item7"] = False
+        self.itemUnlock["item8"] = False
+        self.itemUnlock["item9"] = False
 
         #My pet: rabbit at first
         self.myPet = Rabbit()

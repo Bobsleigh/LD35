@@ -28,8 +28,11 @@ class PetScreen:
         self.screenData.allSprites.add(self.pet)
 
         #Create feedMenu
+        self.realMenuFeedHeight = 3 * SCREEN_HEIGHT / 5
+        self.realMenuFeedPosy = 2*SCREEN_HEIGHT / 5
+        self.getMenuSpec()
         self.createFeedMenu(
-            pygame.Rect(4 * SCREEN_WIDTH / 5, 2*SCREEN_HEIGHT / 5, SCREEN_WIDTH / 6, 3 * SCREEN_HEIGHT / 5)
+            pygame.Rect(4 * SCREEN_WIDTH / 5, self.menuFeedPosy, SCREEN_WIDTH / 6, self.menuFeedHeight)
         )
 
         #Get rabbit button
@@ -78,6 +81,7 @@ class PetScreen:
         self.menuFeed = Menu(rect)
         self.menuFeed.addOption('apple', self.logicHandler.giveApple)
         self.menuFeed.addOption('item2', self.close)
+        self.menuFeed.addOption('item2', self.close)
         self.menuFeed.addOption('item3', self.close)
         self.menuFeed.addOption('item4', self.close)
         self.menuFeed.addOption('item5', self.close)
@@ -94,10 +98,15 @@ class PetScreen:
                 option.deselect()
         self.optionList[0][0].select()
 
+    def getMenuSpec(self):
+        optForNow = 9
+        realOptNum = 9
+        self.menuFeedHeight = self.realMenuFeedHeight*(optForNow)/realOptNum
+        self.menuFeedPosy = self.realMenuFeedPosy-self.realMenuFeedHeight/2+self.menuFeedHeight/2
 
     def close(self):
         self.nextScene = TITLE_SCREEN
-        self.sceneRunning = False #To stop creatureScreen running
+        self.sceneRunning = False #To stop petScreen running
 
     def backToMain(self):
         self.menuPause.close()
