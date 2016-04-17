@@ -1,5 +1,4 @@
 from app.mapData import MapData
-from app.tools.functionTools import *
 from app.settings import *
 from app.scene.platformScreen.collisionPlayerPlatform import CollisionPlayerPlatform
 
@@ -10,8 +9,6 @@ class LogicHandlerPlatformScreen:
         self.sceneRunning = True
         self.endState = None
         self.collisionChecker = CollisionPlayerPlatform()
-        self.spawmPointPlayerx = 0
-        self.spawmPointPlayery = 0
         self.newMap = None
         self.mapData = mapData
 
