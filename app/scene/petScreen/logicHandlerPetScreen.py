@@ -16,9 +16,3 @@ class LogicHandlerPetScreen:
     def logicHandle(self):
 
         self.screenData.allSprites.update()
-
-    #Get rabbit back
-    def getRabbit(self):
-        self.screenData.messageLog.message = 'You cooked your ' + self.gameData.myPet.name + ' and took another rabbit.'
-        self.nextPet = RABBIT
-        self.updatePet()
