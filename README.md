@@ -4,15 +4,15 @@
 
 # I want my dragon!
 
-
+![alt tag](https://github.com/Bobsleigh/LD35/blob/master/img/dragon.png)
 
 # Tools used
 
 ## Packages
 
-[Python 3.5](https://www.python.org/ftp/python/3.5.0/python-3.5.0-amd64.exe)
+[Python 3.5](https://www.python.org/)
 
-[PyGame](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame)
+[PyGame](http://www.pygame.org/download.shtml)
 
 [PyTMX](http://pytmx.readthedocs.org/en/latest/)
 
@@ -20,8 +20,14 @@
 
 ## Other
 
-[Git](https://git-scm.com/)
+Files management : Git
 
-[PyCharm](https://www.jetbrains.com/pycharm/download/)
+IDE : PyCharm
 
-[Tiled](http://www.mapeditor.org/)
+Maps : Tiled
+
+Graphics : PhotoShop, Paint.net
+
+Music : REAPER
+
+Music keyboard : AKAI MPK 49

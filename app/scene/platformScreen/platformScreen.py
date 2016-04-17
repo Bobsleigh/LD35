@@ -14,7 +14,6 @@ class PlatformScreen:
         self.gameData = gameData
         self.nextScene = None
 
-        self.gameData = gameData
         self.mapData = self.gameData.mapData
         self.player = PlayerPlatform(self.mapData.spawmPointPlayerx, self.mapData.spawmPointPlayery, self.mapData)
 
@@ -38,7 +37,7 @@ class PlatformScreen:
         self.sceneRunning = True
         while self.sceneRunning:
             self.eventHandler.eventHandle()
-            self.logicHandler.handle(self.player, self.gameData)
+            self.logicHandler.handle(self.player)
             self.checkNewMap(self.logicHandler.newMapData)
             self.drawer.draw(self.screen, self.mapData.camera, self.mapData.spritesHUD, self.player)
 

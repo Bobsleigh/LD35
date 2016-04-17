@@ -29,8 +29,8 @@ class EnemyCactus(Enemy):
             self.speedx = -self.speedBase
             self.image = self.imageEnemy
 
-            self.isGravityApplied = True
-            self.isCollisionApplied = True
+        self.isGravityApplied = True
+        self.isCollisionApplied = True
 
     def set_direction(self, direction):
         self.direction = direction
@@ -60,3 +60,6 @@ class EnemyCactus(Enemy):
         # print(self.speedy)
 
         self.distance = math.fabs(self.initx - self.rect.x)
+
+    def dead(self):
+        self.kill()
