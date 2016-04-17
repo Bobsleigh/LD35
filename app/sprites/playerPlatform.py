@@ -28,7 +28,7 @@ class PlayerPlatform(pygame.sprite.Sprite):
         self.speedx = 0
         self.speedy = 0
         self.maxSpeedx = 5
-        self.maxSpeedyUp = 30
+        self.maxSpeedyUp = 18
         self.maxSpeedyDown = 15
         self.accx = 2
         self.accy = 2
@@ -174,4 +174,4 @@ class PlayerPlatform(pygame.sprite.Sprite):
 
     def spring(self):
         self.jumpState = JUMP
-        self.speedy = -self.speedy * 2
+        self.speedy = -self.maxSpeedyUp
