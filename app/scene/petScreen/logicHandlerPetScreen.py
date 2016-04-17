@@ -10,11 +10,14 @@ class LogicHandlerPetScreen:
 
         #Set Link
         self.screenData.cupcake.linkList.append(['rabbit','rainbowRabbit'])
-        self.screenData.cupcake.linkList.append(['tiger','unicorn'])
-        self.screenData.cupcake.linkList.append(['unicorn', 'dragon'])
+        self.screenData.goldBar.linkList.append(['rabbit','tigerRabbit'])
 
-        self.screenData.goldBar.linkList.append(['rabbit', 'dragon'])
+        #Test link
+        self.screenData.cupcake.linkList.append(['unicorn', 'dragonUnicorn'])
 
+        self.screenData.goldBar.linkList.append(['unicorn', 'pimpUnicorn'])
+
+        self.screenData.horseshoe.linkList.append(['dragonUnicorn', 'dragon'])
 
 
     def logicHandle(self):
@@ -29,6 +32,7 @@ class LogicHandlerPetScreen:
     def updatePet(self, nextPet):
         self.screenData.allSprites.remove(self.gameData.myPet)
         self.gameData.myPet = self.screenData.petTypeList.pet[nextPet]
+        self.gameData.myPet.loadImage()
         self.screenData.allSprites.add(self.gameData.myPet)
 
     def giveCupcake(self):

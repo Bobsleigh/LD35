@@ -18,6 +18,12 @@ class PetScreenData:
         self.cupcake = Item('cupcake')
         self.goldBar = Item('goldBar')
         self.horseshoe = Item('horseshoe')
+        self.bone = Item('bone')
+        self.carrot = Item('carrot')
+        self.apple = Item('apple')
+        self.gun = Item('gun')
+        self.pokerChip = Item('pokerChip')
+        self.totem = Item('totem')
 
         #All pet
-        self.petTypeList = PetList()
+        self.petTypeList = gameData.petList
