@@ -15,7 +15,6 @@ class CollisionPlayerWorldMap:
 
     def collisionAllSprites(self, player, mapData, oldTileX, oldTileY):
         currentTile = mapData.tmxData.get_tile_gid(self.player.tileX, self.player.tileY, COLLISION_LAYER)
-        printTile(currentTile)
         if currentTile == SOLID:
             player.tileX = oldTileX
             player.tileY = oldTileY
