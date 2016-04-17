@@ -1,7 +1,9 @@
 from app.settings import *
-from app.sprites.item.item import Item
 
-from app.sprites.pet.pet import Pet
+#To initialize my pet
+import os
+import pygame
+from app.sprites.pet.petList import PetList
 
 
 # All the global data for the game and player
@@ -25,16 +27,23 @@ class GameData:
         self.itemUnlock["cupcake"] = True
         self.itemUnlock["goldBar"] = True
         self.itemUnlock["horseshoe"] = True
-        self.itemUnlock["item4"] = False
-        self.itemUnlock["item5"] = False
+        self.itemUnlock["item4"] = True
+        self.itemUnlock["item5"] = True
         self.itemUnlock["item6"] = True
-        self.itemUnlock["item7"] = False
-        self.itemUnlock["item8"] = False
-        self.itemUnlock["item9"] = False
+        self.itemUnlock["item7"] = True
+        self.itemUnlock["item8"] = True
+        self.itemUnlock["item9"] = True
+
+        #Was map unlocked?
+        self.mapUnlock = {}
+        self.mapUnlock["map1"] = True
+        self.mapUnlock["map2"] = True
+        self.mapUnlock["map3"] = True
+        self.mapUnlock["map4"] = True
 
         #My pet: rabbit at first
-        self.myPet = Pet()
-        self.myPet.becomeRabbit()
+        petList = PetList()
+        self.myPet = petList.pet['rabbit']
 
 
         self.scene = scene

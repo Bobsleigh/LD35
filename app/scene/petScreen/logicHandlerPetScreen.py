@@ -8,15 +8,12 @@ class LogicHandlerPetScreen:
         self.gameData = gameData
         self.screenData = data
 
-        #to change pet
-        self.nextPet = None
-
         #Set Link
-        self.screenData.cupcake.linkList.append([RABBIT,TIGER])
-        self.screenData.cupcake.linkList.append([TIGER,UNICORN])
-        self.screenData.cupcake.linkList.append([UNICORN, DRAGON])
+        self.screenData.cupcake.linkList.append(['rabbit','rainbowRabbit'])
+        self.screenData.cupcake.linkList.append(['tiger','unicorn'])
+        self.screenData.cupcake.linkList.append(['unicorn', 'dragon'])
 
-        self.screenData.goldBar.linkList.append([RABBIT, DRAGON])
+        self.screenData.goldBar.linkList.append(['rabbit', 'dragon'])
 
 
 
@@ -27,12 +24,11 @@ class LogicHandlerPetScreen:
     # Get rabbit back
     def getRabbit(self):
         self.screenData.messageLog.message = 'You killed your ' + self.gameData.myPet.name + ' and took another rabbit.'
-        nextPet = RABBIT
-        self.updatePet(nextPet)
+        self.updatePet('rabbit')
 
     def updatePet(self, nextPet):
         self.screenData.allSprites.remove(self.gameData.myPet)
-        self.gameData.myPet.changePet(nextPet)
+        self.gameData.myPet = self.screenData.petTypeList.pet[nextPet]
         self.screenData.allSprites.add(self.gameData.myPet)
 
     def giveCupcake(self):
@@ -46,18 +42,17 @@ class LogicHandlerPetScreen:
 
     def give(self, givenItem):
         item = givenItem
-        if self.gameData.inventory[item.cle] == 0:
+        if self.gameData.inventory[item.key] == 0:
             self.screenData.messageLog.message = 'You\'re out of ' + item.name + '!'
-        elif self.gameData.inventory[item.cle] > 0:
-            self.gameData.inventory[item.cle] += -1
+        elif self.gameData.inventory[item.key] > 0:
+            self.gameData.inventory[item.key] += -1
 
-            for parent in item.linkList:
-                if self.gameData.myPet.type == parent[0]:
-                    self.screenData.allSprites.add(self.gameData.myPet)
-                    nextPet = parent[1]
-                    self.updatePet(nextPet)
+            for link in item.linkList:
+                if self.gameData.myPet.key == link[0]:
+                    self.updatePet(link[1])
                     self.screenData.messageLog.message = 'You got a ' + self.gameData.myPet.name + '!'
                     break
+
                 else:
                     self.nothingHappened()
 

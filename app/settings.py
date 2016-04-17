@@ -54,12 +54,6 @@ SPIKE = 2
 GROUNDED = 0
 JUMP = 1
 
-#Animal list
-RABBIT = 0
-TIGER = 10
-UNICORN = 100
-DRAGON = 1000
-
 #Physics
 GRAVITY = 1
 FRICTION = 0.8

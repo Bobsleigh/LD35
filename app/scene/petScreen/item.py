@@ -5,11 +5,11 @@ from app.settings import *
 
 
 class Item(pygame.sprite.Sprite):
-    def __init__(self,cle):
+    def __init__(self,key):
         super().__init__()
 
-        self.cle = cle
-        self.name = cle
+        self.key = key
+        self.name = key
 
         self.image = pygame.image.load(os.path.join('img', 'cochon.png'))
         self.rect = self.image.get_rect()
