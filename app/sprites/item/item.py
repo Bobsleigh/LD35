@@ -26,5 +26,7 @@ class Item(pygame.sprite.Sprite):
         self.isFrictionApplied = False
         self.isCollisionApplied = False
 
+        self.linkList = []
+
     def update(self):
         pass

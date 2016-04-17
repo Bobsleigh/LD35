@@ -69,7 +69,7 @@ class PetScreen:
 
         #Test
         self.optFont = pygame.font.SysFont(FONT_NAME, 30)
-        number = self.optFont.render('apple: ' + str(self.gameData.inventory["apple"]), True, (0, 0, 0))
+        number = self.optFont.render('cupcake: ' + str(self.gameData.inventory["cupcake"]), True, (0, 0, 0))
         self.screen.blit(number, (SCREEN_WIDTH - number.get_width(), 0))
 
         self.screenData.allSprites.draw(self.screen)
@@ -77,8 +77,8 @@ class PetScreen:
 
     def createFeedMenu(self,rect):
         self.menuFeed = Menu(rect)
-        if self.gameData.itemUnlock["apple"]:
-            self.menuFeed.addOption('apple', self.tree.giveApple)
+        if self.gameData.itemUnlock["cupcake"]:
+            self.menuFeed.addOption('cupcake', self.tree.giveCupcake)
         if self.gameData.itemUnlock["item2"]:
             self.menuFeed.addOption('item2', self.close)
         if self.gameData.itemUnlock["item3"]:
