@@ -8,13 +8,11 @@ from app.sprites.pet.pet import Pet
 class GameData:
     def __init__(self, scene=None):
 
-        self.cupcake = Item(0,0)
-
         self.inventory = {}
         self.inventory["coin"] = 0
         self.inventory["cupcake"] = 10
-        self.inventory["item2"] = 0
-        self.inventory["item3"] = 0
+        self.inventory["goldBar"] = 10
+        self.inventory["horseshoe"] = 10
         self.inventory["item4"] = 0
         self.inventory["item5"] = 0
         self.inventory["item6"] = 0
@@ -25,8 +23,8 @@ class GameData:
         #Was item discovered?
         self.itemUnlock = {}
         self.itemUnlock["cupcake"] = True
-        self.itemUnlock["item2"] = True
-        self.itemUnlock["item3"] = True
+        self.itemUnlock["goldBar"] = True
+        self.itemUnlock["horseshoe"] = True
         self.itemUnlock["item4"] = False
         self.itemUnlock["item5"] = False
         self.itemUnlock["item6"] = True
