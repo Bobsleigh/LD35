@@ -8,7 +8,7 @@ from app.sprites.pet.dragon import Dragon
 
 # All the global data for the game and player
 class GameData:
-    def __init__(self):
+    def __init__(self, scene=None):
 
         self.cupcake = Item(0,0)
 
@@ -45,3 +45,7 @@ class GameData:
         self.petTypeList.append([TIGER, Tiger()])
         self.petTypeList.append([UNICORN, Unicorn()])
         self.petTypeList.append([DRAGON, Dragon()])
+
+        self.scene = scene
+        self.mapData = None
+

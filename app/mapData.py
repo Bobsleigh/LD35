@@ -18,8 +18,8 @@ class MapData:
         self.nameMap = mapName
 
         self.tmxData = pytmx.util_pygame.load_pygame(self.reqImageName(self.nameMap))
-        self.mapData = pyscroll.data.TiledMapData(self.tmxData)
-        self.cameraPlayer = pyscroll.BufferedRenderer(self.mapData, screenSize, clamp_camera=True)
+        self.tiledMapData = pyscroll.data.TiledMapData(self.tmxData)
+        self.cameraPlayer = pyscroll.BufferedRenderer(self.tiledMapData, screenSize, clamp_camera=True)
         # self.soundController = soundPlayerController()
 
         self.allSprites = pygame.sprite.Group()
@@ -47,12 +47,18 @@ class MapData:
         self.camera = pyscroll.PyscrollGroup(map_layer=self.cameraPlayer, default_layer=SPRITE_LAYER)
         self.camera.add(self.allSprites)
 
-        # Spawn point de the player
+        # Spawn point of the player
+        valBool = False
         for obj in self.tmxData.objects:
             if obj.name == "InZone":
                 if obj.StartPoint == nameInZone:
                     self.spawmPointPlayerx = obj.x
                     self.spawmPointPlayery = obj.y
+                    valBool = True
+
+        # The game is not complete?
+        if valBool == False:
+            quitGame()
 
     def reqImageName(self, nameMap):
         return os.path.join('tiles_map', nameMap + ".tmx")

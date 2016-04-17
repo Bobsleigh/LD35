@@ -16,7 +16,7 @@ class LogicHandlerPlatformScreen:
     def handle(self, player, mapData):
         self.applyGravity(self.mapData.allSprites)
         self.applyFriction(self.mapData.allSprites)
-        self.collisionChecker.collisionAllSprites(player, self.mapData, mapData)
+        self.collisionChecker.collisionAllSprites(player, self.mapData, gameData)
         self.handleZoneCollision(player)
         self.mapData.allSprites.update()
         self.handleBullets(self.mapData, player)
@@ -31,7 +31,7 @@ class LogicHandlerPlatformScreen:
                     nameInZone = obj.InZone
 
                     # Initializing new map
-                    self.newMap = MapData(nameNewZone, nameInZone)
+                    self.mapData = MapData(nameNewZone, nameInZone)
 
     def isPlayerIsInZone(self, player, zone):
 

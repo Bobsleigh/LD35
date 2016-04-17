@@ -32,7 +32,7 @@
 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,
 1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,
 1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,1,
-1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,1,
+1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,
 1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
 1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
 1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
@@ -152,10 +152,10 @@
 </data>
  </layer>
  <objectgroup name="outZoneLayer">
-  <object id="4" name="OutZone" x="34" y="94" width="28" height="32">
+  <object id="4" name="OutZone" x="46" y="108" width="28" height="32">
    <properties>
     <property name="InZone" value="StartPointWorld"/>
-    <property name="LevelZone" value="LevelWorld"/>
+    <property name="LevelZone" value="WorldMap"/>
    </properties>
   </object>
  </objectgroup>
@@ -183,7 +183,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="itemLayer" visible="0" offsetx="222" offsety="-2">
+ <objectgroup name="itemLayer" offsetx="222" offsety="-2">
   <object id="5" name="Cupcake" type="Item" x="-145" y="96" width="26" height="30"/>
   <object id="7" name="StarMoney" type="Item" x="-180" y="318"/>
   <object id="18" name="StarMoney" type="Item" x="271.333" y="334"/>
