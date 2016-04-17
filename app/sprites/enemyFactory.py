@@ -17,16 +17,16 @@ class EnemyFactory:
         return enemyCreated
 
 
-    # def createEnemyNoob(self, enemy):
-    #     direction = seekAtt(enemy, "direction")
-    #     distanceMax = seekAtt(enemy, "distanceMax")
-    #
-    #     enemyCreated = Enemy_noob(enemy.x, enemy.y)
-    #
-    #     if direction:
-    #         enemyCreated.setDirection(direction)
-    #     if distanceMax:
-    #         enemyCreated.setDistanceMax(int(distanceMax))
-    #     return enemyCreated
+    def createEnemyNoob(self, enemy):
+        direction = seekAtt(enemy, "direction")
+        distanceMax = seekAtt(enemy, "distanceMax")
+
+        enemyCreated = Enemy_noob(enemy.x, enemy.y)
+
+        if direction:
+            enemyCreated.setDirection(direction)
+        if distanceMax:
+            enemyCreated.setDistanceMax(int(distanceMax))
+        return enemyCreated
 
 
