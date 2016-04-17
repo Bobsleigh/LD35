@@ -4,7 +4,7 @@
 
 # I want my dragon!
 
-![alt tag](https://github.com/Bobsleigh/LD35_WarmUp/blob/master/img/dragon.png)
+![alt tag](https://github.com/Bobsleigh/LD35/blob/master/img/dragon.png)
 
 # Tools used
 
