@@ -6,16 +6,13 @@ from app.bullet import Bullet
 from app.settings import *
 
 
-class EnemyShooter(Enemy):
+class EnemySaloon(Enemy):
     def __init__(self, x, y, theMap, direction="Right"):
         super().__init__(x, y)
 
-        self.name = "enemyShooter"
+        self.name = "enemySaloon"
 
-        self.imageEnemy = pygame.image.load(os.path.join('img', 'enemybob.png'))
-        self.rect = self.imageEnemy.get_rect()
-        self.rect.x = x
-        self.rect.y = y
+        self.imageEnemy = pygame.image.load(os.path.join('img', 'FrenchCancan75.png'))
 
         self.speedx = 0
         self.speedy = 0
@@ -52,13 +49,3 @@ class EnemyShooter(Enemy):
             self.theMap.enemyBullet.add(bullet)
 
             self.imageIterShoot = 0
-
-        self.rect.x += self.speedx
-        if self.speedy < 15:
-            self.rect.y += self.speedy
-
-
-
-
-    def dead(self):
-        self.kill()

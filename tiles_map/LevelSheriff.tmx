@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="42" height="30" tilewidth="32" tileheight="32" nextobjectid="54">
- <tileset firstgid="1" name="Set_01" tilewidth="32" tileheight="32" tilecount="25" columns="5">
+ <tileset firstgid="1" name="Set_01" tilewidth="32" tileheight="32" tilecount="25">
   <image source="img/Set_01.png" width="160" height="160"/>
  </tileset>
- <tileset firstgid="26" name="etoile" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="26" name="etoile" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/etoile.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="27" name="couleurBackground" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="27" name="couleurBackground" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/couleurBackground.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="28" name="trap" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="28" name="trap" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/trap.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="29" name="Door_v01" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="29" name="Door_v01" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/Door_v01.png" width="32" height="32"/>
  </tileset>
  <layer name="Collision_Layer" width="42" height="30">
@@ -167,7 +167,7 @@
   </object>
  </objectgroup>
  <objectgroup name="enemyLayer">
-  <object id="51" name="enemyShooter" type="enemy" x="832" y="832" width="60" height="56">
+  <object id="51" name="enemyShooter" type="enemy" x="818" y="797" width="60" height="56">
    <properties>
     <property name="direction" value="Left"/>
    </properties>
