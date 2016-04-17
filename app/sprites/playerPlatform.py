@@ -140,6 +140,7 @@ class PlayerPlatform(pygame.sprite.Sprite):
 
     def dead(self):
         self.life = 0
+        self.kill()
 
     def pickedPowerUpMaxHealth(self):
         self.gainLifeMax()
