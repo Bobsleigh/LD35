@@ -49,10 +49,10 @@ class CollisionPlayerPlatform:
                     i += 1
 
             else:
-                upRightTileGid = self.getUpRightTileGid()
-                downRightTileGid = self.getDownRightTileGid()
-                lowMidRightTileGid = self.getLowMidRightTileGid()
-                highMidRightTileGid = self.getHighMidRightTileGid()
+                upRightTileGid = self.map.tmxData.get_tile_gid((player.rect.right + player.speedx)/self.tileWidth, player.rect.top/self.tileHeight, COLLISION_LAYER)
+                downRightTileGid = self.map.tmxData.get_tile_gid((player.rect.right + player.speedx)/self.tileWidth, (player.rect.bottom-1)/self.tileHeight, COLLISION_LAYER)
+                lowMidRightTileGid = self.map.tmxData.get_tile_gid((player.rect.right + player.speedx)/self.tileWidth, (player.rect.centery-10-1)/self.tileHeight, COLLISION_LAYER)
+                highMidRightTileGid = self.map.tmxData.get_tile_gid((player.rect.right + player.speedx)/self.tileWidth, (player.rect.centery+10-1)/self.tileHeight, COLLISION_LAYER)
 
                 if (upRightTileGid  == SOLID or downRightTileGid == SOLID or lowMidRightTileGid == SOLID or highMidRightTileGid == SOLID) and player.speedx > 0:
                     # while map.tmxData.get_tile_gid((player.rect.right + 1)/self.tileWidth, player.rect.top/self.tileHeight, COLLISION_LAYER) != SOLID and map.tmxData.get_tile_gid((player.rect.right + 1)/self.tileWidth, (player.rect.bottom)/self.tileHeight, COLLISION_LAYER) != SOLID:
@@ -69,7 +69,10 @@ class CollisionPlayerPlatform:
         return self.map.tmxData.get_tile_gid((self.player.rect.right + self.player.speedx)/self.tileWidth, (self.player.rect.centery-10-1)/self.tileHeight, COLLISION_LAYER)
     def getHighMidRightTileGid(self):
         return self.map.tmxData.get_tile_gid((self.player.rect.right + self.player.speedx)/self.tileWidth, (self.player.rect.centery+10-1)/self.tileHeight, COLLISION_LAYER)
-
+    # def getRightTilesList(self): à terminer si besoin (décomposer le nb de pts de vérification sur le sprite selon sa taille, à place de 4 fixes)
+    #     tileList = []
+    #     pointNumber = self.tileHeight
+    #     tileList.append(self.map.tmxData.get_tile_gid((self.player.rect.right + self.player.speedx)/self.tileWidth, (self.player.rect.centery+10-1)/self.tileHeight, COLLISION_LAYER))
 
     def leftCollision(self,player, map):
         tileWidth = map.tmxData.tilewidth
@@ -218,7 +221,7 @@ def collisionBulletEnemy(bullet, map):
 def collisionBulletPlayer(map, player):
     collisionList = pygame.sprite.spritecollide(player, map.enemyBullet, False)
     for bullet in collisionList:
-        player.loseLife()
+        player.dead()
         bullet.kill()
 
 def printTile(tile):

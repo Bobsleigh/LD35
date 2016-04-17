@@ -5,14 +5,14 @@ from app.settings import *
 
 
 class ItemInfo(pygame.sprite.Sprite):
-    def __init__(self,key):
+    def __init__(self, key, imageNamePNG='cochon.png'):
         super().__init__()
 
         self.key = key
         self.name = key
 
         self.image = pygame.Surface((1, 1))
-        self.imageName = 'cochon.png' #will be a variable
+        self.imageNamePNG = imageNamePNG
 
         self.wantedHeight = 32
 
