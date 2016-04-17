@@ -41,13 +41,6 @@ class LogicHandlerWorldMap:
                         # Initializing new map
                         self.newMapData = MapData(nameNewZone, nameInZone)
 
-    # def handleBottomCollision(self, sprites):
-    #     for sprite in sprites:
-    #         if sprite.rect.y + sprite.rect.height > SCREEN_HEIGHT:
-    #             sprite.rect.y = SCREEN_HEIGHT - sprite.rect.height
-    #             sprite.speedy = 0
-    #             sprite.jumpState = GROUNDED
-
     def isPlayerIsInZone(self, player, object):
 
         if player.rect.centerx  >= object.x and \

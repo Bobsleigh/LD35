@@ -23,11 +23,9 @@ class LogicHandlerPlatformScreen:
         self.gameOverCondition(player)
 
     def handleZoneCollision(self, player):
-
         for obj in self.mapData.tmxData.objects:
             if self.isPlayerIsInZone(player, obj) == True:
                 if obj.name == "OutZone":
-
                     nameNewZone = obj.LevelZone
                     nameInZone = obj.InZone
 
