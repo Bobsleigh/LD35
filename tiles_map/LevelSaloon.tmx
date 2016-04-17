@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="100" tilewidth="32" tileheight="32" nextobjectid="51">
- <tileset firstgid="1" name="Set_01" tilewidth="32" tileheight="32" tilecount="25">
+ <tileset firstgid="1" name="Set_01" tilewidth="32" tileheight="32" tilecount="25" columns="5">
   <image source="img/Set_01.png" width="160" height="160"/>
  </tileset>
- <tileset firstgid="26" name="noir" tilewidth="32" tileheight="32" tilecount="1">
+ <tileset firstgid="26" name="noir" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="img/noir.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="27" name="Door_v01" tilewidth="32" tileheight="32" tilecount="1">
+ <tileset firstgid="27" name="Door_v01" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="img/Door_v01.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="28" name="trap" tilewidth="32" tileheight="32" tilecount="1">
+ <tileset firstgid="28" name="trap" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="img/trap.png" width="32" height="32"/>
  </tileset>
  <layer name="Collision_Layer" width="32" height="100">
@@ -454,12 +454,12 @@
     <property name="direction" value="Left"/>
    </properties>
   </object>
-  <object id="11" name="enemySaloon" type="enemy" x="252.333" y="2460" width="39.667" height="74">
+  <object id="11" name="enemySaloon" type="enemy" x="252.333" y="2469" width="39.667" height="74">
    <properties>
     <property name="direction" value="Right"/>
    </properties>
   </object>
-  <object id="12" name="enemySaloon" type="enemy" x="699.667" y="1724.33" width="41.333" height="72.67">
+  <object id="12" name="enemySaloon" type="enemy" x="699.667" y="1732.33" width="41.333" height="72.67">
    <properties>
     <property name="direction" value="Left"/>
    </properties>

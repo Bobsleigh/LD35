@@ -49,3 +49,10 @@ class EnemySaloon(Enemy):
             self.theMap.enemyBullet.add(bullet)
 
             self.imageIterShoot = 0
+
+        self.rect.x += self.speedx
+        if self.speedy < 15:
+            self.rect.y += self.speedy
+
+    def dead(self):
+        self.kill()

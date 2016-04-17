@@ -14,6 +14,8 @@ class EnemyCactus(Enemy):
 
         self.imageEnemy = pygame.image.load(os.path.join('img', 'enemyCactus.png'))
         self.rect = self.imageEnemy.get_rect()
+        self.rect.x = x
+        self.rect.y = y
 
         self.initx = self.rect.x
         self.inity = self.rect.y

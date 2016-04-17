@@ -57,8 +57,5 @@ class EnemyShooter(Enemy):
         if self.speedy < 15:
             self.rect.y += self.speedy
 
-
-
-
     def dead(self):
         self.kill()
