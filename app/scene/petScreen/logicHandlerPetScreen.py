@@ -77,14 +77,28 @@ class LogicHandlerPetScreen:
         self.screenData.messageLog.message = 'Nothing happened.'
 
     def checkTrigger(self):
+        if self.gameData.myPet.key == 'dog':
+            self.obtain('carrot')
         if self.gameData.myPet.key == 'carrotRabbit':
-            self.obtainApple()
+            self.obtain('apple')
+        if self.gameData.myPet.key == 'alienRabbit':
+            self.unlockMap('map2')
+        if self.gameData.myPet.key == 'muscularHorse':
+            self.unlockMap('map3')
+        if self.gameData.myPet.key == 'pimpUnicorn':
+            self.unlockMap('map4')
 
-    def obtainApple(self):
-        if self.gameData.itemInfoList.item['apple'].unlock == False:
-            self.gameData.itemInfoList.item['apple'].unlock = True
-        self.gameData.itemInfoList.item['apple'].inventory += 1
+    def obtain(self,key):
+        if self.gameData.itemInfoList.item[key].unlock == False:
+            self.gameData.itemInfoList.item[key].unlock = True
+
+        self.gameData.itemInfoList.item[key].inventory += 4
         self.recreateFeedMenuPlease = True
         self.updateFeedMenuPlease = True
+
+    def unlockMap(self,map):
+        if self.gameData.mapUnlock[map] == False:
+            self.gameData.mapUnlock[map] = True
+
 
 
