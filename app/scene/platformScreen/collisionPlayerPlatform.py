@@ -162,7 +162,6 @@ class CollisionPlayerPlatform:
     #             self.soundControl.healthPowerup()
     #         powerUp.kill()
 
-
 # def collisionBulletWall(bullet, map):
 #     tileWidth = map.tmxData.tilewidth
 #     tileHeight = map.tmxData.tileheight
