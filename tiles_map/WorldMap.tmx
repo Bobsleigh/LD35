@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" nextobjectid="19">
- <tileset firstgid="1" name="Set_1" tilewidth="32" tileheight="32" tilecount="25" columns="5">
+ <tileset firstgid="1" name="Set_1" tilewidth="32" tileheight="32" tilecount="25">
   <image source="img/Set_01.png" width="160" height="160"/>
  </tileset>
- <tileset firstgid="26" name="Set_2" tilewidth="32" tileheight="32" tilecount="25" columns="5">
+ <tileset firstgid="26" name="Set_2" tilewidth="32" tileheight="32" tilecount="25">
   <image source="img/Set_02.png" width="160" height="160"/>
  </tileset>
- <tileset firstgid="51" name="vert" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="51" name="vert" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/vert.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="52" name="sable" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="52" name="sable" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/sable.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="53" name="sheriff" tilewidth="32" tileheight="32" tilecount="9" columns="3">
+ <tileset firstgid="53" name="sheriff" tilewidth="32" tileheight="32" tilecount="9">
   <image source="img/sheriff.png" width="96" height="96"/>
  </tileset>
- <tileset firstgid="62" name="saloon" tilewidth="96" tileheight="96" tilecount="1" columns="1">
+ <tileset firstgid="62" name="saloon" tilewidth="96" tileheight="96" tilecount="1">
   <image source="img/saloon.png" width="96" height="96"/>
  </tileset>
- <tileset firstgid="63" name="indien" tilewidth="32" tileheight="32" tilecount="9" columns="3">
+ <tileset firstgid="63" name="indien" tilewidth="32" tileheight="32" tilecount="9">
   <image source="img/indien.png" width="96" height="96"/>
  </tileset>
- <tileset firstgid="72" name="cactus" tilewidth="96" tileheight="96" tilecount="1" columns="1">
+ <tileset firstgid="72" name="cactus" tilewidth="96" tileheight="96" tilecount="1">
   <image source="img/cactus.png" width="96" height="96"/>
  </tileset>
- <tileset firstgid="73" name="tilesetBacground2" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+ <tileset firstgid="73" name="tilesetBacground2" tilewidth="32" tileheight="32" tilecount="16">
   <image source="img/tilesetBacground2.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="89" name="eauGauche" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="89" name="eauGauche" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/eauGauche.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="90" name="eauDroite" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="90" name="eauDroite" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/eauDroite.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="91" name="eauTourne" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="91" name="eauTourne" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/eauTourne.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="92" name="buisson" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="92" name="buisson" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/buisson.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="93" name="roche" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="93" name="roche" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/roche.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="94" name="pont" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+ <tileset firstgid="94" name="pont" tilewidth="32" tileheight="32" tilecount="16">
   <image source="img/pont.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="110" name="sableFrontiere" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+ <tileset firstgid="110" name="sableFrontiere" tilewidth="32" tileheight="32" tilecount="16">
   <image source="img/sableFrontiere.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="126" name="gazonFrontiere" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+ <tileset firstgid="126" name="gazonFrontiere" tilewidth="32" tileheight="32" tilecount="16">
   <image source="img/gazonFrontiere.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="142" name="icone_maison" tilewidth="32" tileheight="32" tilecount="9" columns="3">
+ <tileset firstgid="142" name="icone_maison" tilewidth="32" tileheight="32" tilecount="9">
   <image source="img/icone_maison.png" width="102" height="96"/>
  </tileset>
  <layer name="Collision_Layer" width="32" height="24">
@@ -81,7 +81,7 @@
     <property name="LevelZone" value="LevelSheriff"/>
    </properties>
   </object>
-  <object id="11" name="OutZone" x="505" y="160" width="48" height="53">
+  <object id="11" name="OutZone" x="512" y="221" width="37.5" height="37.1667">
    <properties>
     <property name="InZone" value="StartPointSaloon"/>
     <property name="LevelZone" value="LevelSaloon"/>
@@ -100,7 +100,7 @@
     <property name="StartPoint" value="StartPointWorld"/>
    </properties>
   </object>
-  <object id="17" name="OutZone" x="929.333" y="640" width="29.3333" height="62.6667">
+  <object id="17" name="OutZone" x="920" y="666" width="44.6663" height="48.6667">
    <properties>
     <property name="InZone" value="StartPointDesert"/>
     <property name="LevelZone" value="LevelDesert"/>
