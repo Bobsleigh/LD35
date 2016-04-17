@@ -7,10 +7,7 @@ class ItemFactory:
         pass
 
     def create(self, item):
-        iName = seekAtt(item, "name")
-        if iName == "item":
-            return self.createItemGen(item)
-        return self.createItem(item)
+        iType = seekAtt(item, "type")
+        if iType == "item" and hasattr(item, 'name'):
+            return Item(item.x, item.y, item.name)
 
-    def createItemGen(self, item):
-        return Item(item.x, item.y)

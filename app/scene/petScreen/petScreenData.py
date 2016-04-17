@@ -1,8 +1,6 @@
 import pygame
 
 from app.settings import *
-from app.scene.petScreen.item import Item
-from app.sprites.pet.petList import PetList
 
 from app.messageBox import MessageBox
 

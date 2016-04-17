@@ -2,7 +2,7 @@
 
 # Game for the Ludum Dare 35
 
-# I want my dragon!
+# I want my dragon
 
 ![alt tag](https://github.com/Bobsleigh/LD35/blob/master/img/dragon.png)
 

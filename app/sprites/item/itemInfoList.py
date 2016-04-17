@@ -7,14 +7,14 @@ class ItemInfoList:
         self.item = {}
 
         #All item
-        self.item['cupcake'] = ItemInfo('cupcake')
-        self.item['goldBar'] = ItemInfo('goldBar')
-        self.item['horseshoe'] = ItemInfo('horseshoe')
+        self.item['cupcake'] = ItemInfo('cupcake', 'cupcake32x32.png')
+        self.item['goldBar'] = ItemInfo('goldBar', 'Gold32x32.png')
+        self.item['horseshoe'] = ItemInfo('horseshoe', 'Fer.png')
         self.item['bone'] = ItemInfo('bone')
-        self.item['carrot'] = ItemInfo('carrot')
-        self.item['apple'] = ItemInfo('apple')
-        self.item['gun'] = ItemInfo('gun')
-        self.item['pokerChip'] = ItemInfo('pokerChip')
+        self.item['carrot'] = ItemInfo('carrot', 'Carotte.png')
+        self.item['apple'] = ItemInfo('apple', 'Pomme.png')
+        self.item['gun'] = ItemInfo('gun', 'Gun32x32.png')
+        self.item['pokerChip'] = ItemInfo('pokerChip', 'Jetons.png')
         self.item['totem'] = ItemInfo('totem')
 
         # Set Link
