@@ -58,6 +58,8 @@ class CollisionPlayerPlatform:
                     # while map.tmxData.get_tile_gid((player.rect.right + 1)/self.tileWidth, player.rect.top/self.tileHeight, COLLISION_LAYER) != SOLID and map.tmxData.get_tile_gid((player.rect.right + 1)/self.tileWidth, (player.rect.bottom)/self.tileHeight, COLLISION_LAYER) != SOLID:
                     #     player.rect.right += 1
                     player.speedx = 0
+                elif upRightTileGid  == SPIKE or downRightTileGid == SPIKE or lowMidRightTileGid == SPIKE or highMidRightTileGid == SPIKE:
+                    player.dead()
 
     def getUpRightTileGid(self):
         return self.map.tmxData.get_tile_gid((self.player.rect.right + self.player.speedx)/self.tileWidth, self.player.rect.top/self.tileHeight, COLLISION_LAYER)
@@ -105,6 +107,8 @@ class CollisionPlayerPlatform:
                 # while map.tmxData.get_tile_gid((player.rect.left)/tileWidth, player.rect.top/tileHeight, COLLISION_LAYER) != SOLID and map.tmxData.get_tile_gid((player.rect.left)/tileWidth, (player.rect.bottom-1)/tileHeight, COLLISION_LAYER) != SOLID:
                 #     player.rect.left -= 1
                 player.speedx = 0
+            elif upLeftTileGid  == SPIKE or downLeftTileGid  == SPIKE or lowMidLeftTileGid == SPIKE or highMidLeftTileGid == SPIKE:
+                player.dead()
 
     def downCollision(self,player, map):
         tileWidth = map.tmxData.tilewidth
@@ -114,8 +118,9 @@ class CollisionPlayerPlatform:
 
         downLeftTileGid = map.tmxData.get_tile_gid((player.rect.left+1)/tileWidth, (player.rect.bottom + player.speedy)/tileHeight, COLLISION_LAYER)
         downRightTileGid = map.tmxData.get_tile_gid((player.rect.right)/tileWidth, (player.rect.bottom + player.speedy)/tileHeight, COLLISION_LAYER)
+        downMidTileGID = map.tmxData.get_tile_gid((player.rect.centerx)/tileWidth, (player.rect.bottom + player.speedy)/tileHeight, COLLISION_LAYER)
 
-        if downLeftTileGid == SOLID or downRightTileGid == SOLID:
+        if downLeftTileGid == SOLID or downRightTileGid == SOLID or downMidTileGID == SOLID:
             # while map.tmxData.get_tile_gid((player.rect.left+1)/tileWidth, (player.rect.bottom)/tileHeight, COLLISION_LAYER) != SOLID and map.tmxData.get_tile_gid((player.rect.right)/tileWidth, (player.rect.bottom)/tileHeight, COLLISION_LAYER) != SOLID:
             #     player.rect.bottom += 1
             player.speedy = 0
@@ -135,8 +140,9 @@ class CollisionPlayerPlatform:
 
         upLeftTileGid = map.tmxData.get_tile_gid((player.rect.left+1)/tileWidth, (player.rect.top + player.speedy)/tileHeight, COLLISION_LAYER)
         upRightTileGid = map.tmxData.get_tile_gid(player.rect.right/tileWidth, (player.rect.top + player.speedy)/tileHeight, COLLISION_LAYER)
+        upMidTileGid = map.tmxData.get_tile_gid(player.rect.centerx/tileWidth, (player.rect.top + player.speedy)/tileHeight, COLLISION_LAYER)
 
-        if upLeftTileGid == SOLID or upRightTileGid == SOLID:
+        if upLeftTileGid == SOLID or upRightTileGid == SOLID or upMidTileGid == SOLID:
             # while map.tmxData.get_tile_gid((player.rect.left+1)/tileWidth, (player.rect.top)/tileHeight, COLLISION_LAYER) != SOLID and map.tmxData.get_tile_gid(player.rect.right/tileWidth, (player.rect.top)/tileHeight, COLLISION_LAYER) != SOLID:
             #     player.rect.bottom -= 1
             player.speedy = 0
@@ -161,7 +167,6 @@ class CollisionPlayerPlatform:
     #             player.pickedPowerUpHealth()
     #             self.soundControl.healthPowerup()
     #         powerUp.kill()
-
 
 def collisionBulletWall(bullet, map):
     tileWidth = map.tmxData.tilewidth
@@ -217,8 +222,10 @@ def collisionBulletPlayer(map, player):
         player.loseLife()
         bullet.kill()
 
-    def printTile(self, tile):
-        if tile == SOLID:
-            print('SOLID')
-        else:
-            print('EMPTY')
+def printTile(tile):
+    if tile == SOLID:
+        print('SOLID')
+    elif tile == SPIKE:
+        print('SPIKE')
+    else:
+        print(tile)

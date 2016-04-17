@@ -11,11 +11,15 @@ class Player(pygame.sprite.Sprite):
 
         self.name = "player"
 
-        self.image = pygame.image.load(os.path.join('img', 'Cochon.png'))
+        self.imageShapeRight = pygame.image.load(os.path.join('img', 'joueur_droite.png'))
+        self.imageShapeLeft = pygame.image.load(os.path.join('img', 'joueur_gauche.png'))
+        self.image = self.imageShapeRight
 
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+
+        self.facingSide = RIGHT
 
         #Tile Coordinates
         self.tileX = x / TILE_WIDTH
@@ -24,6 +28,11 @@ class Player(pygame.sprite.Sprite):
     def update(self):
         self.rect.x = self.tileX * TILE_WIDTH
         self.rect.y = self.tileY * TILE_HEIGHT
+
+        if self.facingSide == RIGHT:
+            self.image = self.imageShapeRight
+        if self.facingSide == LEFT:
+            self.image = self.imageShapeLeft
 
     def moveRight(self):
         self.tileX += 1
