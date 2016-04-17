@@ -10,12 +10,12 @@ class ItemInfoList:
         self.item['cupcake'] = ItemInfo('cupcake')
         self.item['goldBar'] = ItemInfo('goldBar')
         self.item['horseshoe'] = ItemInfo('horseshoe')
-        #self.item['bone'] = ItemInfo('bone')
-        #self.item['carrot'] = ItemInfo('carrot')
-        #self.item['apple'] = ItemInfo('apple')
-        #self.item['gun'] = ItemInfo('gun')
-        #self.item['pokerChip'] = ItemInfo('pokerChip')
-        #self.item['totem'] = ItemInfo('totem')
+        self.item['bone'] = ItemInfo('bone')
+        self.item['carrot'] = ItemInfo('carrot')
+        self.item['apple'] = ItemInfo('apple')
+        self.item['gun'] = ItemInfo('gun')
+        self.item['pokerChip'] = ItemInfo('pokerChip')
+        self.item['totem'] = ItemInfo('totem')
 
         # Set Link
         self.item['cupcake'].linkList.append(['rabbit', 'rainbowRabbit'])

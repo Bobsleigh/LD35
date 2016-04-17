@@ -86,12 +86,25 @@ class PetScreen:
         self.getMenuSpec(centery,height)
         self.menuFeed = Menu(pygame.Rect(centerx, self.menuFeedPosy, width, self.menuFeedHeight)
         )
+        #Check what item we have
         if self.gameData.itemInfoList.item["cupcake"].unlock:
             self.menuFeed.addOption('cupcake', self.logicHandler.giveCupcake)
         if self.gameData.itemInfoList.item["goldBar"].unlock:
             self.menuFeed.addOption('goldBar', self.logicHandler.giveGoldBar)
         if self.gameData.itemInfoList.item["horseshoe"].unlock:
             self.menuFeed.addOption('horseshoe', self.logicHandler.giveHorseshoe)
+        if self.gameData.itemInfoList.item["bone"].unlock:
+            self.menuFeed.addOption('bone', self.logicHandler.giveBone)
+        if self.gameData.itemInfoList.item["carrot"].unlock:
+            self.menuFeed.addOption('carrot', self.logicHandler.giveCarrot)
+        if self.gameData.itemInfoList.item["apple"].unlock:
+            self.menuFeed.addOption('apple', self.logicHandler.giveApple)
+        if self.gameData.itemInfoList.item["pokerChip"].unlock:
+            self.menuFeed.addOption('gun', self.logicHandler.giveGun)
+        if self.gameData.itemInfoList.item["pokerChip"].unlock:
+            self.menuFeed.addOption('pokerChip', self.logicHandler.givePokerChip)
+        if self.gameData.itemInfoList.item["totem"].unlock:
+            self.menuFeed.addOption('totem', self.logicHandler.giveTotem)
         self.screenData.allSprites.add(self.menuFeed.spritesMenu)  # Add sprite
 
 
