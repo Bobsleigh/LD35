@@ -1,6 +1,7 @@
 from app.sprites.enemy.enemy import Enemy
 from app.sprites.enemy.enemyCactus import EnemyCactus
 from app.sprites.enemy.enemyShooter import EnemyShooter
+from app.sprites.enemy.enemySaloon import EnemySaloon
 from app.tools.functionTools import *
 
 
@@ -14,6 +15,8 @@ class EnemyFactory:
             return self.createEnemyCactus(enemy)
         if eName == "enemyShooter":
             return self.createEnemyShooter(enemy, theMap)
+        if eName == "enemySaloon":
+            return self.createEnemySaloon(enemy, theMap)
 
     def createEnemyBase(self, enemy):
         enemyCreated = Enemy(enemy.x, enemy.y)
@@ -38,3 +41,11 @@ class EnemyFactory:
             return EnemyShooter(enemy.x, enemy.y, theMap)
         else:
             return EnemyShooter(enemy.x, enemy.y, theMap, direction)
+
+    def createEnemySaloon(self, enemy, theMap):
+        direction = seekAtt(enemy, "direction")
+
+        if direction is None:
+            return EnemySaloon(enemy.x, enemy.y, theMap)
+        else:
+            return EnemySaloon(enemy.x, enemy.y, theMap, direction)
