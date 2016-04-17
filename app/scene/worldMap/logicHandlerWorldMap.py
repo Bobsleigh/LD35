@@ -3,13 +3,14 @@ from app.settings import *
 from app.scene.worldMap.collisionPlayerWorldMap import CollisionPlayerWorldMap
 
 class LogicHandlerWorldMap:
-    def __init__(self, player, mapData):
+    def __init__(self, player, gameData):
         self.sceneRunning = True
         self.endState = None
         # self.spawmPointPlayerx = 0
         # self.spawmPointPlayery = 0
         self.newMapData = None
-        self.mapData = mapData
+        self.gameData = gameData
+        self.mapData = gameData.mapData
         self.collisionChecker = CollisionPlayerWorldMap(player, self.mapData)
 
     def handle(self, player, oldX, oldY):
@@ -22,6 +23,13 @@ class LogicHandlerWorldMap:
             if self.isPlayerIsInZone(player, obj) == True:
                 if obj.name == "OutZone":
 
+                    #Skip level transition if level is locked
+                    if obj.LevelZone == 'LevelDesert' and self.gameData.mapUnlock['map2'] == False:
+                        break
+                    if obj.LevelZone == 'LevelSaloon' and self.gameData.mapUnlock['map3'] == False:
+                        break
+                    if obj.LevelZone == 'LevelIndian' and self.gameData.mapUnlock['map3'] == False:
+                        break
                     nameNewZone = obj.LevelZone
                     nameInZone = obj.InZone
 
