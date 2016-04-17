@@ -17,9 +17,10 @@ class PetList:
 
         #Tier3
         self.pet["chocoRabbit"] = Pet('chocoRabbit','lapin-chocolat.png', 250)
-        self.pet["carrotRabbit"] = Pet('carrotRabbit','lapin-carotte.png', 250)
+        self.pet["carrotRabbit"] = Pet('carrotRabbit','lapin-carotte.png', 250,deadEnd=False,eventTrigger=True)
+        self.pet["orangeRabbit"] = Pet('orangeRabbit', 'lapin-tigre-carotte.png', 250)
         self.pet["alienRabbit"] = Pet('alienRabbit','lapin-alien.png', 250)
-        self.pet["pimpRabbit"] = Pet('alienRabbit', 'cochon.png', 250)
+        self.pet["pimpRabbit"] = Pet('pimpRabbit', 'lapin-pimp.png', 250)
 
         #Tier10
         self.pet["tiger"] = Pet('tiger', 'tigre.png', 275)

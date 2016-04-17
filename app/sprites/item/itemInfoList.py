@@ -25,8 +25,9 @@ class ItemInfoList:
 
         # Tier 2 link
         self.item['goldBar'].linkList.append(['rainbowRabbit', 'chocoRabbit'])
-        self.item['carrot'].linkList.append(['rainbowRabbit', 'tigerRabbit'])
+        self.item['carrot'].linkList.append(['rainbowRabbit', 'carrotRabbit'])
         self.item['cupcake'].linkList.append(['tigerRabbit', 'tiger'])
+        self.item['carrot'].linkList.append(['tigerRabbit', 'orangeRabbit'])
         self.item['cupcake'].linkList.append(['muscularRabbit', 'alienRabbit'])
         self.item['goldBar'].linkList.append(['muscularRabbit', 'pimpRabbit'])
 
