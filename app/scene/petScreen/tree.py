@@ -12,15 +12,14 @@ class Tree:
         self.nextPet = None
 
         #All item trigger list [parent,child]
-        self.appleLinkList = []
-        self.appleLinkList.append([RABBIT,TIGER])
-        self.appleLinkList.append([TIGER, UNICORN])
-        self.appleLinkList.append([UNICORN, DRAGON])
+        self.gameData.cupcake.linkList.append([RABBIT,TIGER])
+        self.gameData.cupcake.linkList.append([TIGER, UNICORN])
+        self.gameData.cupcake.linkList.append([UNICORN, DRAGON])
 
 
     #Get rabbit back
     def getRabbit(self):
-        self.screenData.messageLog.message = 'You cooked your ' + self.gameData.myPet.name + ' and took another rabbit.'
+        self.screenData.messageLog.message = 'You killed your ' + self.gameData.myPet.name + ' and took another rabbit.'
         self.nextPet = RABBIT
         self.updatePet()
 
@@ -35,13 +34,13 @@ class Tree:
 
 
 
-    def giveApple(self):
-        if self.gameData.inventory["apple"] == 0:
-            self.screenData.messageLog.message = 'You\'re out of apple.'
-        elif self.gameData.inventory["apple"] > 0:
-            self.gameData.inventory["apple"] += -1
+    def giveCupcake(self):
+        if self.gameData.inventory["cupcake"] == 0:
+            self.screenData.messageLog.message = 'You\'re out of cupcake.'
+        elif self.gameData.inventory["cupcake"] > 0:
+            self.gameData.inventory["cupcake"] += -1
 
-            for parent in self.appleLinkList:
+            for parent in self.gameData.cupcake.linkList:
                 if self.gameData.myPet.type == parent[0]:
                     self.screenData.allSprites.add(self.gameData.myPet)
                     self.nextPet = parent[1]
