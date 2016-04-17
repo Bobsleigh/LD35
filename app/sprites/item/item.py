@@ -15,11 +15,12 @@ class Item(pygame.sprite.Sprite):
         listItemInfo = ItemInfoList()
         if imageName in listItemInfo.item:
             imageNamePNG = listItemInfo.item[imageName].imageNamePNG
+            linkImage = os.path.join('img', imageNamePNG)
+            self.image = pygame.image.load(linkImage)
         else:
-            imageNamePNG = 'cochon.png'
-        linkImage = os.path.join('img', imageNamePNG)
+            # null surface
+            self.image = pygame.Surface((1,1), pygame.SRCALPHA)
 
-        self.image = pygame.image.load(linkImage)
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y

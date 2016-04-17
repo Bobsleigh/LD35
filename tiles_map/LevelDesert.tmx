@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="103" height="24" tilewidth="32" tileheight="32" nextobjectid="39">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="103" height="24" tilewidth="32" tileheight="32" nextobjectid="40">
  <tileset firstgid="1" name="bleu" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/bleu.png" width="32" height="32"/>
  </tileset>
@@ -131,7 +131,7 @@
 </data>
  </layer>
  <objectgroup name="outZoneLayer">
-  <object id="2" name="OutZone" x="3175" y="105" width="16" height="18">
+  <object id="2" name="OutZone" x="3176.33" y="59.6667" width="70.3333" height="75">
    <properties>
     <property name="InZone" value="StartPointWorld"/>
     <property name="LevelZone" value="WorldMap"/>
@@ -146,29 +146,34 @@
   </object>
  </objectgroup>
  <objectgroup name="enemyLayer">
-  <object id="4" name="enemyCactus" type="enemy" x="475" y="602" width="94" height="96">
+  <object id="4" name="enemyCactus" type="enemy" x="480" y="632" width="94" height="96">
    <properties>
     <property name="direction" value="Left"/>
    </properties>
   </object>
-  <object id="9" name="enemyCactus" type="enemy" x="1120" y="514" width="46" height="46">
+  <object id="9" name="enemyCactus" type="enemy" x="1130" y="568" width="46" height="46">
    <properties>
     <property name="direction" value="Left"/>
    </properties>
   </object>
-  <object id="11" name="enemyCactus" type="enemy" x="1471" y="213" width="64" height="50">
+  <object id="11" name="enemyCactus" type="enemy" x="1488" y="254" width="64" height="50">
    <properties>
     <property name="direction" value="Left"/>
    </properties>
   </object>
-  <object id="12" name="enemyCactus" type="enemy" x="1658" y="203" width="74" height="54">
+  <object id="12" name="enemyCactus" type="enemy" x="1658" y="250" width="74" height="54">
    <properties>
     <property name="direction" value="Left"/>
    </properties>
   </object>
-  <object id="13" name="enemyCactus" type="enemy" x="2625" y="571" width="46" height="40">
+  <object id="13" name="enemyCactus" type="enemy" x="2636" y="616" width="46" height="40">
    <properties>
     <property name="direction" value="Left"/>
+   </properties>
+  </object>
+  <object id="16" name="enemyCactus" type="enemy" x="540" y="388" width="44" height="34">
+   <properties>
+    <property name="direction" value="Both"/>
    </properties>
   </object>
   <object id="30" name="horseshoe" type="item" x="2970.67" y="558.667" width="32" height="40"/>
@@ -195,5 +200,11 @@
   <object id="27" name="Money" type="item" x="2268" y="548" width="26" height="24"/>
   <object id="28" name="Money" type="item" x="2322" y="542" width="28" height="34"/>
   <object id="29" name="Money" type="item" x="1958" y="446" width="32" height="34"/>
+  <object id="39" name="OutZone" x="311.5" y="574.5" width="70.3333" height="75">
+   <properties>
+    <property name="InZone" value="OutLevelDesert"/>
+    <property name="LevelZone" value="WorldMap"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

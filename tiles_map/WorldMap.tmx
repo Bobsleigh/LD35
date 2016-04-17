@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" nextobjectid="19">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" nextobjectid="21">
  <tileset firstgid="1" name="Set_1" tilewidth="32" tileheight="32" tilecount="25">
   <image source="img/Set_01.png" width="160" height="160"/>
  </tileset>
@@ -104,6 +104,11 @@
    <properties>
     <property name="InZone" value="StartPointDesert"/>
     <property name="LevelZone" value="LevelDesert"/>
+   </properties>
+  </object>
+  <object id="19" name="InZone" x="853" y="661" width="50" height="50">
+   <properties>
+    <property name="StartPoint" value="OutLevelDesert"/>
    </properties>
   </object>
  </objectgroup>
