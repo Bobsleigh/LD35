@@ -6,6 +6,7 @@ from app.scene.drawer import Drawer
 from app.settings import *
 from app.sprites.playerWorldMap import Player
 from app.scene.musicFactory import MusicFactory
+from copy import deepcopy
 
 
 class WorldMap:
@@ -23,7 +24,7 @@ class WorldMap:
 
         # Handler
         self.eventHandlerWorldMap = EventHandlerWorldMap()
-        self.logicHandler = LogicHandlerWorldMap(self.mapData)
+        self.logicHandler = LogicHandlerWorldMap(self.player, self.mapData)
         self.drawer = Drawer()
 
         self.nextScene = None
@@ -38,9 +39,11 @@ class WorldMap:
     def mainLoop(self):
         self.sceneRunning = True
         while self.sceneRunning:
+            oldTilePosX = deepcopy(self.player.tileX)
+            oldTilePosY = deepcopy(self.player.tileY)
             self.eventHandlerWorldMap.eventHandle(self.player)
 
-            self.logicHandler.handle(self.player, self.gameData)
+            self.logicHandler.handle(self.player, self.gameData, oldTilePosX,oldTilePosY)
             self.checkNewMap(self.logicHandler.newMapData)
 
             self.drawer.draw(self.screen, self.mapData.camera, self.mapData.spritesHUD, self.player)

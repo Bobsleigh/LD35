@@ -152,6 +152,7 @@ class CollisionPlayerPlatform:
     def collisionWithEnemy(self, player, enemyGroup):
         collisionList = pygame.sprite.spritecollide(player, enemyGroup, False)
         for enemy in collisionList:
+            player.dead()
             # player.loseLife()
             # self.soundControl.hurt()
             pass
