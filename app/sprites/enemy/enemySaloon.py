@@ -2,7 +2,7 @@ import pygame
 import os
 
 from app.sprites.enemy.enemy import Enemy
-from app.bullet import Bullet
+from app.bullet import HeartBullet
 from app.settings import *
 
 
@@ -12,7 +12,8 @@ class EnemySaloon(Enemy):
 
         self.name = "enemySaloon"
 
-        self.imageEnemy = pygame.image.load(os.path.join('img', 'FrenchCancan75.png'))
+        self.imageEnemyLeft = pygame.image.load(os.path.join('img', 'FrenchCancan75.png'))
+        self.imageEnemyRight = pygame.transform.flip(pygame.image.load(os.path.join('img', 'FrenchCancan75.png')), True, False)
 
         self.speedx = 0
         self.speedy = 0
@@ -30,9 +31,9 @@ class EnemySaloon(Enemy):
     def setDirection(self, direction):
         self.direction = direction
         if self.direction == "Right":
-            self.image = self.imageEnemy
+            self.image = self.imageEnemyRight
         if self.direction == "Left":
-            self.image = self.imageEnemy
+            self.image = self.imageEnemyLeft
 
     def update(self):
 
@@ -40,9 +41,11 @@ class EnemySaloon(Enemy):
         if self.imageIterShoot > self.imageWaitNextShoot:
 
             if self.direction == "Right":
-                bullet = Bullet(self.rect.x + self.rect.width + 1, self.rect.centery, RIGHT, False)
+                bullet = HeartBullet(self.rect.x + self.rect.width + 1, self.rect.centery, RIGHT, False)
+                self.setDirection("Left")
             elif self.direction == "Left":
-                bullet = Bullet(self.rect.x - 1, self.rect.centery, LEFT, False)
+                bullet = HeartBullet(self.rect.x - 1, self.rect.centery, LEFT, False)
+                self.setDirection("Right")
 
             self.theMap.camera.add(bullet)
             self.theMap.allSprites.add(bullet)
