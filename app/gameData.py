@@ -4,35 +4,23 @@ from app.settings import *
 import os
 import pygame
 from app.sprites.pet.petList import PetList
+from app.sprites.item.itemInfoList import ItemInfoList
 
 
 # All the global data for the game and player
 class GameData:
     def __init__(self, scene=None):
 
-        self.inventory = {}
-        self.inventory["coin"] = 0
-        self.inventory["cupcake"] = 10
-        self.inventory["goldBar"] = 10
-        self.inventory["horseshoe"] = 10
-        self.inventory["bone"] = 0
-        self.inventory["item5"] = 0
-        self.inventory["item6"] = 0
-        self.inventory["item7"] = 0
-        self.inventory["item8"] = 0
-        self.inventory["item9"] = 0
+        #Item info list
+        #Go see ItemInfo class in sprite to look at lock, and inventory
+        self.itemInfoList = ItemInfoList()
 
-        #Was item discovered?
-        self.itemUnlock = {}
-        self.itemUnlock["cupcake"] = True
-        self.itemUnlock["goldBar"] = True
-        self.itemUnlock["horseshoe"] = True
-        self.itemUnlock["item4"] = True
-        self.itemUnlock["item5"] = True
-        self.itemUnlock["item6"] = True
-        self.itemUnlock["item7"] = True
-        self.itemUnlock["item8"] = True
-        self.itemUnlock["item9"] = True
+        #For testing purpose
+        self.itemInfoList.item['cupcake'].unlock = True
+        self.itemInfoList.item['goldBar'].unlock = True
+
+        self.itemInfoList.item['cupcake'].inventory = 10
+        self.itemInfoList.item['goldBar'].inventory = 20
 
         #Was map unlocked?
         self.mapUnlock = {}

@@ -4,7 +4,7 @@ import os
 from app.settings import *
 
 
-class Item(pygame.sprite.Sprite):
+class ItemInfo(pygame.sprite.Sprite):
     def __init__(self,key):
         super().__init__()
 
@@ -17,7 +17,7 @@ class Item(pygame.sprite.Sprite):
         self.wantedHeight = 32
 
         self.inventory = 0
-        self.unlock = True #Put false when done testing
+        self.unlock = False
         self.linkList = []
 
 

@@ -15,15 +15,7 @@ class PetScreenData:
         self.allSprites.add(self.messageLog)  # Add sprite
 
         #All item
-        self.cupcake = Item('cupcake')
-        self.goldBar = Item('goldBar')
-        self.horseshoe = Item('horseshoe')
-        self.bone = Item('bone')
-        self.carrot = Item('carrot')
-        self.apple = Item('apple')
-        self.gun = Item('gun')
-        self.pokerChip = Item('pokerChip')
-        self.totem = Item('totem')
+        self.itemInfoList = gameData.itemInfoList
 
         #All pet
         self.petTypeList = gameData.petList

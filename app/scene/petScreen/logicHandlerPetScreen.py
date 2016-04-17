@@ -8,17 +8,6 @@ class LogicHandlerPetScreen:
         self.gameData = gameData
         self.screenData = data
 
-        #Set Link
-        self.screenData.cupcake.linkList.append(['rabbit','rainbowRabbit'])
-        self.screenData.goldBar.linkList.append(['rabbit','tigerRabbit'])
-
-        #Test link
-        self.screenData.cupcake.linkList.append(['unicorn', 'dragonUnicorn'])
-
-        self.screenData.goldBar.linkList.append(['unicorn', 'pimpUnicorn'])
-
-        self.screenData.horseshoe.linkList.append(['dragonUnicorn', 'dragon'])
-
 
     def logicHandle(self):
 
@@ -36,22 +25,22 @@ class LogicHandlerPetScreen:
         self.screenData.allSprites.add(self.gameData.myPet)
 
     def giveCupcake(self):
-        self.give(self.screenData.cupcake)
+        self.give(self.gameData.itemInfoList.item["cupcake"].key)
 
     def giveGoldBar(self):
-        self.give(self.screenData.goldBar)
+        self.give(self.gameData.itemInfoList.item["goldBar"].key)
 
     def giveHorseshoe(self):
-        self.give(self.screenData.horseshoe)
+        self.give(self.gameData.itemInfoList.item["horseshoe"].key)
 
     def give(self, givenItem):
         item = givenItem
-        if self.gameData.inventory[item.key] == 0:
-            self.screenData.messageLog.message = 'You\'re out of ' + item.name + '!'
-        elif self.gameData.inventory[item.key] > 0:
-            self.gameData.inventory[item.key] += -1
+        if self.gameData.itemInfoList.item[item].inventory == 0:
+            self.screenData.messageLog.message = 'You\'re out of ' + self.gameData.itemInfoList.item[item].inventory + '!'
+        elif self.gameData.itemInfoList.item[item].inventory > 0:
+            self.gameData.itemInfoList.item[item].inventory += -1
 
-            for link in item.linkList:
+            for link in self.gameData.itemInfoList.item[givenItem].linkList:
                 if self.gameData.myPet.key == link[0]:
                     self.updatePet(link[1])
                     self.screenData.messageLog.message = 'You got a ' + self.gameData.myPet.name + '!'

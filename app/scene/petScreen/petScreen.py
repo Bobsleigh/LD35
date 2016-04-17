@@ -29,10 +29,7 @@ class PetScreen:
         #Create feedMenu
         self.realMenuFeedHeight = 3 * SCREEN_HEIGHT / 5
         self.realMenuFeedPosy = 2*SCREEN_HEIGHT / 5
-        self.getMenuSpec()
-        self.createFeedMenu(
-            pygame.Rect(4 * SCREEN_WIDTH / 5, self.menuFeedPosy, SCREEN_WIDTH / 6, self.menuFeedHeight)
-        )
+        self.createFeedMenu(4 * SCREEN_WIDTH / 5, self.realMenuFeedPosy, SCREEN_WIDTH / 6, self.realMenuFeedHeight)
 
         #Get rabbit button
         self.getRabbitButton = Menu(
@@ -49,7 +46,7 @@ class PetScreen:
         #all option and 2D selector for Pet Screen
         self.optionList = [self.backToWorldMap.optionList,self.getRabbitButton.optionList,self.menuFeed.optionList]
         self.selectorList = [self.backToWorldMap.selector,self.getRabbitButton.selector,self.menuFeed.selector]
-        self.setDefaultPos(0, 2)
+        self.setDefaultPos()
 
         #Menu pause
         self.menuPause = MenuPause(screen,self.backToMain)
@@ -70,55 +67,48 @@ class PetScreen:
 
         #Test
         self.optFont = pygame.font.SysFont(FONT_NAME, 30)
-        number = self.optFont.render('cupcake: ' + str(self.gameData.inventory["cupcake"]), True, (0, 0, 0))
+        number = self.optFont.render('cupcake: ' + str(self.gameData.itemInfoList.item["cupcake"].inventory), True, (0, 0, 0))
         self.screen.blit(number, (SCREEN_WIDTH - number.get_width(), 0))
 
         self.optFont = pygame.font.SysFont(FONT_NAME, 30)
-        number = self.optFont.render('goldBar: ' + str(self.gameData.inventory["goldBar"]), True, (0, 0, 0))
+        number = self.optFont.render('goldBar: ' + str(self.gameData.itemInfoList.item["goldBar"].inventory), True, (0, 0, 0))
         self.screen.blit(number, (SCREEN_WIDTH - number.get_width(), 20))
 
         self.optFont = pygame.font.SysFont(FONT_NAME, 30)
-        number = self.optFont.render('horseshoe: ' + str(self.gameData.inventory["horseshoe"]), True, (0, 0, 0))
+        number = self.optFont.render('horseshoe: ' + str(self.gameData.itemInfoList.item["horseshoe"].inventory), True, (0, 0, 0))
         self.screen.blit(number, (SCREEN_WIDTH - number.get_width(), 40))
 
 
         self.screenData.allSprites.draw(self.screen)
         pygame.display.flip()
 
-    def createFeedMenu(self,rect):
-        self.menuFeed = Menu(rect)
-        if self.gameData.itemUnlock["cupcake"]:
+    def createFeedMenu(self,centerx,centery,width,height):
+        self.getMenuSpec(centery,height)
+        self.menuFeed = Menu(pygame.Rect(centerx, self.menuFeedPosy, width, self.menuFeedHeight)
+        )
+        if self.gameData.itemInfoList.item["cupcake"].unlock:
             self.menuFeed.addOption('cupcake', self.logicHandler.giveCupcake)
-        if self.gameData.itemUnlock["goldBar"]:
+        if self.gameData.itemInfoList.item["goldBar"].unlock:
             self.menuFeed.addOption('goldBar', self.logicHandler.giveGoldBar)
-        if self.gameData.itemUnlock["horseshoe"]:
+        if self.gameData.itemInfoList.item["horseshoe"].unlock:
             self.menuFeed.addOption('horseshoe', self.logicHandler.giveHorseshoe)
-        if self.gameData.itemUnlock["item4"]:
-            self.menuFeed.addOption('item4', self.close)
-        if self.gameData.itemUnlock["item5"]:
-            self.menuFeed.addOption('item5', self.close)
-        if self.gameData.itemUnlock["item6"]:
-            self.menuFeed.addOption('item6', self.close)
-        if self.gameData.itemUnlock["item7"]:
-            self.menuFeed.addOption('item7', self.close)
-        if self.gameData.itemUnlock["item8"]:
-            self.menuFeed.addOption('item8', self.close)
-        if self.gameData.itemUnlock["item9"]:
-            self.menuFeed.addOption('item9', self.close)
         self.screenData.allSprites.add(self.menuFeed.spritesMenu)  # Add sprite
 
 
-    def setDefaultPos(self, hPos, vPos):  # Goes with 2D selector
+    def setDefaultPos(self):  # Goes with 2D selector
         for optionColumn in self.optionList:
             for option in optionColumn:
                 option.deselect()
         self.optionList[0][0].select()
 
-    def getMenuSpec(self):
-        optForNow = sum(self.gameData.itemUnlock.values())
+    def getMenuSpec(self,centery,height):
+        optForNow = 0
+        for item in self.gameData.itemInfoList.item:
+            if self.gameData.itemInfoList.item[item].unlock:
+                optForNow += 1
         realOptNum = 9
-        self.menuFeedHeight = self.realMenuFeedHeight*(optForNow)/realOptNum
-        self.menuFeedPosy = self.realMenuFeedPosy-self.realMenuFeedHeight/2+self.menuFeedHeight/2
+        self.menuFeedHeight = height*(optForNow)/realOptNum
+        self.menuFeedPosy = centery-self.realMenuFeedHeight/2+self.menuFeedHeight/2
 
     def close(self):
         self.nextScene = TITLE_SCREEN
