@@ -31,7 +31,7 @@ class LogicHandlerPlatformScreen:
                     nameInZone = obj.InZone
 
                     # Initializing new map
-                    self.mapData = MapData(nameNewZone, nameInZone)
+                    self.newMapData = MapData(nameNewZone, nameInZone)
 
     def isPlayerIsInZone(self, player, zone):
 
