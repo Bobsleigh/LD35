@@ -63,3 +63,9 @@ FRICTION = 0.8
 # Dimension tile
 TILEDIMX = 32
 TILEDIMY = 32
+
+# Animal type
+NORMAL = 0
+KEY_ANIMAL = 1
+DEAD_END = 2
+WINNER = 3

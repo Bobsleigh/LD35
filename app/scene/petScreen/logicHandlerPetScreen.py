@@ -17,7 +17,7 @@ class LogicHandlerPetScreen:
 
     # Get rabbit back
     def getRabbit(self):
-        self.screenData.messageLog.message = 'You killed your ' + self.gameData.myPet.name + ' and took another rabbit.'
+        self.screenData.messageLog.message = 'You killed your critter and took another rabbit.'
         self.updatePet('rabbit')
 
     def updatePet(self, nextPet):

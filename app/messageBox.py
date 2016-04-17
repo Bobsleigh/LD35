@@ -8,7 +8,7 @@ class MessageBox(pygame.sprite.Sprite):
     def __init__(self, message, width, height, centerx, centery):
         super().__init__()
 
-        self.msgFont = pygame.font.SysFont(FONT_NAME, 30)
+        self.msgFont = pygame.font.SysFont(FONT_NAME, 24)
         self.message = message
         self.printedMessage = self.msgFont.render(self.message, True, COLOR_MENU_FONTS)
 
