@@ -27,8 +27,7 @@ pip-log.txt
 
 
 # local code
-*_local.py
-*_local.spec
+*_local
 
 # original music, not used
 music
