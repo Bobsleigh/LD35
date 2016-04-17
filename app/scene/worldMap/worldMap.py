@@ -5,6 +5,7 @@ from app.menuPause.menuPause import MenuPause
 from app.scene.drawer import Drawer
 from app.settings import *
 from app.sprites.playerWorldMap import Player
+from app.sprites.padlock import Padlock
 from app.scene.musicFactory import MusicFactory
 from copy import deepcopy
 
@@ -21,6 +22,11 @@ class WorldMap:
         self.mapData.allSprites.add(self.player)
         self.mapData.camera.add(self.player)
         self.camera = self.mapData.camera
+
+        self.padlock = Padlock(10,10)
+
+        self.mapData.allSprites.add(self.padlock)
+        self.mapData.camera.add(self.padlock)
 
         # Handler
         self.eventHandlerWorldMap = EventHandlerWorldMap()
