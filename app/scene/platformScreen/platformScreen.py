@@ -17,7 +17,7 @@ class PlatformScreen:
 
         self.gameData = gameData
         self.mapData = self.gameData.mapData
-        self.player = PlayerPlatform(self.mapData.spawmPointPlayerx, self.mapData.spawmPointPlayery)
+        self.player = PlayerPlatform(self.mapData.spawmPointPlayerx, self.mapData.spawmPointPlayery, self.mapData)
 
         self.mapData.allSprites.add(self.player)
         self.mapData.camera.add(self.player)

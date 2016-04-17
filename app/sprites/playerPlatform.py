@@ -2,10 +2,11 @@ import pygame
 import os
 
 from app.settings import *
+from app.bullet import Bullet
 
 
 class PlayerPlatform(pygame.sprite.Sprite):
-    def __init__(self, x, y):
+    def __init__(self, x, y, mapData):
         super().__init__()
 
         self.name = "player"
@@ -46,6 +47,8 @@ class PlayerPlatform(pygame.sprite.Sprite):
 
         self.rightPressed = False
         self.leftPressed = False
+
+        self.mapData = mapData
 
     def update(self):
         self.capSpeed()
@@ -168,3 +171,13 @@ class PlayerPlatform(pygame.sprite.Sprite):
             self.image = self.imageTransparent
         elif self.invincibleFrameCounter == 50:
             self.setShapeImage()
+
+
+    def shootBullet(self):
+        if self.facingSide == RIGHT:
+            bullet = Bullet(self.rect.x + self.rect.width +1, self.rect.centery, self.facingSide)
+        else:
+            bullet = Bullet(self.rect.x -1, self.rect.centery, self.facingSide)
+        self.mapData.camera.add(bullet)
+        self.mapData.allSprites.add(bullet)
+        self.mapData.friendlyBullet.add(bullet)
