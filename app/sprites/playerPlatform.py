@@ -50,6 +50,8 @@ class PlayerPlatform(pygame.sprite.Sprite):
 
         self.mapData = mapData
 
+        self.isAlive = True
+
     def update(self):
         self.capSpeed()
         self.rect.x += self.speedx
@@ -95,17 +97,6 @@ class PlayerPlatform(pygame.sprite.Sprite):
         if self.life < self.lifeMax:
             self.life = self.lifeMax
 
-    def loseLife(self):
-        self.kill()
-        # if not self.isInvincible:
-        #     if self.life > 1:
-        #         self.life -= 1
-        #         # self.invincibleOnHit()
-        #         # self.visualFlash()
-        #     elif self.life > 0:
-        #         self.life -= 1
-
-
     def gainLifeMax(self):
         if self.lifeMax < self.lifeMaxCap:
             self.lifeMax += 1
@@ -113,7 +104,6 @@ class PlayerPlatform(pygame.sprite.Sprite):
         else:
             self.lifeMax = self.lifeMaxCap
             self.life = self.lifeMax
-
 
     def knockedBack(self):
         #Can break collision ATM
@@ -137,8 +127,7 @@ class PlayerPlatform(pygame.sprite.Sprite):
         self.visualFlash()
 
     def dead(self):
-        self.life = 0
-        self.kill()
+        self.isAlive = False
 
     def pickedPowerUpMaxHealth(self):
         self.gainLifeMax()

@@ -20,6 +20,7 @@ class LogicHandlerPlatformScreen:
         self.handleZoneCollision(player)
         self.mapData.allSprites.update()
         self.handleBullets(self.mapData, player)
+        self.gameOverCondition(player)
 
     def handleZoneCollision(self, player):
 
@@ -73,3 +74,8 @@ class LogicHandlerPlatformScreen:
                 collisionBulletWall(bullet, mapData)
 
         collisionBulletPlayer(mapData, player)
+
+    def gameOverCondition(self,player):
+        if player.isAlive == False:
+            self.newMapData = MapData('WorldMap', 'StartPointWorld')
+            self.sceneRunning = False
