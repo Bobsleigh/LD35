@@ -27,7 +27,7 @@ class PlatformScreen:
         self.camera = self.mapData.camera
 
         self.eventHandler = EventHandlerPlatformScreen(self.player)
-        self.logicHandler = LogicHandlerPlatformScreen(self.mapData)
+        self.logicHandler = LogicHandlerPlatformScreen(self.player, self.mapData)
         self.drawer = Drawer()
 
         #Menu

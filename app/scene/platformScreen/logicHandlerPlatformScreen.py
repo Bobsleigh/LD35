@@ -5,11 +5,11 @@ from app.scene.platformScreen.collisionPlayerPlatform import CollisionPlayerPlat
 
 
 class LogicHandlerPlatformScreen:
-    def __init__(self, mapData):
+    def __init__(self, player, mapData):
 
         self.sceneRunning = True
         self.endState = None
-        self.collisionChecker = CollisionPlayerPlatform()
+        self.collisionChecker = CollisionPlayerPlatform(player, mapData)
         self.newMap = None
         self.mapData = mapData
 
