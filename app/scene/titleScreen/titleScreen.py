@@ -8,6 +8,7 @@ from app.menu.menu import Menu
 from app.scene.titleScreen.eventHandlerTitleScreen import EventHandlerTitleScreen
 from app.mapData import MapData
 from app.settings import *
+from app.scene.musicFactory import MusicFactory
 
 
 class TitleScreen:
@@ -31,6 +32,9 @@ class TitleScreen:
 
         self.type = TITLE_SCREEN
         self.nextScene = None
+
+        MusicFactory(TITLE_SCREEN)
+
 
     def mainLoop(self):
         self.sceneRunning = True

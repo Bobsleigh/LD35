@@ -8,6 +8,7 @@ from app.scene.petScreen.logicHandlerPetScreen import LogicHandlerPetScreen
 from app.settings import *
 from app.scene.petScreen.tree import Tree
 from app.scene.petScreen.petScreenData import PetScreenData
+from app.scene.musicFactory import MusicFactory
 
 
 class PetScreen:
@@ -56,6 +57,9 @@ class PetScreen:
         #Menu pause
         self.menuPause = MenuPause(screen,self.backToMain)
         self.eventHandler.menuPause = self.menuPause
+
+        MusicFactory(PET_SCREEN)
+
 
     def mainLoop(self):
         self.sceneRunning = True

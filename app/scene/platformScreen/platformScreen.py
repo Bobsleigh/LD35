@@ -1,12 +1,11 @@
-import pygame
 
-from app.mapData import MapData
 from app.menuPause.menuPause import MenuPause
 from app.scene.platformScreen.eventHandlerPlatformScreen import EventHandlerPlatformScreen
 from app.scene.platformScreen.logicHandlerPlatformScreen import LogicHandlerPlatformScreen
 from app.scene.drawer import Drawer
 from app.settings import *
 from app.sprites.playerPlatform import PlayerPlatform
+from app.scene.musicFactory import MusicFactory
 
 
 class PlatformScreen:
@@ -30,6 +29,8 @@ class PlatformScreen:
         #Menu
         self.menuPause = MenuPause(screen, self.backToMain)
         self.eventHandler.menuPause = self.menuPause
+
+        MusicFactory(PLATFORM_SCREEN, self.mapData.nameMap)
 
 
     def mainLoop(self):

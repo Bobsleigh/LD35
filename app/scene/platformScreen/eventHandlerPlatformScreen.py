@@ -12,7 +12,7 @@ class EventHandlerPlatformScreen():
             if event.type == pygame.QUIT:
                 quitGame()
 
-            if event.type == pygame.KEYDOWN:
+            elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_BACKSPACE:
                     self.menuPause.mainLoop()
                 elif event.key == pygame.K_ESCAPE:

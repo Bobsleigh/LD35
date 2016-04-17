@@ -1,25 +1,30 @@
-from pygame import event,QUIT,KEYDOWN,K_RIGHT,K_LEFT,K_UP,K_DOWN,K_SPACE,K_RETURN
-from sys import exit
+import pygame
+from app.tools.functionTools import *
 
 class EventHandlerWorldMap():
     def __init__(self):
-        pass
+        self.menuPause = None
 
     def eventHandle(self,player):
-        for dummyEv in event.get():
-            if dummyEv.type == QUIT:
-                exit()
-            elif dummyEv.type == KEYDOWN:
-                if dummyEv.key == K_RIGHT: #Does nothing for now...
+        for dummyEv in pygame.event.get():
+            if dummyEv.type == pygame.QUIT:
+                quitGame()
+
+            elif dummyEv.type == pygame.KEYDOWN:
+                if dummyEv.key == pygame.K_BACKSPACE:
+                    self.menuPause.mainLoop()
+                elif dummyEv.key == pygame.K_ESCAPE:
+                    self.menuPause.mainLoop()
+                elif dummyEv.key == pygame.K_RIGHT: #Does nothing for now...
                     player.moveRight()
-                elif dummyEv.key == K_LEFT: #Does nothing for now...
+                elif dummyEv.key == pygame.K_LEFT: #Does nothing for now...
                     player.moveLeft()
-                elif dummyEv.key == K_UP:
+                elif dummyEv.key == pygame.K_UP:
                     player.moveUp()
-                elif dummyEv.key == K_DOWN:
+                elif dummyEv.key == pygame.K_DOWN:
                     player.moveDown()
-                elif dummyEv.key == K_SPACE:
+                elif dummyEv.key == pygame.K_SPACE:
                     pass
-                elif dummyEv.key == K_RETURN:
+                elif dummyEv.key == pygame.K_RETURN:
                     pass
         pass
