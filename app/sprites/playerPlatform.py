@@ -27,12 +27,12 @@ class PlayerPlatform(pygame.sprite.Sprite):
 
         self.speedx = 0
         self.speedy = 0
-        self.maxSpeedx = 6
-        self.maxSpeedyUp = 40
-        self.maxSpeedyDown = 8
+        self.maxSpeedx = 5
+        self.maxSpeedyUp = 30
+        self.maxSpeedyDown = 15
         self.accx = 2
         self.accy = 2
-        self.jumpSpeed = -15
+        self.jumpSpeed = -13
 
         self.isPhysicsApplied = True
         self.jumpState = JUMP
@@ -127,7 +127,8 @@ class PlayerPlatform(pygame.sprite.Sprite):
         self.visualFlash()
 
     def dead(self):
-        self.isAlive = False
+        #self.isAlive = False
+        pass
 
     def pickedPowerUpMaxHealth(self):
         self.gainLifeMax()
@@ -170,3 +171,7 @@ class PlayerPlatform(pygame.sprite.Sprite):
         self.mapData.camera.add(bullet)
         self.mapData.allSprites.add(bullet)
         self.mapData.friendlyBullet.add(bullet)
+
+    def spring(self):
+        self.jumpState = JUMP
+        self.speedy = -self.speedy * 2
