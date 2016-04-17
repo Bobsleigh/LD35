@@ -10,13 +10,13 @@ class LogicHandlerPlatformScreen:
         self.sceneRunning = True
         self.endState = None
         self.collisionChecker = CollisionPlayerPlatform(player, mapData)
-        self.newMap = None
+        self.newMapData = None
         self.mapData = mapData
 
     def handle(self, player, mapData):
         self.applyGravity(self.mapData.allSprites)
         self.applyFriction(self.mapData.allSprites)
-        self.collisionChecker.collisionAllSprites(player, self.mapData, gameData)
+        self.collisionChecker.collisionAllSprites(player, self.mapData)
         self.handleZoneCollision(player)
         self.mapData.allSprites.update()
         self.handleBullets(self.mapData, player)

@@ -11,7 +11,7 @@ class CollisionPlayerPlatform:
         self.player = player
         self.map = map
 
-    def collisionAllSprites(self, player, mapData, gameMemory):
+    def collisionAllSprites(self, player, mapData):
         for sprite in mapData.allSprites:
             if sprite.isPhysicsApplied == True or sprite.isCollisionApplied == True:
 
