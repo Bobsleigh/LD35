@@ -3,7 +3,6 @@ import os
 from app.settings import *
 
 from app.sprites.pet.pet import Pet
-from app.sprites.pet.tiger import Tiger
 
 class Rabbit(Pet):
     def __init__(self):
@@ -11,3 +10,7 @@ class Rabbit(Pet):
 
         self.type = RABBIT
         self.name = 'rabbit'
+
+        self.image = pygame.image.load(os.path.join('img', 'lapin.png'))
+        self.image = pygame.transform.scale(self.image,(100,100))
+
