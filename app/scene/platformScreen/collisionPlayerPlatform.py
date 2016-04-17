@@ -146,29 +146,29 @@ class CollisionPlayerPlatform:
     #         powerUp.kill()
 
 
-# def collisionBulletWall(bullet, map):
-#     tileWidth = map.tmxData.tilewidth
-#     tileHeight = map.tmxData.tileheight
-#     mapWidth = map.tmxData.width * tileWidth
-#     mapHeight = map.tmxData.height * tileHeight
-#
-#     if (bullet.rect.top < tileHeight or bullet.rect.bottom > mapHeight - tileHeight) or (bullet.rect.left < tileWidth or bullet.rect.right > mapWidth - tileWidth):
-#         bullet.kill()
-#         return
-#
-#     if bullet.speedx > 0:
-#         upRightTileGid = map.tmxData.get_tile_gid((bullet.rect.right + bullet.speedx)/tileWidth, bullet.rect.top/tileHeight, COLLISION_LAYER)
-#         downRightTileGid = map.tmxData.get_tile_gid((bullet.rect.right + bullet.speedx)/tileWidth, (bullet.rect.bottom-1)/tileHeight, COLLISION_LAYER)
-#
-#         if (upRightTileGid  == SOLID or downRightTileGid  == SOLID):
-#             bullet.kill()
-#
-#     elif bullet.speedx < 0:
-#         upLeftTileGid = map.tmxData.get_tile_gid((bullet.rect.left + bullet.speedx)/tileWidth, bullet.rect.top/tileHeight, COLLISION_LAYER)
-#         downLeftTileGid = map.tmxData.get_tile_gid((bullet.rect.left + bullet.speedx)/tileWidth, (bullet.rect.bottom)/tileHeight, COLLISION_LAYER)
-#
-#         if (upLeftTileGid  == SOLID or downLeftTileGid  == SOLID) and bullet.speedx < 0:
-#             bullet.kill()
+def collisionBulletWall(bullet, map):
+    tileWidth = map.tmxData.tilewidth
+    tileHeight = map.tmxData.tileheight
+    mapWidth = map.tmxData.width * tileWidth
+    mapHeight = map.tmxData.height * tileHeight
+
+    if (bullet.rect.top < tileHeight or bullet.rect.bottom > mapHeight - tileHeight) or (bullet.rect.left < tileWidth or bullet.rect.right > mapWidth - tileWidth):
+        bullet.kill()
+        return
+
+    if bullet.speedx > 0:
+        upRightTileGid = map.tmxData.get_tile_gid((bullet.rect.right + bullet.speedx)/tileWidth, bullet.rect.top/tileHeight, COLLISION_LAYER)
+        downRightTileGid = map.tmxData.get_tile_gid((bullet.rect.right + bullet.speedx)/tileWidth, (bullet.rect.bottom-1)/tileHeight, COLLISION_LAYER)
+
+        if (upRightTileGid  == SOLID or downRightTileGid  == SOLID):
+            bullet.kill()
+
+    elif bullet.speedx < 0:
+        upLeftTileGid = map.tmxData.get_tile_gid((bullet.rect.left + bullet.speedx)/tileWidth, bullet.rect.top/tileHeight, COLLISION_LAYER)
+        downLeftTileGid = map.tmxData.get_tile_gid((bullet.rect.left + bullet.speedx)/tileWidth, (bullet.rect.bottom)/tileHeight, COLLISION_LAYER)
+
+        if (upLeftTileGid  == SOLID or downLeftTileGid  == SOLID) and bullet.speedx < 0:
+            bullet.kill()
 
 # def collisionBulletEnemy(bullet, map):
 #     collisionList = pygame.sprite.spritecollide(bullet, map.enemyGroup, False)
@@ -176,8 +176,8 @@ class CollisionPlayerPlatform:
 #         enemy.kill()
 #         bullet.kill()
 
-# def collisionBulletPlayer(map, player):
-#     collisionList = pygame.sprite.spritecollide(player, map.enemyBullet, False)
-#     for bullet in collisionList:
-#         player.loseLife()
-#         bullet.kill()
+def collisionBulletPlayer(map, player):
+    collisionList = pygame.sprite.spritecollide(player, map.enemyBullet, False)
+    for bullet in collisionList:
+        player.loseLife()
+        bullet.kill()
