@@ -1,6 +1,7 @@
 from app.settings import *
 from app.sprites.pet.rabbit import Rabbit
 from app.sprites.pet.tiger import Tiger
+from app.sprites.pet.dragon import Dragon
 
 # All the global data for the game and player
 class GameData:
@@ -37,3 +38,4 @@ class GameData:
         self.petTypeList = []
         self.petTypeList.append([RABBIT, Rabbit()])
         self.petTypeList.append([TIGER, Tiger()])
+        self.petTypeList.append([DRAGON, Dragon()])
