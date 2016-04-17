@@ -27,7 +27,14 @@ class GameData:
         self.myPet = self.petList.pet['rabbit']
         self.myPet.loadImage()
 
+        self.maxItemOfAType = 99
+
 
         self.scene = scene
         self.mapData = None
 
+    # When u pick up  and item, add it to the item list
+    def registerItemPickedUp(self, item):
+        if item.name in self.itemInfoList.item:
+            numberOfItem = self.itemInfoList.item[item.name].inventory
+            self.itemInfoList.item[item.name].inventory += max(numberOfItem+1, self.maxItemOfAType)
