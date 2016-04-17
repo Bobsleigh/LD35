@@ -26,11 +26,11 @@ class WorldMap:
 
         #Map unlock system
         self.padlock = pygame.sprite.Group()
-        if self.gameData.mapUnlock['map1'] == False:
-            self.padlock.add(Padlock(29*TILE_WIDTH, 21*TILE_HEIGHT))
         if self.gameData.mapUnlock['map2'] == False:
-            self.padlock.add(Padlock(16*TILE_WIDTH, 7*TILE_HEIGHT))
+            self.padlock.add(Padlock(29*TILE_WIDTH, 21*TILE_HEIGHT))
         if self.gameData.mapUnlock['map3'] == False:
+            self.padlock.add(Padlock(16*TILE_WIDTH, 7*TILE_HEIGHT))
+        if self.gameData.mapUnlock['map4'] == False:
             self.padlock.add(Padlock(4*TILE_WIDTH, 20*TILE_HEIGHT))
 
         self.mapData.allSprites.add(self.padlock)
