@@ -152,10 +152,10 @@
 </data>
  </layer>
  <objectgroup name="outZoneLayer">
-  <object id="4" name="OutZone" x="34" y="94" width="28" height="32">
+  <object id="4" name="OutZone" x="46" y="108" width="28" height="32">
    <properties>
     <property name="InZone" value="StartPointWorld"/>
-    <property name="LevelZone" value="LevelWorld"/>
+    <property name="LevelZone" value="WorldMap"/>
    </properties>
   </object>
  </objectgroup>
