@@ -6,7 +6,7 @@ from app.menuPause.menuPause import MenuPause
 from app.scene.petScreen.eventHandlerPetScreen import EventHandlerPetScreen
 from app.scene.petScreen.logicHandlerPetScreen import LogicHandlerPetScreen
 from app.settings import *
-from app.sprites.pet.pet import Pet
+from app.scene.petScreen.tree import Tree
 from app.scene.petScreen.petScreenData import PetScreenData
 
 
@@ -26,6 +26,8 @@ class PetScreen:
 
         self.screenData.allSprites.add(self.gameData.myPet)
 
+        self.tree = Tree(self.gameData,self.screenData)
+
         #Create feedMenu
         self.realMenuFeedHeight = 3 * SCREEN_HEIGHT / 5
         self.realMenuFeedPosy = 2*SCREEN_HEIGHT / 5
@@ -37,7 +39,7 @@ class PetScreen:
         #Get rabbit button
         self.getRabbitButton = Menu(
             pygame.Rect(1*SCREEN_WIDTH / 2, 3*SCREEN_HEIGHT / 4, SCREEN_WIDTH / 4, self.realMenuFeedHeight/9))
-        self.getRabbitButton.addOption('Get rabbit', self.logicHandler.getRabbit)
+        self.getRabbitButton.addOption('Get rabbit', self.tree.getRabbit)
         self.screenData.allSprites.add(self.getRabbitButton.spritesMenu) #Add sprite
 
         #Back to world button
@@ -76,7 +78,7 @@ class PetScreen:
     def createFeedMenu(self,rect):
         self.menuFeed = Menu(rect)
         if self.gameData.itemUnlock["apple"]:
-            self.menuFeed.addOption('apple', self.logicHandler.giveApple)
+            self.menuFeed.addOption('apple', self.tree.giveApple)
         if self.gameData.itemUnlock["item2"]:
             self.menuFeed.addOption('item2', self.close)
         if self.gameData.itemUnlock["item3"]:

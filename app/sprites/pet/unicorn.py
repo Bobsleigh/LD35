@@ -4,17 +4,17 @@ from app.settings import *
 
 from app.sprites.pet.pet import Pet
 
-class Rabbit(Pet):
+class Unicorn(Pet):
     def __init__(self):
         super().__init__()
 
-        self.type = RABBIT
-        self.name = 'rabbit'
+        self.type = UNICORN
+        self.name = 'unicorn'
 
-        self.image = pygame.image.load(os.path.join('img', 'lapin.png'))
+        self.image = pygame.image.load(os.path.join('img', 'licorne.png'))
 
         # Set wanted height
-        self.imagePrintedHeight = 250
+        self.imagePrintedHeight = 350
         self.scalingDim(self.imagePrintedHeight)
 
         self.image = pygame.transform.scale(self.image,(int(self.imagePrintedWidth),int(self.imagePrintedHeight)))
