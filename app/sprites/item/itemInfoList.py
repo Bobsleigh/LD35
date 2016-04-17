@@ -18,12 +18,34 @@ class ItemInfoList:
         self.item['totem'] = ItemInfo('totem')
 
         # Set Link
+        #Tier 1 link
         self.item['cupcake'].linkList.append(['rabbit', 'rainbowRabbit'])
         self.item['goldBar'].linkList.append(['rabbit', 'tigerRabbit'])
+        self.item['carrot'].linkList.append(['rabbit', 'muscularRabbit'])
 
-        # Test link
-        self.item['cupcake'].linkList.append(['unicorn', 'dragonUnicorn'])
+        # Tier 2 link
+        self.item['goldBar'].linkList.append(['rainbowRabbit', 'chocoRabbit'])
+        self.item['carrot'].linkList.append(['rainbowRabbit', 'tigerRabbit'])
+        self.item['cupcake'].linkList.append(['tigerRabbit', 'tiger'])
+        self.item['cupcake'].linkList.append(['muscularRabbit', 'alienRabbit'])
+        self.item['goldBar'].linkList.append(['muscularRabbit', 'pimpRabbit'])
 
-        self.item['goldBar'].linkList.append(['unicorn', 'pimpUnicorn'])
+        # Tier 10 link
+        self.item['horseshoe'].linkList.append(['tiger', 'horse'])
+        self.item['bone'].linkList.append(['tiger', 'lion'])
+        self.item['apple'].linkList.append(['tiger', 'hornedTiger'])
 
-        self.item['horseshoe'].linkList.append(['dragonUnicorn', 'dragon'])
+        #Tier 20 link
+        self.item['bone'].linkList.append(['horse', 'dog'])
+        self.item['apple'].linkList.append(['horse', 'muscularHorse'])
+        self.item['horseshoe'].linkList.append(['lion', 'cosmicLion'])
+        self.item['apple'].linkList.append(['lion', 'smartLion'])
+        self.item['horseshoe'].linkList.append(['hornedTiger', 'unicorn'])
+        self.item['bone'].linkList.append(['hornedTiger', 'saberToothTiger'])
+
+        #Tier 100 link
+        self.item['gun'].linkList.append(['unicorn', 'dragonUnicorn'])
+        self.item['pokerChip'].linkList.append(['unicorn', 'pimpUnicorn'])
+
+        #Tier 200 link
+        self.item['totem'].linkList.append(['dragonUnicorn', 'dragon'])
