@@ -10,6 +10,7 @@ from app.scene.petScreen.logicHandlerPetScreen import LogicHandlerPetScreen
 from app.settings import *
 from app.scene.petScreen.petScreenData import PetScreenData
 from app.scene.musicFactory import MusicFactory
+from app.mapData import MapData
 
 
 class PetScreen:
@@ -49,7 +50,7 @@ class PetScreen:
         #Back to world button
         self.backToWorldMap = Menu(
             pygame.Rect(1 * SCREEN_WIDTH / 4, 3*SCREEN_HEIGHT / 4, SCREEN_WIDTH / 4, self.realMenuFeedHeight/9))
-        self.backToWorldMap.addOption('Back to world', self.close)
+        self.backToWorldMap.addOption('Back to world', self.goToWorldMap)
         self.screenData.allSprites.add(self.backToWorldMap.spritesMenu) #Add sprite
 
         #all option and 2D selector for Pet Screen
@@ -122,6 +123,12 @@ class PetScreen:
     def close(self):
         self.nextScene = TITLE_SCREEN
         self.sceneRunning = False #To stop petScreen running
+
+    def goToWorldMap(self):
+        self.sceneRunning = False
+        self.nextScene = WORLD_MAP
+        self.gameData.typeScene = WORLD_MAP
+        self.gameData.mapData = MapData("WorldMap", "StartPointWorld")
 
     def backToMain(self):
         self.menuPause.close()

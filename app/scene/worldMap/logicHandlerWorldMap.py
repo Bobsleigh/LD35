@@ -9,6 +9,7 @@ class LogicHandlerWorldMap:
         # self.spawmPointPlayerx = 0
         # self.spawmPointPlayery = 0
         self.newMapData = None
+        self.boolGoToLevelHome = False
         self.gameData = gameData
         self.mapData = gameData.mapData
         self.collisionChecker = CollisionPlayerWorldMap(player, self.mapData)
@@ -33,8 +34,12 @@ class LogicHandlerWorldMap:
                     nameNewZone = obj.LevelZone
                     nameInZone = obj.InZone
 
-                    # Initializing new map
-                    self.newMapData = MapData(nameNewZone, nameInZone)
+                    # Special case for LevelHome
+                    if obj.LevelZone == 'LevelHome':
+                        self.boolGoToLevelHome = True
+                    else:
+                        # Initializing new map
+                        self.newMapData = MapData(nameNewZone, nameInZone)
 
     # def handleBottomCollision(self, sprites):
     #     for sprite in sprites:

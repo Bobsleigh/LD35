@@ -13,7 +13,7 @@ from app.sprites.itemFactory import ItemFactory
 # from app.sprites.player import *
 
 class MapData:
-    def __init__(self, mapName="Map_01", nameInZone="_none", screenSize=(SCREEN_WIDTH, SCREEN_HEIGHT)):
+    def __init__(self, mapName="WorldMap", nameInZone="StartPointWorld", screenSize=(SCREEN_WIDTH, SCREEN_HEIGHT)):
 
         self.nameMap = mapName
 
