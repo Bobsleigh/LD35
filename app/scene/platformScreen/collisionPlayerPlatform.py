@@ -210,11 +210,11 @@ def collisionBulletWall(bullet, map):
         if (upLeftTileGid  == SOLID or downLeftTileGid  == SOLID) and bullet.speedx < 0:
             bullet.kill()
 
-# def collisionBulletEnemy(bullet, map):
-#     collisionList = pygame.sprite.spritecollide(bullet, map.enemyGroup, False)
-#     for enemy in collisionList:
-#         enemy.kill()
-#         bullet.kill()
+def collisionBulletEnemy(bullet, map):
+    collisionList = pygame.sprite.spritecollide(bullet, map.enemyGroup, False)
+    for enemy in collisionList:
+        enemy.kill()
+        bullet.kill()
 
 def collisionBulletPlayer(map, player):
     collisionList = pygame.sprite.spritecollide(player, map.enemyBullet, False)
