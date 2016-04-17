@@ -22,7 +22,9 @@ class Option(pygame.sprite.Sprite):
         self.isSelected = False
         self.method = method
         self.soundSelect = pygame.mixer.Sound('music_pcm/menu_select.wav')
+        self.soundSelect.set_volume(.3)
         self.soundChange = pygame.mixer.Sound('music_pcm/menu_change.wav')
+        self.soundChange.set_volume(.3)
 
         #Color
         self.color1 = COLOR_MENU_1
