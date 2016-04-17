@@ -1,7 +1,6 @@
 # To generate .exe and .app
 #
 # To generate, do :
-#        OSX : pyinstaller --onefile main_local.spec
 #    Windows : pyinstaller --onefile main_local.spec
 #
 # Other options : --windowed
@@ -11,7 +10,7 @@
 
 block_cipher = None
 
-addedFiles = [ ('tiles_map', 'tiles_map'), ('music','music'), ('img', 'img'), ('fonts', 'fonts') ]
+addedFiles = [ ('tiles_map', 'tiles_map'), ('music_pcm','music_pcm'), ('img', 'img'), ('fonts', 'fonts') ]
 
 a = Analysis(['main.py'],
              pathex=['LD35'],
@@ -36,7 +35,3 @@ exe = EXE(pyz,
           strip=False,
           upx=True,
           console=False )
-app = BUNDLE(exe,
-             name='mainOSX.app',
-             icon=None,
-             bundle_identifier=None)

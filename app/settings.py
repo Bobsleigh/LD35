@@ -57,3 +57,8 @@ JUMP = 1
 #Physics
 GRAVITY = 1
 FRICTION = 0.8
+
+
+# Dimension tile
+TILEDIMX = 32
+TILEDIMY = 32
