@@ -1,10 +1,8 @@
 from app.settings import *
 from app.sprites.item.item import Item
 
-from app.sprites.pet.rabbit import Rabbit
-from app.sprites.pet.tiger import Tiger
-from app.sprites.pet.unicorn import Unicorn
-from app.sprites.pet.dragon import Dragon
+from app.sprites.pet.pet import Pet
+
 
 # All the global data for the game and player
 class GameData:
@@ -37,14 +35,9 @@ class GameData:
         self.itemUnlock["item9"] = False
 
         #My pet: rabbit at first
-        self.myPet = Rabbit()
+        self.myPet = Pet()
+        self.myPet.becomeRabbit()
 
-        #PetTypeList
-        self.petTypeList = []
-        self.petTypeList.append([RABBIT, Rabbit()])
-        self.petTypeList.append([TIGER, Tiger()])
-        self.petTypeList.append([UNICORN, Unicorn()])
-        self.petTypeList.append([DRAGON, Dragon()])
 
         self.scene = scene
         self.mapData = None

@@ -8,8 +8,6 @@ class Tree:
         self.gameData = gameData
         self.screenData = data
 
-        #to change pet
-        self.nextPet = None
 
         #All item trigger list [parent,child]
         self.gameData.cupcake.linkList.append([RABBIT,TIGER])
@@ -20,19 +18,13 @@ class Tree:
     #Get rabbit back
     def getRabbit(self):
         self.screenData.messageLog.message = 'You killed your ' + self.gameData.myPet.name + ' and took another rabbit.'
-        self.nextPet = RABBIT
-        self.updatePet()
+        nextPet = RABBIT
+        self.updatePet(nextPet)
 
-    def updatePet(self):
+    def updatePet(self,nextPet):
         self.screenData.allSprites.remove(self.gameData.myPet)
-        for petType in self.gameData.petTypeList:
-            if self.nextPet == petType[0]:
-                self.gameData.myPet = petType[1]
+        self.gameData.myPet.changePet(nextPet)
         self.screenData.allSprites.add(self.gameData.myPet)
-
-        # Place temporaire?
-
-
 
     def giveCupcake(self):
         if self.gameData.inventory["cupcake"] == 0:
@@ -43,8 +35,8 @@ class Tree:
             for parent in self.gameData.cupcake.linkList:
                 if self.gameData.myPet.type == parent[0]:
                     self.screenData.allSprites.add(self.gameData.myPet)
-                    self.nextPet = parent[1]
-                    self.updatePet()
+                    nextPet = parent[1]
+                    self.updatePet(nextPet)
                     self.screenData.messageLog.message = 'You got a ' + self.gameData.myPet.name + '!'
                     break
                 else:
