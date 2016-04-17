@@ -1,10 +1,11 @@
 from app.scene.worldMap.eventHandlerWorldMap import EventHandlerWorldMap
 from app.scene.worldMap.logicHandlerWorldMap import LogicHandlerWorldMap
 
-from app.mapData import MapData
+from app.menuPause.menuPause import MenuPause
 from app.scene.drawer import Drawer
 from app.settings import *
 from app.sprites.playerWorldMap import Player
+from app.scene.musicFactory import MusicFactory
 
 
 class WorldMap:
@@ -28,8 +29,11 @@ class WorldMap:
         self.nextScene = None
 
         #Menu
-        # self.menuPause = MenuPause(screen,self.backToMain)
-        # self.eventHandlerWorldMap.menuPause = self.menuPause
+        self.menuPause = MenuPause(screen,self.backToMain)
+        self.eventHandlerWorldMap.menuPause = self.menuPause
+
+        MusicFactory(WORLD_MAP)
+
 
     def mainLoop(self):
         self.sceneRunning = True
@@ -55,7 +59,7 @@ class WorldMap:
             self.gameData.mapData = newMapData
 
     def close(self):
-        self.eventHandlerWorldMap.sceneRunning = False #To stop game running
+        self.sceneRunning = False #To stop game running
 
     def backToMain(self):
         self.nextScene = TITLE_SCREEN
