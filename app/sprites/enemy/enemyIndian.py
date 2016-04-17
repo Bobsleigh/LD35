@@ -5,7 +5,7 @@ from app.sprites.enemy.enemy import Enemy
 
 class EnemyIndian(Enemy):
     def __init__(self, xCenter, yCenter, radius=50):
-        super().__init__(xCenter, yCenter, os.path.join('img', 'biere32x32.png'))
+        super().__init__(xCenter, yCenter, os.path.join('img', 'EnemyIndian75.png'))
 
         self.name = "enemyIndian"
 
