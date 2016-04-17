@@ -18,9 +18,9 @@ class GameData:
         #Was map unlocked?
         self.mapUnlock = {}
         self.mapUnlock["map1"] = True
-        self.mapUnlock["map2"] = False
-        self.mapUnlock["map3"] = False
-        self.mapUnlock["map4"] = False
+        self.mapUnlock["map2"] = True
+        self.mapUnlock["map3"] = True
+        self.mapUnlock["map4"] = True
 
         #My pet: rabbit at first
         self.petList = PetList()

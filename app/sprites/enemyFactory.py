@@ -57,7 +57,7 @@ class EnemyFactory:
         radius = seekAtt(enemy, "radius")
         angleDir = seekAtt(enemy, "angleDirection")
 
-        enemyCreated = EnemyIndian(enemy.x, enemy.y)
+        enemyCreated = EnemyIndian(enemy.x, enemy.y, theMap)
 
         if radius:
             enemyCreated.setRadius(int(radius))

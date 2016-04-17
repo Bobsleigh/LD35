@@ -48,6 +48,7 @@ class PlayerPlatform(pygame.sprite.Sprite):
         self.rightPressed = False
         self.leftPressed = False
 
+
         self.mapData = mapData
 
         self.isAlive = True
