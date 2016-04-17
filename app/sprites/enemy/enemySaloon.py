@@ -15,6 +15,10 @@ class EnemySaloon(Enemy):
         self.imageEnemyLeft = pygame.image.load(os.path.join('img', 'FrenchCancan75.png'))
         self.imageEnemyRight = pygame.transform.flip(pygame.image.load(os.path.join('img', 'FrenchCancan75.png')), True, False)
 
+        self.rect = self.imageEnemyLeft.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
         self.speedx = 0
         self.speedy = 0
 
