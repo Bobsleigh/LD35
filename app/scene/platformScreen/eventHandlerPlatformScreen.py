@@ -1,6 +1,7 @@
 import pygame
 from app.tools.functionTools import *
 
+
 class EventHandlerPlatformScreen():
     def __init__(self, player):
         self.menuPause = None
@@ -29,6 +30,8 @@ class EventHandlerPlatformScreen():
                     self.player.updateSpeedDown()
                 elif event.key == pygame.K_SPACE:
                     self.player.jump()
+                elif event.key == pygame.K_LCTRL:
+                    self.player.shootBullet()
 
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_RIGHT:
@@ -43,4 +46,6 @@ class EventHandlerPlatformScreen():
             self.player.updateSpeedRight()
         if self.player.leftPressed:
             self.player.updateSpeedLeft()
+
+
 

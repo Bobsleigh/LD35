@@ -63,11 +63,13 @@ class LogicHandlerPlatformScreen:
                     sprite.speedx = 0
 
     def handleBullets(self, mapData, player):
-        # for bullet in mapData.friendlyBullet:
-        #     if type(bullet) == Bullet:
-        #         collisionBulletWall(bullet, mapData)
-        #         collisionBulletWall(bullet, mapData)
+        for bullet in mapData.friendlyBullet:
+            if type(bullet) == Bullet:
+                collisionBulletWall(bullet, mapData)
+                collisionBulletWall(bullet, mapData)
+                collisionBulletEnemy(bullet, mapData)
         for bullet in mapData.enemyBullet:
             if type(bullet) == Bullet:
                 collisionBulletWall(bullet, mapData)
+
         collisionBulletPlayer(mapData, player)
