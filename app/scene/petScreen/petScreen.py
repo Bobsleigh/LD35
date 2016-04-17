@@ -6,7 +6,6 @@ from app.menuPause.menuPause import MenuPause
 from app.scene.petScreen.eventHandlerPetScreen import EventHandlerPetScreen
 from app.scene.petScreen.logicHandlerPetScreen import LogicHandlerPetScreen
 from app.settings import *
-from app.scene.petScreen.tree import Tree
 from app.scene.petScreen.petScreenData import PetScreenData
 
 
@@ -26,8 +25,6 @@ class PetScreen:
 
         self.screenData.allSprites.add(self.gameData.myPet)
 
-        self.tree = Tree(self.gameData,self.screenData)
-
         #Create feedMenu
         self.realMenuFeedHeight = 3 * SCREEN_HEIGHT / 5
         self.realMenuFeedPosy = 2*SCREEN_HEIGHT / 5
@@ -39,7 +36,7 @@ class PetScreen:
         #Get rabbit button
         self.getRabbitButton = Menu(
             pygame.Rect(1*SCREEN_WIDTH / 2, 3*SCREEN_HEIGHT / 4, SCREEN_WIDTH / 4, self.realMenuFeedHeight/9))
-        self.getRabbitButton.addOption('Get rabbit', self.tree.getRabbit)
+        self.getRabbitButton.addOption('Get rabbit', self.logicHandler.getRabbit)
         self.screenData.allSprites.add(self.getRabbitButton.spritesMenu) #Add sprite
 
         #Back to world button
@@ -72,17 +69,26 @@ class PetScreen:
         number = self.optFont.render('cupcake: ' + str(self.gameData.inventory["cupcake"]), True, (0, 0, 0))
         self.screen.blit(number, (SCREEN_WIDTH - number.get_width(), 0))
 
+        self.optFont = pygame.font.SysFont(FONT_NAME, 30)
+        number = self.optFont.render('goldBar: ' + str(self.gameData.inventory["goldBar"]), True, (0, 0, 0))
+        self.screen.blit(number, (SCREEN_WIDTH - number.get_width(), 20))
+
+        self.optFont = pygame.font.SysFont(FONT_NAME, 30)
+        number = self.optFont.render('horseshoe: ' + str(self.gameData.inventory["horseshoe"]), True, (0, 0, 0))
+        self.screen.blit(number, (SCREEN_WIDTH - number.get_width(), 40))
+
+
         self.screenData.allSprites.draw(self.screen)
         pygame.display.flip()
 
     def createFeedMenu(self,rect):
         self.menuFeed = Menu(rect)
         if self.gameData.itemUnlock["cupcake"]:
-            self.menuFeed.addOption('cupcake', self.tree.giveCupcake)
-        if self.gameData.itemUnlock["item2"]:
-            self.menuFeed.addOption('item2', self.close)
-        if self.gameData.itemUnlock["item3"]:
-            self.menuFeed.addOption('item3', self.close)
+            self.menuFeed.addOption('cupcake', self.logicHandler.giveCupcake)
+        if self.gameData.itemUnlock["goldBar"]:
+            self.menuFeed.addOption('goldBar', self.logicHandler.giveGoldBar)
+        if self.gameData.itemUnlock["horseshoe"]:
+            self.menuFeed.addOption('horseshoe', self.logicHandler.giveHorseshoe)
         if self.gameData.itemUnlock["item4"]:
             self.menuFeed.addOption('item4', self.close)
         if self.gameData.itemUnlock["item5"]:
