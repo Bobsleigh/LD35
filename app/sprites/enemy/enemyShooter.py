@@ -49,3 +49,6 @@ class EnemyShooter(Enemy):
             self.theMap.enemyBullet.add(bullet)
 
             self.imageIterShoot = 0
+
+    def dead(self):
+        self.kill()
