@@ -221,7 +221,7 @@ def collisionBulletEnemy(bullet, map):
 def collisionBulletPlayer(map, player):
     collisionList = pygame.sprite.spritecollide(player, map.enemyBullet, False)
     for bullet in collisionList:
-        player.loseLife()
+        player.dead()
         bullet.kill()
 
 def printTile(tile):
