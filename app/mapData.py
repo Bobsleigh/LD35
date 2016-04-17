@@ -26,22 +26,22 @@ class MapData:
         self.enemyGroup = pygame.sprite.Group()
         self.itemGroup = pygame.sprite.Group()
         # self.friendlyBullet = pygame.sprite.Group()
-        # self.enemyBullet = pygame.sprite.Group()
+        self.enemyBullet = pygame.sprite.Group()
         self.spritesHUD = pygame.sprite.Group()
 
         eFactory = EnemyFactory()
         iFactory = ItemFactory()
 
-        # for obj in self.tmxData.objects:
-        #     if obj.type == "enemy":
-        #         enemy = eFactory.create(obj)
-        #         self.allSprites.add(enemy)
-        #         self.enemyGroup.add(enemy)
-        #
-        #     if obj.type == "item":
-        #         item = iFactory.create(obj)
-        #         self.allSprites.add(item)
-        #         self.itemGroup.add(item)
+        for obj in self.tmxData.objects:
+            if obj.type == "enemy":
+                enemy = eFactory.create(obj, self)
+                self.allSprites.add(enemy)
+                self.enemyGroup.add(enemy)
+
+            # if obj.type == "item":
+            #     item = iFactory.create(obj)
+            #     self.allSprites.add(item)
+            #     self.itemGroup.add(item)
 
         # Put camera in mapData
         self.camera = pyscroll.PyscrollGroup(map_layer=self.cameraPlayer, default_layer=SPRITE_LAYER)

@@ -6,7 +6,7 @@ from app.menuPause.menuPause import MenuPause
 from app.scene.petScreen.eventHandlerPetScreen import EventHandlerPetScreen
 from app.scene.petScreen.logicHandlerPetScreen import LogicHandlerPetScreen
 from app.settings import *
-from app.sprites.pet.pet import Pet
+from app.scene.petScreen.tree import Tree
 from app.scene.petScreen.petScreenData import PetScreenData
 
 
@@ -24,8 +24,9 @@ class PetScreen:
 
         self.nextScene = None
 
-        self.pet = Pet()
-        self.screenData.allSprites.add(self.pet)
+        self.screenData.allSprites.add(self.gameData.myPet)
+
+        self.tree = Tree(self.gameData,self.screenData)
 
         #Create feedMenu
         self.realMenuFeedHeight = 3 * SCREEN_HEIGHT / 5
@@ -37,13 +38,13 @@ class PetScreen:
 
         #Get rabbit button
         self.getRabbitButton = Menu(
-            pygame.Rect(1*SCREEN_WIDTH / 2, 3*SCREEN_HEIGHT / 4, self.menuFeed.optionList[1].image.get_width()/0.9, self.menuFeed.optionList[1].image.get_height()/0.7))
-        self.getRabbitButton.addOption('Get rabbit', self.logicHandler.getRabbit)
+            pygame.Rect(1*SCREEN_WIDTH / 2, 3*SCREEN_HEIGHT / 4, SCREEN_WIDTH / 4, self.realMenuFeedHeight/9))
+        self.getRabbitButton.addOption('Get rabbit', self.tree.getRabbit)
         self.screenData.allSprites.add(self.getRabbitButton.spritesMenu) #Add sprite
 
         #Back to world button
         self.backToWorldMap = Menu(
-            pygame.Rect(1 * SCREEN_WIDTH / 4, 3*SCREEN_HEIGHT / 4, self.menuFeed.optionList[1].image.get_width()/0.8, self.menuFeed.optionList[1].image.get_height()/0.7))
+            pygame.Rect(1 * SCREEN_WIDTH / 4, 3*SCREEN_HEIGHT / 4, SCREEN_WIDTH / 4, self.realMenuFeedHeight/9))
         self.backToWorldMap.addOption('Back to world', self.close)
         self.screenData.allSprites.add(self.backToWorldMap.spritesMenu) #Add sprite
 
@@ -74,21 +75,26 @@ class PetScreen:
         self.screenData.allSprites.draw(self.screen)
         pygame.display.flip()
 
-    def createPet(self):
-        pass
-
     def createFeedMenu(self,rect):
         self.menuFeed = Menu(rect)
-        self.menuFeed.addOption('apple', self.logicHandler.giveApple)
-        self.menuFeed.addOption('item2', self.close)
-        self.menuFeed.addOption('item2', self.close)
-        self.menuFeed.addOption('item3', self.close)
-        self.menuFeed.addOption('item4', self.close)
-        self.menuFeed.addOption('item5', self.close)
-        self.menuFeed.addOption('item6', self.close)
-        self.menuFeed.addOption('item7', self.close)
-        self.menuFeed.addOption('item8', self.close)
-        self.menuFeed.addOption('item9', self.close)
+        if self.gameData.itemUnlock["apple"]:
+            self.menuFeed.addOption('apple', self.tree.giveApple)
+        if self.gameData.itemUnlock["item2"]:
+            self.menuFeed.addOption('item2', self.close)
+        if self.gameData.itemUnlock["item3"]:
+            self.menuFeed.addOption('item3', self.close)
+        if self.gameData.itemUnlock["item4"]:
+            self.menuFeed.addOption('item4', self.close)
+        if self.gameData.itemUnlock["item5"]:
+            self.menuFeed.addOption('item5', self.close)
+        if self.gameData.itemUnlock["item6"]:
+            self.menuFeed.addOption('item6', self.close)
+        if self.gameData.itemUnlock["item7"]:
+            self.menuFeed.addOption('item7', self.close)
+        if self.gameData.itemUnlock["item8"]:
+            self.menuFeed.addOption('item8', self.close)
+        if self.gameData.itemUnlock["item9"]:
+            self.menuFeed.addOption('item9', self.close)
         self.screenData.allSprites.add(self.menuFeed.spritesMenu)  # Add sprite
 
 
@@ -99,7 +105,7 @@ class PetScreen:
         self.optionList[0][0].select()
 
     def getMenuSpec(self):
-        optForNow = 9
+        optForNow = sum(self.gameData.itemUnlock.values())
         realOptNum = 9
         self.menuFeedHeight = self.realMenuFeedHeight*(optForNow)/realOptNum
         self.menuFeedPosy = self.realMenuFeedPosy-self.realMenuFeedHeight/2+self.menuFeedHeight/2

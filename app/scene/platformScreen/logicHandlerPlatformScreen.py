@@ -1,24 +1,25 @@
 from app.mapData import MapData
+from app.bullet import *
 from app.settings import *
 from app.scene.platformScreen.collisionPlayerPlatform import CollisionPlayerPlatform
 
 
 class LogicHandlerPlatformScreen:
-    def __init__(self, mapData):
+    def __init__(self, player, mapData):
 
         self.sceneRunning = True
         self.endState = None
-        self.collisionChecker = CollisionPlayerPlatform()
-        self.newMapData = None
+        self.collisionChecker = CollisionPlayerPlatform(player, mapData)
+        self.newMap = None
         self.mapData = mapData
 
-
-    def handle(self, player, gameData):
+    def handle(self, player, mapData):
         self.applyGravity(self.mapData.allSprites)
         self.applyFriction(self.mapData.allSprites)
         self.collisionChecker.collisionAllSprites(player, self.mapData, gameData)
         self.handleZoneCollision(player)
         self.mapData.allSprites.update()
+        self.handleBullets(self.mapData, player)
 
     def handleZoneCollision(self, player):
 
@@ -60,3 +61,13 @@ class LogicHandlerPlatformScreen:
                     sprite.speedx += FRICTION
                 elif sprite.speedx < 0:
                     sprite.speedx = 0
+
+    def handleBullets(self, mapData, player):
+        # for bullet in mapData.friendlyBullet:
+        #     if type(bullet) == Bullet:
+        #         collisionBulletWall(bullet, mapData)
+        #         collisionBulletWall(bullet, mapData)
+        for bullet in mapData.enemyBullet:
+            if type(bullet) == Bullet:
+                collisionBulletWall(bullet, mapData)
+        collisionBulletPlayer(mapData, player)
