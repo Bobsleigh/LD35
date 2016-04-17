@@ -10,3 +10,10 @@ class Dragon(Pet):
 
         self.type = DRAGON
         self.name = 'dragon'
+
+
+        # Set wanted height
+        self.imagePrintedHeight = 500
+        self.scalingDim(self.imagePrintedHeight)
+
+        self.image = pygame.transform.scale(self.image, (int(self.imagePrintedWidth), int(self.imagePrintedHeight)))
