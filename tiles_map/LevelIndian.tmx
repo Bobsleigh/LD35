@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="78" height="24" tilewidth="32" tileheight="32" nextobjectid="22">
- <tileset firstgid="1" name="Set_01" tilewidth="32" tileheight="32" tilecount="25" columns="5">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="78" height="24" tilewidth="32" tileheight="32" nextobjectid="25">
+ <tileset firstgid="1" name="Set_01" tilewidth="32" tileheight="32" tilecount="25">
   <image source="img/Set_01.png" width="160" height="160"/>
  </tileset>
- <tileset firstgid="26" name="nuit" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="26" name="nuit" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/nuit.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="27" name="vertFonce" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="27" name="vertFonce" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/vertFonce.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="28" name="feu" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="28" name="feu" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/feu.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="29" name="indien" tilewidth="32" tileheight="32" tilecount="9" columns="3">
+ <tileset firstgid="29" name="indien" tilewidth="32" tileheight="32" tilecount="9">
   <image source="img/indien.png" width="96" height="96"/>
  </tileset>
- <tileset firstgid="38" name="etoileNuit" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="38" name="etoileNuit" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/etoileNuit.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="39" name="Door_v01" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="39" name="Door_v01" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/Door_v01.png" width="32" height="32"/>
  </tileset>
- <layer name="Collision_Layer" width="78" height="24" visible="0">
+ <layer name="Collision_Layer" width="78" height="24">
   <data encoding="csv">
 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
@@ -77,7 +77,7 @@
 27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27
 </data>
  </layer>
- <layer name="Terrain" width="78" height="24" visible="0">
+ <layer name="Terrain" width="78" height="24">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,38,0,0,0,
@@ -105,7 +105,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="Sprite_Layer" width="78" height="24" visible="0">
+ <layer name="Sprite_Layer" width="78" height="24">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -134,19 +134,20 @@
 </data>
  </layer>
  <objectgroup name="outZoneLayer">
-  <object id="6" name="InZone" x="47" y="656" width="49" height="62">
+  <object id="8" name="OutZone" x="2346" y="516" width="96" height="112">
    <properties>
-    <property name="StartPoint" value="StartPoint"/>
-   </properties>
-  </object>
-  <object id="8" name="OutZone" x="2370" y="620" width="22" height="17">
-   <properties>
-    <property name="InZone" value="StartPointWorld"/>
+    <property name="InZone" value="OutLevelIndian"/>
     <property name="LevelZone" value="WorldMap"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="inZoneLayer"/>
+ <objectgroup name="inZoneLayer">
+  <object id="24" name="InZone" x="85.5" y="601" width="49" height="62">
+   <properties>
+    <property name="StartPoint" value="StartPoint"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="enemyLayer">
   <object id="9" name="enemyIndian" type="enemy" x="1302" y="680" width="56" height="52">
    <properties>
@@ -180,6 +181,6 @@
   <object id="17" name="Money" type="item" x="786" y="590" width="28" height="26"/>
   <object id="18" name="Money" type="item" x="1656" y="598" width="30" height="22"/>
   <object id="19" name="Money" type="item" x="1702" y="598" width="32" height="24"/>
-  <object id="21" name="Totem" type="item" x="2336.67" y="649.333" width="19.3333" height="16.6667"/>
+  <object id="21" name="Totem" type="item" x="2242.67" y="663.333" width="19.3333" height="16.6667"/>
  </objectgroup>
 </map>
