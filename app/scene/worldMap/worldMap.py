@@ -5,8 +5,10 @@ from app.menuPause.menuPause import MenuPause
 from app.scene.drawer import Drawer
 from app.settings import *
 from app.sprites.playerWorldMap import Player
+from app.sprites.padlock import Padlock
 from app.scene.musicFactory import MusicFactory
 from copy import deepcopy
+import pygame
 
 
 class WorldMap:
@@ -22,9 +24,21 @@ class WorldMap:
         self.mapData.camera.add(self.player)
         self.camera = self.mapData.camera
 
+        #Map unlock system
+        self.padlock = pygame.sprite.Group()
+        if self.gameData.mapUnlock['map1'] == False:
+            self.padlock.add(Padlock(29*TILE_WIDTH, 21*TILE_HEIGHT))
+        if self.gameData.mapUnlock['map2'] == False:
+            self.padlock.add(Padlock(16*TILE_WIDTH, 7*TILE_HEIGHT))
+        if self.gameData.mapUnlock['map3'] == False:
+            self.padlock.add(Padlock(4*TILE_WIDTH, 20*TILE_HEIGHT))
+
+        self.mapData.allSprites.add(self.padlock)
+        self.mapData.camera.add(self.padlock)
+
         # Handler
         self.eventHandlerWorldMap = EventHandlerWorldMap()
-        self.logicHandler = LogicHandlerWorldMap(self.player, self.mapData)
+        self.logicHandler = LogicHandlerWorldMap(self.player, self.gameData)
         self.drawer = Drawer()
 
         self.nextScene = None
@@ -34,7 +48,6 @@ class WorldMap:
         self.eventHandlerWorldMap.menuPause = self.menuPause
 
         MusicFactory(WORLD_MAP)
-
 
     def mainLoop(self):
         self.sceneRunning = True

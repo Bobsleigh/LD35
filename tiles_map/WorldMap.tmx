@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" nextobjectid="21">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" nextobjectid="27">
  <tileset firstgid="1" name="Set_1" tilewidth="32" tileheight="32" tilecount="25">
   <image source="img/Set_01.png" width="160" height="160"/>
  </tileset>
@@ -93,6 +93,18 @@
     <property name="LevelZone" value="LevelHome"/>
    </properties>
   </object>
+  <object id="21" name="OutZone" x="130" y="634" width="30" height="40">
+   <properties>
+    <property name="InZone" value="StartPoint"/>
+    <property name="LevelZone" value="LevelIndian"/>
+   </properties>
+  </object>
+  <object id="24" name="OutZone" x="921.667" y="655.667" width="44.6663" height="48.6667">
+   <properties>
+    <property name="InZone" value="StartPointDesert"/>
+    <property name="LevelZone" value="LevelDesert"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="inZoneLayer">
   <object id="14" name="InZone" x="800" y="415" width="32" height="32">
@@ -100,15 +112,14 @@
     <property name="StartPoint" value="StartPointWorld"/>
    </properties>
   </object>
-  <object id="17" name="OutZone" x="920" y="666" width="44.6663" height="48.6667">
-   <properties>
-    <property name="InZone" value="StartPointDesert"/>
-    <property name="LevelZone" value="LevelDesert"/>
-   </properties>
-  </object>
   <object id="19" name="InZone" x="853" y="661" width="50" height="50">
    <properties>
     <property name="StartPoint" value="OutLevelDesert"/>
+   </properties>
+  </object>
+  <object id="26" name="InZone" x="185.667" y="621.667" width="50" height="50">
+   <properties>
+    <property name="StartPoint" value="OutLevelIndian"/>
    </properties>
   </object>
  </objectgroup>
