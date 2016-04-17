@@ -23,7 +23,7 @@ class Pet(pygame.sprite.Sprite):
     def scalingDim(self,height):
         self.update()
         self.imagePrintedWidth = self.image.get_width() * height / self.image.get_height()
-        self.image = pygame.transform.scale(self.image, (int(self.imagePrintedWidth), int(self.wantedHeight)))
+        self.image = pygame.transform.scale(self.image, (int(self.imagePrintedWidth), int(height)))
 
     def loadImage(self):
         self.image = pygame.image.load(os.path.join('img', self.imageName))

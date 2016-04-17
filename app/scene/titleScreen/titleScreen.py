@@ -18,7 +18,7 @@ class TitleScreen:
         self.gameData = gameData
 
         self.screen.fill((0,0,0))
-        titleImage = pygame.image.load(os.path.join('img', 'cochon.png'))
+        titleImage = pygame.image.load(os.path.join('img', 'menu.png'))
         self.screen.blit(titleImage, (0, 0))
 
         # Define MainMenu
