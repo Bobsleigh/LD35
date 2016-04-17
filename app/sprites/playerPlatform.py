@@ -31,7 +31,7 @@ class PlayerPlatform(pygame.sprite.Sprite):
 
         self.speedx = 0
         self.speedy = 0
-        self.maxSpeedx = 8
+        self.maxSpeedx = 5
         self.maxSpeedyUp = 40
         self.maxSpeedyDown = 8
         self.accx = 2
