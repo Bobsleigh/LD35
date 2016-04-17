@@ -10,12 +10,12 @@ class ItemInfoList:
         self.item['cupcake'] = ItemInfo('cupcake', 'cupcake32x32.png')
         self.item['goldBar'] = ItemInfo('goldBar', 'Gold32x32.png')
         self.item['horseshoe'] = ItemInfo('horseshoe', 'Fer.png')
-        self.item['bone'] = ItemInfo('bone')
+        self.item['bone'] = ItemInfo('bone', 'bone.png')
         self.item['carrot'] = ItemInfo('carrot', 'Carotte.png')
         self.item['apple'] = ItemInfo('apple', 'Pomme.png')
         self.item['gun'] = ItemInfo('gun', 'Gun32x32.png')
         self.item['pokerChip'] = ItemInfo('pokerChip', 'Jetons.png')
-        self.item['totem'] = ItemInfo('totem')
+        self.item['totem'] = ItemInfo('totem', 'totem.png')
 
         # Set Link
         #Tier 1 link
