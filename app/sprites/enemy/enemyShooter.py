@@ -13,6 +13,9 @@ class EnemyShooter(Enemy):
         self.name = "enemyShooter"
 
         self.imageEnemy = pygame.image.load(os.path.join('img', 'enemybob.png'))
+        self.rect = self.imageEnemy.get_rect()
+        self.rect.x = x
+        self.rect.y = y
 
         self.speedx = 0
         self.speedy = 0
@@ -50,8 +53,12 @@ class EnemyShooter(Enemy):
 
             self.imageIterShoot = 0
 
-            self.rect.x += self.speedx
+        self.rect.x += self.speedx
+        if self.speedy < 15:
             self.rect.y += self.speedy
+
+
+
 
     def dead(self):
         self.kill()

@@ -125,8 +125,6 @@ class CollisionPlayerPlatform:
             #     player.rect.bottom += 1
             player.speedy = 0
             player.jumpState = GROUNDED
-            player.wallJumpRightAllowed = True
-            player.wallJumpLeftAllowed = True
         elif downLeftTileGid == SPIKE or downRightTileGid == SPIKE:
             player.dead()
         else:
