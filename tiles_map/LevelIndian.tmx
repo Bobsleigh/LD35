@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="78" height="24" tilewidth="32" tileheight="32" nextobjectid="22">
- <tileset firstgid="1" name="Set_01" tilewidth="32" tileheight="32" tilecount="25">
+ <tileset firstgid="1" name="Set_01" tilewidth="32" tileheight="32" tilecount="25" columns="5">
   <image source="img/Set_01.png" width="160" height="160"/>
  </tileset>
- <tileset firstgid="26" name="nuit" tilewidth="32" tileheight="32" tilecount="1">
+ <tileset firstgid="26" name="nuit" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="img/nuit.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="27" name="vertFonce" tilewidth="32" tileheight="32" tilecount="1">
+ <tileset firstgid="27" name="vertFonce" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="img/vertFonce.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="28" name="feu" tilewidth="32" tileheight="32" tilecount="1">
+ <tileset firstgid="28" name="feu" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="img/feu.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="29" name="indien" tilewidth="32" tileheight="32" tilecount="9">
+ <tileset firstgid="29" name="indien" tilewidth="32" tileheight="32" tilecount="9" columns="3">
   <image source="img/indien.png" width="96" height="96"/>
  </tileset>
- <tileset firstgid="38" name="etoileNuit" tilewidth="32" tileheight="32" tilecount="1">
+ <tileset firstgid="38" name="etoileNuit" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="img/etoileNuit.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="39" name="Door_v01" tilewidth="32" tileheight="32" tilecount="1">
+ <tileset firstgid="39" name="Door_v01" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="img/Door_v01.png" width="32" height="32"/>
  </tileset>
  <layer name="Collision_Layer" width="78" height="24" visible="0">
@@ -148,10 +148,30 @@
  </objectgroup>
  <objectgroup name="inZoneLayer"/>
  <objectgroup name="enemyLayer">
-  <object id="9" name="enemyIndian" type="enemy" x="1302" y="680" width="56" height="52"/>
-  <object id="10" name="enemyIndian" type="enemy" x="948" y="562" width="44" height="36"/>
-  <object id="11" name="enemyIndian" type="enemy" x="540" y="614" width="52" height="52"/>
-  <object id="12" name="enemyIndian" type="enemy" x="2202" y="642" width="60" height="50"/>
+  <object id="9" name="enemyIndian" type="enemy" x="1302" y="680" width="56" height="52">
+   <properties>
+    <property name="angleDirection" value="50"/>
+    <property name="radius" value="50"/>
+   </properties>
+  </object>
+  <object id="10" name="enemyIndian" type="enemy" x="948" y="562" width="44" height="36">
+   <properties>
+    <property name="angleDirection" value="50"/>
+    <property name="radius" value="100"/>
+   </properties>
+  </object>
+  <object id="11" name="enemyIndian" type="enemy" x="540" y="614" width="52" height="52">
+   <properties>
+    <property name="angleDirection" value="50"/>
+    <property name="radius" value="50"/>
+   </properties>
+  </object>
+  <object id="12" name="enemyIndian" type="enemy" x="2097" y="568" width="60" height="50">
+   <properties>
+    <property name="angleDirection" value="50"/>
+    <property name="radius" value="100"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="itemLayer">
   <object id="13" name="Money" type="item" x="194" y="610" width="26" height="26"/>

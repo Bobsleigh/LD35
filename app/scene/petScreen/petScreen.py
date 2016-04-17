@@ -2,6 +2,8 @@ import pygame
 import os
 
 from app.menu.menu import Menu
+from app.menu.menuImg import MenuImg
+
 from app.menuPause.menuPause import MenuPause
 from app.scene.petScreen.eventHandlerPetScreen import EventHandlerPetScreen
 from app.scene.petScreen.logicHandlerPetScreen import LogicHandlerPetScreen
@@ -25,6 +27,13 @@ class PetScreen:
         self.nextScene = None
 
         self.screenData.allSprites.add(self.gameData.myPet)
+
+        #Create test menu
+        self.menuTest = MenuImg(
+            pygame.Rect(1 * SCREEN_WIDTH / 2, 1 * SCREEN_HEIGHT / 2, 400, 200))
+        self.menuTest.addOption(self.gameData.itemInfoList.item['cupcake'],self.close())
+        self.menuTest.addOption(self.gameData.itemInfoList.item['goldBar'], self.close())
+        self.screenData.allSprites.add(self.menuTest.spritesMenu)  # Add sprite
 
         #Create feedMenu
         self.realMenuFeedHeight = 3 * SCREEN_HEIGHT / 5
@@ -63,22 +72,9 @@ class PetScreen:
             self.draw()  # Drawer in THIS file, below
 
     def draw(self):
+        for key in self.gameData.itemInfoList.item:
+            self.menuTest.updateName(self.gameData.itemInfoList.item[key])
         self.screen.blit(self.background, (0, 0))
-
-        #Test
-        self.optFont = pygame.font.SysFont(FONT_NAME, 30)
-        number = self.optFont.render('cupcake: ' + str(self.gameData.itemInfoList.item["cupcake"].inventory), True, (0, 0, 0))
-        self.screen.blit(number, (SCREEN_WIDTH - number.get_width(), 0))
-
-        self.optFont = pygame.font.SysFont(FONT_NAME, 30)
-        number = self.optFont.render('goldBar: ' + str(self.gameData.itemInfoList.item["goldBar"].inventory), True, (0, 0, 0))
-        self.screen.blit(number, (SCREEN_WIDTH - number.get_width(), 20))
-
-        self.optFont = pygame.font.SysFont(FONT_NAME, 30)
-        number = self.optFont.render('horseshoe: ' + str(self.gameData.itemInfoList.item["horseshoe"].inventory), True, (0, 0, 0))
-        self.screen.blit(number, (SCREEN_WIDTH - number.get_width(), 40))
-
-
         self.screenData.allSprites.draw(self.screen)
         pygame.display.flip()
 

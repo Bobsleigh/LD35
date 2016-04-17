@@ -20,6 +20,7 @@ class Item(pygame.sprite.Sprite):
         else:
             # null surface
             self.image = pygame.Surface((1,1), pygame.SRCALPHA)
+            self.image = self.image.convert_alpha()
 
         self.rect = self.image.get_rect()
         self.rect.x = x

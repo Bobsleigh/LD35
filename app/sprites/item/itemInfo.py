@@ -17,7 +17,7 @@ class ItemInfo(pygame.sprite.Sprite):
         self.wantedHeight = 32
 
         self.inventory = 0
-        self.unlock = True
+        self.unlock = False #Put false when done testing
         self.linkList = []
 
 

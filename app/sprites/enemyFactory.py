@@ -2,6 +2,7 @@ from app.sprites.enemy.enemy import Enemy
 from app.sprites.enemy.enemyCactus import EnemyCactus
 from app.sprites.enemy.enemyShooter import EnemyShooter
 from app.sprites.enemy.enemySaloon import EnemySaloon
+from app.sprites.enemy.enemyIndian import EnemyIndian
 from app.tools.functionTools import *
 
 
@@ -17,6 +18,8 @@ class EnemyFactory:
             return self.createEnemyShooter(enemy, theMap)
         if eName == "enemySaloon":
             return self.createEnemySaloon(enemy, theMap)
+        if eName == "enemyIndian":
+            return self.createEnemyIndian(enemy, theMap)
 
     def createEnemyBase(self, enemy):
         enemyCreated = Enemy(enemy.x, enemy.y)
@@ -49,3 +52,15 @@ class EnemyFactory:
             return EnemySaloon(enemy.x, enemy.y, theMap)
         else:
             return EnemySaloon(enemy.x, enemy.y, theMap, direction)
+
+    def createEnemyIndian(self, enemy, theMap):
+        radius = seekAtt(enemy, "radius")
+        angleDir = seekAtt(enemy, "angleDirection")
+
+        enemyCreated = EnemyIndian(enemy.x, enemy.y)
+
+        if radius:
+            enemyCreated.setRadius(int(radius))
+        if angleDir:
+            enemyCreated.setAngleDirection(int(angleDir))
+        return enemyCreated
