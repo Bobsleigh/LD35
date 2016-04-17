@@ -57,6 +57,7 @@ JUMP = 1
 #Animal list
 RABBIT = 0
 TIGER = 10
+DRAGON = 1000
 
 #Physics
 GRAVITY = 1
