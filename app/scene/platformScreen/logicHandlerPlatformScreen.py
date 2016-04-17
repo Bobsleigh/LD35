@@ -47,7 +47,6 @@ class LogicHandlerPlatformScreen:
         for sprite in allSprites:
             if sprite.isPhysicsApplied == True or sprite.isGravityApplied == True:
                 sprite.speedy += GRAVITY
-                print(sprite.name)
 
     def applyFriction(self, allSprites):
         for sprite in allSprites:
