@@ -5,16 +5,19 @@ from app.settings import *
 
 
 class Pet(pygame.sprite.Sprite):
-    def __init__(self,key,imageName,height):
+    def __init__(self,key,printedName,imageName,height,deadEnd=False,eventTrigger=False):
         super().__init__()
 
         self.key = key
-        self.name = key
+        self.name = printedName
 
         self.image = pygame.Surface((1,1))
 
         self.imageName = imageName
         self.wantedHeight = height
+
+        self.eventTrigger = eventTrigger
+        self.deadEnd = deadEnd
 
     def update(self):
         self.rect = self.image.get_rect()

@@ -4,7 +4,7 @@ from app.settings import *
 
 
 #Objets
-class OptionImg(pygame.sprite.Sprite):
+class OptionPetScreen(pygame.sprite.Sprite):
     def __init__(self,item,method):
         super().__init__()
 
@@ -21,7 +21,7 @@ class OptionImg(pygame.sprite.Sprite):
         self.rect.x = 0
         self.rect.y = 0
 
-        self.iconName = self.item.imageName
+        self.iconName = self.item.imageNamePNG
         self.icon = pygame.image.load(os.path.join('img', self.iconName))
         self.iconPos = [0,0]
 

@@ -48,7 +48,8 @@ DOWN = 3
 #Collisions
 COLLISION_LAYER = 0
 SOLID = 1 #Booléen de GID pour collision
-SPIKE = 2
+SPIKE = 3
+SPRING = 2
 
 #Player jump states
 GROUNDED = 0
@@ -62,3 +63,9 @@ FRICTION = 0.8
 # Dimension tile
 TILEDIMX = 32
 TILEDIMY = 32
+
+# Animal type
+NORMAL = 0
+KEY_ANIMAL = 1
+DEAD_END = 2
+WINNER = 3

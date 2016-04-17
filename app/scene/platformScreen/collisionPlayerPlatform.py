@@ -11,7 +11,7 @@ class CollisionPlayerPlatform:
         self.player = player
         self.map = map
 
-    def collisionAllSprites(self, player, mapData):
+    def collisionAllSprites(self, player, mapData, gameData):
         for sprite in mapData.allSprites:
             if sprite.isPhysicsApplied == True or sprite.isCollisionApplied == True:
 
@@ -21,7 +21,7 @@ class CollisionPlayerPlatform:
                 self.upCollision(sprite, mapData)
 
                 self.collisionWithEnemy(player, mapData.enemyGroup)
-                # self.pickPowerUp(player, mapData.powerUpGroup, gameMemory)
+                self.pickUpItem(player, mapData.itemGroup, gameData)
 
     def rightCollision(self,player, map):
 
@@ -60,6 +60,8 @@ class CollisionPlayerPlatform:
                     player.speedx = 0
                 elif upRightTileGid  == SPIKE or downRightTileGid == SPIKE or lowMidRightTileGid == SPIKE or highMidRightTileGid == SPIKE:
                     player.dead()
+                elif (upRightTileGid  == SPRING or downRightTileGid == SPRING or lowMidRightTileGid == SPRING or highMidRightTileGid == SPRING) and player.speedx > 0:
+                    player.speedx = 0
 
     def getUpRightTileGid(self):
         return self.map.tmxData.get_tile_gid((self.player.rect.right + self.player.speedx)/self.tileWidth, self.player.rect.top/self.tileHeight, COLLISION_LAYER)
@@ -112,6 +114,8 @@ class CollisionPlayerPlatform:
                 player.speedx = 0
             elif upLeftTileGid  == SPIKE or downLeftTileGid  == SPIKE or lowMidLeftTileGid == SPIKE or highMidLeftTileGid == SPIKE:
                 player.dead()
+            elif (upLeftTileGid  == SPRING or downLeftTileGid  == SPRING or lowMidLeftTileGid == SPRING or highMidLeftTileGid == SPRING) and player.speedx < 0:
+                player.speedx = 0
 
     def downCollision(self,player, map):
         tileWidth = map.tmxData.tilewidth
@@ -128,8 +132,10 @@ class CollisionPlayerPlatform:
             #     player.rect.bottom += 1
             player.speedy = 0
             player.jumpState = GROUNDED
-        elif downLeftTileGid == SPIKE or downRightTileGid == SPIKE:
+        elif downLeftTileGid == SPIKE or downRightTileGid == SPIKE  or downMidTileGID == SPIKE:
             player.dead()
+        elif downLeftTileGid == SPRING or downRightTileGid == SPRING  or downMidTileGID == SPRING:
+            player.spring()
         else:
             if player.jumpState == GROUNDED:
                 player.jumpState = JUMP
@@ -158,17 +164,11 @@ class CollisionPlayerPlatform:
             # self.soundControl.hurt()
             pass
 
-    # def pickPowerUp(self, player, powerUpGroup, gameMemory):
-    #     collisionList = pygame.sprite.spritecollide(player, powerUpGroup, False)
-    #     for powerUp in collisionList:
-    #         if powerUp.name == "powerUp_HealthMax":
-    #             player.pickedPowerUpMaxHealth()
-    #             gameMemory.registerPickedUpPowerUpHealth()
-    #             self.soundControl.maxHealthPowerup()
-    #         elif powerUp.name == "powerUp_Health":
-    #             player.pickedPowerUpHealth()
-    #             self.soundControl.healthPowerup()
-    #         powerUp.kill()
+    def pickUpItem(self, player, itemGroup, gameMemory):
+        collisionList = pygame.sprite.spritecollide(player, itemGroup, False)
+        for item in collisionList:
+            gameMemory.registerItemPickedUp(item)
+            item.kill()
 
 def collisionBulletWall(bullet, map):
     tileWidth = map.tmxData.tilewidth
@@ -229,5 +229,7 @@ def printTile(tile):
         print('SOLID')
     elif tile == SPIKE:
         print('SPIKE')
+    elif tile == SPRING:
+        print('SPRING')
     else:
         print(tile)

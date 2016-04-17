@@ -13,21 +13,19 @@ class LogicHandlerPlatformScreen:
         self.newMapData = None
         self.mapData = mapData
 
-    def handle(self, player):
+    def handle(self, player, gameData):
         self.applyGravity(self.mapData.allSprites)
         self.applyFriction(self.mapData.allSprites)
-        self.collisionChecker.collisionAllSprites(player, self.mapData)
+        self.collisionChecker.collisionAllSprites(player, self.mapData, gameData)
         self.handleZoneCollision(player)
         self.mapData.allSprites.update()
         self.handleBullets(self.mapData, player)
         self.gameOverCondition(player)
 
     def handleZoneCollision(self, player):
-
         for obj in self.mapData.tmxData.objects:
             if self.isPlayerIsInZone(player, obj) == True:
                 if obj.name == "OutZone":
-
                     nameNewZone = obj.LevelZone
                     nameInZone = obj.InZone
 
@@ -70,8 +68,7 @@ class LogicHandlerPlatformScreen:
                 collisionBulletWall(bullet, mapData)
                 collisionBulletEnemy(bullet, mapData)
         for bullet in mapData.enemyBullet:
-            if type(bullet) == Bullet:
-                collisionBulletWall(bullet, mapData)
+            collisionBulletWall(bullet, mapData)
 
         collisionBulletPlayer(mapData, player)
 

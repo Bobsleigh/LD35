@@ -4,6 +4,7 @@ import os
 from app.sprites.enemy.enemy import Enemy
 from app.bullet import BeerBullet
 from app.settings import *
+import random
 
 
 class EnemyShooter(Enemy):
@@ -27,7 +28,7 @@ class EnemyShooter(Enemy):
         self.isGravityApplied = True
         self.isCollisionApplied = True
 
-        self.imageIterShoot = 40
+        self.imageIterShoot = random.randint(10,70)
         self.imageWaitNextShoot = 80
 
     def setDirection(self, direction):

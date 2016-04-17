@@ -7,6 +7,8 @@ class LogicHandlerPetScreen:
         self.sceneRunning = True
         self.gameData = gameData
         self.screenData = data
+        self.updateFeedMenuPlease = False
+        self.recreateFeedMenuPlease = False
 
 
     def logicHandle(self):
@@ -15,13 +17,15 @@ class LogicHandlerPetScreen:
 
     # Get rabbit back
     def getRabbit(self):
-        self.screenData.messageLog.message = 'You killed your ' + self.gameData.myPet.name + ' and took another rabbit.'
+        self.screenData.messageLog.message = 'You killed your critter and took another rabbit.'
         self.updatePet('rabbit')
 
     def updatePet(self, nextPet):
         self.screenData.allSprites.remove(self.gameData.myPet)
         self.gameData.myPet = self.screenData.petTypeList.pet[nextPet]
         self.gameData.myPet.loadImage()
+        if self.gameData.myPet.eventTrigger:
+            self.checkTrigger()
         self.screenData.allSprites.add(self.gameData.myPet)
 
     def giveCupcake(self):
@@ -58,6 +62,7 @@ class LogicHandlerPetScreen:
             self.screenData.messageLog.message = 'You\'re out of ' + self.gameData.itemInfoList.item[item].name + '!'
         elif self.gameData.itemInfoList.item[item].inventory > 0:
             self.gameData.itemInfoList.item[item].inventory += -1
+            self.updateFeedMenuPlease = True
 
             for link in self.gameData.itemInfoList.item[givenItem].linkList:
                 if self.gameData.myPet.key == link[0]:
@@ -70,3 +75,30 @@ class LogicHandlerPetScreen:
 
     def nothingHappened(self):
         self.screenData.messageLog.message = 'Nothing happened.'
+
+    def checkTrigger(self):
+        if self.gameData.myPet.key == 'dog':
+            self.obtain('carrot')
+        if self.gameData.myPet.key == 'carrotRabbit':
+            self.obtain('apple')
+        if self.gameData.myPet.key == 'alienRabbit':
+            self.unlockMap('map2')
+        if self.gameData.myPet.key == 'muscularHorse':
+            self.unlockMap('map3')
+        if self.gameData.myPet.key == 'pimpUnicorn':
+            self.unlockMap('map4')
+
+    def obtain(self,key):
+        if self.gameData.itemInfoList.item[key].unlock == False:
+            self.gameData.itemInfoList.item[key].unlock = True
+
+        self.gameData.itemInfoList.item[key].inventory += 4
+        self.recreateFeedMenuPlease = True
+        self.updateFeedMenuPlease = True
+
+    def unlockMap(self,map):
+        if self.gameData.mapUnlock[map] == False:
+            self.gameData.mapUnlock[map] = True
+
+
+

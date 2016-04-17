@@ -6,7 +6,6 @@ class EventHandlerPetScreen():
         self.menuPause = None
         # Default selector
         self.hPos = 0
-        self.vPos = 0
 
     def eventHandle(self,optionList,selectorList):
         self.optionList = optionList
@@ -24,7 +23,7 @@ class EventHandlerPetScreen():
                     self.menuPause.mainLoop()
                 elif event.key == pygame.K_ESCAPE:
                     self.menuPause.mainLoop()
-                elif event.key == pygame.K_RIGHT:  # Hard coded
+                elif event.key == pygame.K_RIGHT:
                     self.optionList[self.hPos][self.selector.vPos].deselect()
                     if self.hPos < self.hMax-1:
                         self.hPos += 1
@@ -32,7 +31,7 @@ class EventHandlerPetScreen():
                         self.hPos = 0
                     self.selector = self.selectorList[self.hPos]
                     self.optionList[self.hPos][self.selector.vPos].select()
-                elif event.key == pygame.K_LEFT:  # Hard coded
+                elif event.key == pygame.K_LEFT:
                     self.optionList[self.hPos][self.selector.vPos].deselect()
                     if self.hPos > 0:
                         self.hPos += -1
