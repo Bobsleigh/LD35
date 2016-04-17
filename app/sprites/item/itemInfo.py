@@ -4,23 +4,28 @@ import os
 from app.settings import *
 
 
-class Pet(pygame.sprite.Sprite):
-    def __init__(self,key,imageName,height):
+class Item(pygame.sprite.Sprite):
+    def __init__(self,key):
         super().__init__()
 
         self.key = key
         self.name = key
 
-        self.image = pygame.Surface((1,1))
+        self.image = pygame.Surface((1, 1))
+        self.imageName = 'cochon.png' #will be a variable
 
-        self.imageName = imageName
-        self.wantedHeight = height
+        self.wantedHeight = 32
+
+        self.inventory = 0
+        self.unlock = True #Put false when done testing
+        self.linkList = []
+
 
     def update(self):
         self.rect = self.image.get_rect()
         self.rect.midbottom = (SCREEN_WIDTH / 3, 2 * SCREEN_HEIGHT / 3)
 
-    def scalingDim(self,height):
+    def scalingDim(self, height):
         self.update()
         self.imagePrintedWidth = self.image.get_width() * height / self.image.get_height()
         self.image = pygame.transform.scale(self.image, (int(self.imagePrintedWidth), int(self.wantedHeight)))
@@ -28,3 +33,5 @@ class Pet(pygame.sprite.Sprite):
     def loadImage(self):
         self.image = pygame.image.load(os.path.join('img', self.imageName))
         self.scalingDim(self.wantedHeight)
+
+
