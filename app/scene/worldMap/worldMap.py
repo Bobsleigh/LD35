@@ -12,12 +12,9 @@ class WorldMap:
         # Écran
         self.screen = screen
 
-        #Map : HardCoded
-        self.mapData = MapData("WorldMap", "StartPointWorld")
-        self.gameMemory = gameData
-
-        # TODO: See where to put player. In mapData? But he will reset with each map change..?
-        self.player = Player(600, 600)
+        self.gameData = gameData
+        self.mapData = self.gameData.mapData
+        self.player = Player(self.mapData.spawmPointPlayerx, self.mapData.spawmPointPlayery)
 
         self.mapData.allSprites.add(self.player)
         self.mapData.camera.add(self.player)
@@ -39,8 +36,8 @@ class WorldMap:
         while self.sceneRunning:
             self.eventHandlerWorldMap.eventHandle(self.player)
 
-            self.logicHandler.handle(self.player, self.gameMemory)
-            # self.checkNewMap(self.logicHandler.newMap)
+            self.logicHandler.handle(self.player, self.gameData)
+            self.checkNewMap(self.logicHandler.newMapData)
 
             self.drawer.draw(self.screen, self.mapData.camera, self.mapData.spritesHUD, self.player)
 
@@ -48,28 +45,14 @@ class WorldMap:
             self.nextScene = self.logicHandler.endState
 
 
-    def checkNewMap(self, newMap):
-        if newMap is not None:
-            self.changeMap(newMap)
+    def checkNewMap(self, newMapData):
 
-    # def changeMap(self, newMap):
-    #
-    #         self.player.rect.x = self.logicHandler.spawmPointPlayerx
-    #         self.player.rect.y = self.logicHandler.spawmPointPlayery
-    #
-    #         self.mapData = newMap
-    #         self.mapData.allSprites.add(self.player)
-    #         self.mapData.camera.add(self.player)
-    #
-    #         self.gameMemory.enteringMap(self.mapData)
-    #         self.gameMemory.updateMap(self.mapData)
-    #
-    #         self.eventHandlerWorldMap.newMap(self.mapData)
-    #         self.eventHandlerWorldMap.eventHandlerPlayer.soundControllerPlayer = self.mapData.soundController
-    #
-    #         self.logicHandler.mapData = self.mapData
-    #         self.logicHandler.collisionChecker.soundControl = self.mapData.soundController
-    #         self.logicHandler.newMap = None
+        if newMapData is not None:
+            # we got to change
+            self.sceneRunning = False
+            self.nextScene = PLATFORM_SCREEN
+            self.gameData.typeScene = PLATFORM_SCREEN
+            self.gameData.mapData = newMapData
 
     def close(self):
         self.eventHandlerWorldMap.sceneRunning = False #To stop game running

@@ -15,11 +15,8 @@ class PlatformScreen:
         self.gameData = gameData
         self.nextScene = None
 
-
-        #For testing
-        # TODO: BP need to set up things / position of the player and name of the map / use self.gameData BP
-        self.mapData = MapData("LevelSheriff", "StartPointSheriff")
-        # Set the Player
+        self.gameData = gameData
+        self.mapData = self.gameData.mapData
         self.player = PlayerPlatform(self.mapData.spawmPointPlayerx, self.mapData.spawmPointPlayery)
 
         self.mapData.allSprites.add(self.player)
@@ -40,8 +37,17 @@ class PlatformScreen:
         self.sceneRunning = True
         while self.sceneRunning:
             self.eventHandler.eventHandle()
-            self.logicHandler.handle(self.player, self.mapData)
+            self.logicHandler.handle(self.player, self.gameData)
+            self.checkNewMap(self.logicHandler.newMapData)
             self.drawer.draw(self.screen, self.mapData.camera, self.mapData.spritesHUD, self.player)
+
+    def checkNewMap(self, newMapData):
+        if newMapData is not None:
+            # we got to change
+            self.sceneRunning = False
+            self.nextScene = WORLD_MAP
+            self.gameData.typeScene = WORLD_MAP
+            self.gameData.mapData = newMapData
 
     def close(self):
         self.sceneRunning = False

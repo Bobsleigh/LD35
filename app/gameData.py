@@ -4,7 +4,7 @@ from app.sprites.pet.tiger import Tiger
 
 # All the global data for the game and player
 class GameData:
-    def __init__(self):
+    def __init__(self, scene=None):
 
         self.inventory = {}
         self.inventory["coin"] = 0
@@ -37,3 +37,7 @@ class GameData:
         self.petTypeList = []
         self.petTypeList.append([RABBIT, Rabbit()])
         self.petTypeList.append([TIGER, Tiger()])
+
+        self.scene = scene
+        self.mapData = None
+

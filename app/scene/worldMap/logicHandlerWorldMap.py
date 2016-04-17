@@ -5,9 +5,9 @@ class LogicHandlerWorldMap:
     def __init__(self, mapData):
         self.sceneRunning = True
         self.endState = None
-        self.spawmPointPlayerx = 0
-        self.spawmPointPlayery = 0
-        self.newMap = None
+        # self.spawmPointPlayerx = 0
+        # self.spawmPointPlayery = 0
+        self.newMapData = None
         self.mapData = mapData
 
     def handle(self, player, gameMemory):
@@ -26,7 +26,7 @@ class LogicHandlerWorldMap:
                     nameInZone = obj.InZone
 
                     # Initializing new map
-                    self.newMap = MapData(nameNewZone, nameInZone)
+                    self.newMapData = MapData(nameNewZone, nameInZone)
 
     # def handleBottomCollision(self, sprites):
     #     for sprite in sprites:

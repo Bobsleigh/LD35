@@ -9,14 +9,14 @@ class LogicHandlerPlatformScreen:
         self.sceneRunning = True
         self.endState = None
         self.collisionChecker = CollisionPlayerPlatform()
-        self.newMap = None
+        self.newMapData = None
         self.mapData = mapData
 
 
-    def handle(self, player, mapData):
+    def handle(self, player, gameData):
         self.applyGravity(self.mapData.allSprites)
         self.applyFriction(self.mapData.allSprites)
-        self.collisionChecker.collisionAllSprites(player, self.mapData, mapData)
+        self.collisionChecker.collisionAllSprites(player, self.mapData, gameData)
         self.handleZoneCollision(player)
         self.mapData.allSprites.update()
 
@@ -30,7 +30,7 @@ class LogicHandlerPlatformScreen:
                     nameInZone = obj.InZone
 
                     # Initializing new map
-                    self.newMap = MapData(nameNewZone, nameInZone)
+                    self.mapData = MapData(nameNewZone, nameInZone)
 
     def isPlayerIsInZone(self, player, zone):
 

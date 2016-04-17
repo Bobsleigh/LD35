@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="42" height="30" tilewidth="32" tileheight="32" nextobjectid="54">
- <tileset firstgid="1" name="Set_01" tilewidth="32" tileheight="32" tilecount="25" columns="5">
+ <tileset firstgid="1" name="Set_01" tilewidth="32" tileheight="32" tilecount="25">
   <image source="img/Set_01.png" width="160" height="160"/>
  </tileset>
- <tileset firstgid="26" name="etoile" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="26" name="etoile" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/etoile.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="27" name="couleurBackground" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="27" name="couleurBackground" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/couleurBackground.png" width="32" height="32"/>
  </tileset>
  <layer name="Collision_Layer" width="42" height="30">
@@ -146,15 +146,15 @@
 </data>
  </layer>
  <objectgroup name="outZoneLayer">
-  <object id="4" name="OutZone" x="34" y="94" width="28" height="32">
+  <object id="4" name="OutZone" x="0" y="24" width="130" height="144">
    <properties>
     <property name="InZone" value="StartPointWorld"/>
-    <property name="LevelZone" value="LevelWorld"/>
+    <property name="LevelZone" value="WorldMap"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="inZoneLayer">
-  <object id="3" name="InZone" x="1119" y="853" width="33" height="30">
+  <object id="3" name="InZone" x="1091.73" y="807.545" width="33" height="30">
    <properties>
     <property name="StartPoint" value="StartPointSheriff"/>
    </properties>
@@ -166,7 +166,7 @@
     <property name="direction" value="Left"/>
    </properties>
   </object>
-  <object id="52" name="enemyShooter" type="enemy" x="98" y="50" width="60" height="60">
+  <object id="52" name="enemyShooter" type="enemy" x="226" y="58" width="60" height="60">
    <properties>
     <property name="direction" value="Right"/>
    </properties>
@@ -178,7 +178,7 @@
   </object>
  </objectgroup>
  <objectgroup name="itemLayer" offsetx="222" offsety="-2">
-  <object id="5" name="Cupcake" type="Item" x="-188" y="96" width="26" height="30"/>
+  <object id="5" name="Cupcake" type="Item" x="-64" y="92" width="26" height="30"/>
   <object id="7" name="StarMoney" type="Item" x="-180" y="318"/>
   <object id="18" name="StarMoney" type="Item" x="271.333" y="334"/>
   <object id="19" name="StarMoney" type="Item" x="336.667" y="338"/>
