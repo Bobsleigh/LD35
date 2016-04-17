@@ -1,16 +1,21 @@
 import pygame
 from app.settings import *
 
+from app.textLine import TextLine
+
 
 #For a very short message only
 
 class MessageBox(pygame.sprite.Sprite):
-    def __init__(self, message, width, height, centerx, centery):
+    def __init__(self, textList, width, height, centerx, centery,line2='123'):
         super().__init__()
 
-        self.msgFont = pygame.font.SysFont(FONT_NAME, 24)
-        self.message = message
-        self.printedMessage = self.msgFont.render(self.message, True, COLOR_MENU_FONTS)
+        self.msgFont = pygame.font.SysFont(FONT_NAME,24)
+
+        self.lines = []
+
+        for text in textList:
+            self.lines.append(TextLine(text))
 
         self.image = pygame.Surface([width, height])
         self.rect = self.image.get_rect()
@@ -35,8 +40,22 @@ class MessageBox(pygame.sprite.Sprite):
         self.image.fill(self.color1, self.button)
 
         #Update message
-        self.printedMessage = self.msgFont.render(self.message, True, COLOR_MENU_FONTS)
+        self.textHeight = 0
+        self.textWidth = 0
 
-        self.textPos = [(self.image.get_width() - self.printedMessage.get_width()) * 0.5,
-                        (self.image.get_height() - self.printedMessage.get_height()) * 0.5]
-        self.image.blit(self.printedMessage, self.textPos)
+        for line in self.lines:
+            line.printedLine = self.msgFont.render(line.text, True, COLOR_MENU_FONTS)
+            self.textHeight += line.printedLine.get_height()
+            if line.printedLine.get_width() > self.textWidth:
+                self.textWidth = line.printedLine.get_width()
+
+        #Get each line position
+        numberLine = len(self.lines)
+        count = 0
+        for line in self.lines:
+            line.position = [(self.image.get_width() - self.textWidth) * 0.5,
+                        (self.image.get_height() - self.textHeight) * 0.5 + self.textHeight * (count / numberLine)]
+        for line in self.lines:
+            self.image.blit(line.printedLine, line.position)
+    def addLine(self):
+        pass
