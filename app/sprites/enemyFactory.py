@@ -25,8 +25,8 @@ class EnemyFactory:
 
          enemyCreated = EnemyCactus(enemy.x, enemy.y)
 
-         # if direction:
-            # enemyCreated.set_direction(self, direction)
+         if direction:
+            enemyCreated.set_direction(direction)
          if distanceMax:
             enemyCreated.set_distance_max(int(distanceMax))
          return enemyCreated

@@ -32,29 +32,31 @@ class EnemyCactus(Enemy):
             self.isGravityApplied = True
             self.isCollisionApplied = True
 
-        def set_direction(self, direction):
-            self.direction = direction
-            if self.direction == "Left":
-                self.speedx = -self.speedBase
-                self.image = self.imageEnemy
+    def set_direction(self, direction):
+        self.direction = direction
+        if self.direction == "Left":
+            self.speedx = -self.speedBase
+            self.image = self.imageEnemy
+        if self.direction == "Right":
+            self.speedx = self.speedbase
+            self.image = self.imageEnemy
+
+    def set_distance_max(self, distance):
+        self.distanceMax = distance
+
+    def update(self):
+
+        if self.speedx == 0 or self.distance >= self.distanceMax:
             if self.direction == "Right":
-                self.speedx = self.speedbase
-                self.image = self.imageEnemy
+                self.direction = "Left"
+                self.speedx = -self.speedBase
+            elif self.direction == "Left":
+                self.direction = "Right"
+                self.speedx = self.speedBase
 
-        def set_distance_max(self, distance):
-            self.distanceMax = distance
+        self.rect.x += self.speedx
+        self.rect.y += self.speedy
 
-        def update(self):
+        # print(self.speedy)
 
-            if self.speedx == 0 or self.distance >= self.distanceMax:
-                if self.direction == "Right":
-                    self.direction = "Left"
-                    self.speedx = -self.speedBase
-                elif self.direction == "Left":
-                    self.direction = "Right"
-                    self.speedx = self.speedBase
-
-            self.rect.x += self.speedx
-            self.rect.y += self.speedy
-
-            self.distance = math.fabs(self.initx - self.rect.x)
+        self.distance = math.fabs(self.initx - self.rect.x)

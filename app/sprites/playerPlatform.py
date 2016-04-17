@@ -10,13 +10,8 @@ class PlayerPlatform(pygame.sprite.Sprite):
 
         self.name = "player"
 
-        # imageD = pygame.image.load(os.path.join('img', 'joueur_droite.png'))
-        # imageG = pygame.image.load(os.path.join('img', 'joueur_gauche.png'))
-        # self.imageShapeRight = pygame.transform.scale(imageD, (TILEDIMX, TILEDIMY))
-        # self.imageShapeLeft = pygame.transform.scale(imageG, (TILEDIMX, TILEDIMY))
-
-        self.imageShapeRight = pygame.image.load(os.path.join('img', 'joueur_gauche_redim.png'))
-        self.imageShapeLeft = pygame.image.load(os.path.join('img', 'joueur_gauche_redim.png'))
+        self.imageShapeRight = pygame.image.load(os.path.join('img', 'joueur_droite.png'))
+        self.imageShapeLeft = pygame.image.load(os.path.join('img', 'joueur_gauche.png'))
         self.image = self.imageShapeRight
 
         self.rect = self.image.get_rect()
@@ -31,7 +26,7 @@ class PlayerPlatform(pygame.sprite.Sprite):
 
         self.speedx = 0
         self.speedy = 0
-        self.maxSpeedx = 5
+        self.maxSpeedx = 6
         self.maxSpeedyUp = 40
         self.maxSpeedyDown = 8
         self.accx = 2

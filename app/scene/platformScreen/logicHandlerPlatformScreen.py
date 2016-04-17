@@ -2,7 +2,7 @@ from app.mapData import MapData
 from app.bullet import *
 from app.settings import *
 from app.scene.platformScreen.collisionPlayerPlatform import CollisionPlayerPlatform
-
+from app.tools.functionTools import *
 
 class LogicHandlerPlatformScreen:
     def __init__(self, player, mapData):
