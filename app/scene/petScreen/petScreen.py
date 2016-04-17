@@ -2,7 +2,7 @@ import pygame
 import os
 
 from app.menu.menu import Menu
-from app.menu.menuImg import MenuImg
+from app.menu.menuPetScreen import MenuPetScreen
 
 from app.menuPause.menuPause import MenuPause
 from app.scene.petScreen.eventHandlerPetScreen import EventHandlerPetScreen
@@ -29,17 +29,14 @@ class PetScreen:
 
         self.screenData.allSprites.add(self.gameData.myPet)
 
-        #Create test menu
-        self.menuTest = MenuImg(
-            pygame.Rect(1 * SCREEN_WIDTH / 2, 1 * SCREEN_HEIGHT / 2, 400, 200))
-        self.menuTest.addOption(self.gameData.itemInfoList.item['cupcake'],self.close())
-        self.menuTest.addOption(self.gameData.itemInfoList.item['goldBar'], self.close())
-        self.screenData.allSprites.add(self.menuTest.spritesMenu)  # Add sprite
+
 
         #Create feedMenu
-        self.realMenuFeedHeight = 3 * SCREEN_HEIGHT / 5
+        self.menuFeedWidth = 1* SCREEN_WIDTH / 7
+        self.realMenuFeedHeight = 7 * SCREEN_HEIGHT / 9
+        self.menuFeedPosx = 4* SCREEN_WIDTH / 5
         self.realMenuFeedPosy = 2*SCREEN_HEIGHT / 5
-        self.createFeedMenu(4 * SCREEN_WIDTH / 5, self.realMenuFeedPosy, SCREEN_WIDTH / 6, self.realMenuFeedHeight)
+        self.createFeedMenu()
 
         #Get rabbit button
         self.getRabbitButton = Menu(
@@ -54,9 +51,7 @@ class PetScreen:
         self.screenData.allSprites.add(self.backToWorldMap.spritesMenu) #Add sprite
 
         #all option and 2D selector for Pet Screen
-        self.optionList = [self.backToWorldMap.optionList,self.getRabbitButton.optionList,self.menuFeed.optionList]
-        self.selectorList = [self.backToWorldMap.selector,self.getRabbitButton.selector,self.menuFeed.selector]
-        self.setDefaultPos()
+        self.groupAllMenu(0,0)
 
         #Menu pause
         self.menuPause = MenuPause(screen,self.backToMain)
@@ -69,47 +64,59 @@ class PetScreen:
         self.sceneRunning = True
         while self.sceneRunning:
             self.eventHandler.eventHandle(self.optionList,self.selectorList)
-            self.logicHandler.logicHandle( )  # This will go in the logic
+            self.logicHandler.logicHandle()  # This will go in the logic
+
+            #Don't know where to put this....
+            if self.logicHandler.recreateFeedMenuPlease:
+                self.logicHandler.recreateFeedMenuPlease = False
+                self.screenData.allSprites.remove(self.menuFeed.spritesMenu)
+                self.createFeedMenu()
+                self.groupAllMenu(self.eventHandler.hPos,0)
+            if self.logicHandler.updateFeedMenuPlease:
+                self.logicHandler.updateFeedMenuPlease = False
+                self.updateMenuFeed()
+
             self.draw()  # Drawer in THIS file, below
 
     def draw(self):
-        for key in self.gameData.itemInfoList.item:
-            self.menuTest.updateName(self.gameData.itemInfoList.item[key])
         self.screen.blit(self.background, (0, 0))
         self.screenData.allSprites.draw(self.screen)
         pygame.display.flip()
 
-    def createFeedMenu(self,centerx,centery,width,height):
-        self.getMenuSpec(centery,height)
-        self.menuFeed = Menu(pygame.Rect(centerx, self.menuFeedPosy, width, self.menuFeedHeight)
+    def createFeedMenu(self):
+        self.getMenuSpec(self.realMenuFeedPosy,self.realMenuFeedHeight)
+        self.menuFeed = MenuPetScreen(pygame.Rect(self.menuFeedPosx, self.menuFeedPosy, self.menuFeedWidth, self.menuFeedHeight)
         )
         #Check what item we have
         if self.gameData.itemInfoList.item["cupcake"].unlock:
-            self.menuFeed.addOption('cupcake', self.logicHandler.giveCupcake)
+            self.menuFeed.addOption(self.gameData.itemInfoList.item['cupcake'], self.logicHandler.giveCupcake)
         if self.gameData.itemInfoList.item["goldBar"].unlock:
-            self.menuFeed.addOption('goldBar', self.logicHandler.giveGoldBar)
+            self.menuFeed.addOption(self.gameData.itemInfoList.item['goldBar'], self.logicHandler.giveGoldBar)
         if self.gameData.itemInfoList.item["horseshoe"].unlock:
-            self.menuFeed.addOption('horseshoe', self.logicHandler.giveHorseshoe)
+            self.menuFeed.addOption(self.gameData.itemInfoList.item['horseshoe'], self.logicHandler.giveHorseshoe)
         if self.gameData.itemInfoList.item["bone"].unlock:
-            self.menuFeed.addOption('bone', self.logicHandler.giveBone)
+            self.menuFeed.addOption(self.gameData.itemInfoList.item['bone'], self.logicHandler.giveBone)
         if self.gameData.itemInfoList.item["carrot"].unlock:
-            self.menuFeed.addOption('carrot', self.logicHandler.giveCarrot)
+            self.menuFeed.addOption(self.gameData.itemInfoList.item['carrot'], self.logicHandler.giveCarrot)
         if self.gameData.itemInfoList.item["apple"].unlock:
-            self.menuFeed.addOption('apple', self.logicHandler.giveApple)
+            self.menuFeed.addOption(self.gameData.itemInfoList.item['apple'], self.logicHandler.giveApple)
         if self.gameData.itemInfoList.item["pokerChip"].unlock:
-            self.menuFeed.addOption('gun', self.logicHandler.giveGun)
+            self.menuFeed.addOption(self.gameData.itemInfoList.item['gun'], self.logicHandler.giveGun)
         if self.gameData.itemInfoList.item["pokerChip"].unlock:
-            self.menuFeed.addOption('pokerChip', self.logicHandler.givePokerChip)
+            self.menuFeed.addOption(self.gameData.itemInfoList.item['pokerChip'], self.logicHandler.givePokerChip)
         if self.gameData.itemInfoList.item["totem"].unlock:
-            self.menuFeed.addOption('totem', self.logicHandler.giveTotem)
+            self.menuFeed.addOption(self.gameData.itemInfoList.item['totem'], self.logicHandler.giveTotem)
         self.screenData.allSprites.add(self.menuFeed.spritesMenu)  # Add sprite
 
+    def updateMenuFeed(self):
+        for key in self.gameData.itemInfoList.item:
+            self.menuFeed.updateName(self.gameData.itemInfoList.item[key])
 
-    def setDefaultPos(self):  # Goes with 2D selector
+    def setDefaultPos(self,hPos,vPos):  # Goes with 2D selector
         for optionColumn in self.optionList:
             for option in optionColumn:
                 option.deselect()
-        self.optionList[0][0].select()
+        self.optionList[hPos][vPos].select()
 
     def getMenuSpec(self,centery,height):
         optForNow = 0
@@ -119,6 +126,11 @@ class PetScreen:
         realOptNum = 9
         self.menuFeedHeight = height*(optForNow)/realOptNum
         self.menuFeedPosy = centery-self.realMenuFeedHeight/2+self.menuFeedHeight/2
+
+    def groupAllMenu(self,selectorHPos,selectorVPos):
+        self.optionList = [self.backToWorldMap.optionList, self.getRabbitButton.optionList, self.menuFeed.optionList]
+        self.selectorList = [self.backToWorldMap.selector, self.getRabbitButton.selector, self.menuFeed.selector]
+        self.setDefaultPos(selectorHPos,selectorVPos)
 
     def close(self):
         self.nextScene = TITLE_SCREEN

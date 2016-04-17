@@ -7,6 +7,8 @@ class LogicHandlerPetScreen:
         self.sceneRunning = True
         self.gameData = gameData
         self.screenData = data
+        self.updateFeedMenuPlease = False
+        self.recreateFeedMenuPlease = False
 
 
     def logicHandle(self):
@@ -22,6 +24,8 @@ class LogicHandlerPetScreen:
         self.screenData.allSprites.remove(self.gameData.myPet)
         self.gameData.myPet = self.screenData.petTypeList.pet[nextPet]
         self.gameData.myPet.loadImage()
+        if self.gameData.myPet.eventTrigger:
+            self.checkTrigger()
         self.screenData.allSprites.add(self.gameData.myPet)
 
     def giveCupcake(self):
@@ -58,6 +62,7 @@ class LogicHandlerPetScreen:
             self.screenData.messageLog.message = 'You\'re out of ' + self.gameData.itemInfoList.item[item].name + '!'
         elif self.gameData.itemInfoList.item[item].inventory > 0:
             self.gameData.itemInfoList.item[item].inventory += -1
+            self.updateFeedMenuPlease = True
 
             for link in self.gameData.itemInfoList.item[givenItem].linkList:
                 if self.gameData.myPet.key == link[0]:
@@ -70,3 +75,16 @@ class LogicHandlerPetScreen:
 
     def nothingHappened(self):
         self.screenData.messageLog.message = 'Nothing happened.'
+
+    def checkTrigger(self):
+        if self.gameData.myPet.key == 'carrotRabbit':
+            self.obtainApple()
+
+    def obtainApple(self):
+        if self.gameData.itemInfoList.item['apple'].unlock == False:
+            self.gameData.itemInfoList.item['apple'].unlock = True
+        self.gameData.itemInfoList.item['apple'].inventory += 1
+        self.recreateFeedMenuPlease = True
+        self.updateFeedMenuPlease = True
+
+

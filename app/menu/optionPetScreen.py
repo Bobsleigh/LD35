@@ -4,7 +4,7 @@ from app.settings import *
 
 
 #Objets
-class OptionImg(pygame.sprite.Sprite):
+class OptionPetScreen(pygame.sprite.Sprite):
     def __init__(self,item,method):
         super().__init__()
 

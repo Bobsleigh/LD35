@@ -48,7 +48,8 @@ DOWN = 3
 #Collisions
 COLLISION_LAYER = 0
 SOLID = 1 #Booléen de GID pour collision
-SPIKE = 2
+SPIKE = 3
+SPRING = 2
 
 #Player jump states
 GROUNDED = 0
