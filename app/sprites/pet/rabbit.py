@@ -12,5 +12,9 @@ class Rabbit(Pet):
         self.name = 'rabbit'
 
         self.image = pygame.image.load(os.path.join('img', 'lapin.png'))
-        self.image = pygame.transform.scale(self.image,(100,100))
 
+        # Set wanted height
+        self.imagePrintedHeight = 250
+        self.scalingDim(self.imagePrintedHeight)
+
+        self.image = pygame.transform.scale(self.image,(int(self.imagePrintedWidth),int(self.imagePrintedHeight)))

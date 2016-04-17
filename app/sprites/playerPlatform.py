@@ -33,7 +33,7 @@ class PlayerPlatform(pygame.sprite.Sprite):
         self.speedy = 0
         self.maxSpeedx = 8
         self.maxSpeedyUp = 40
-        self.maxSpeedyDown = 10
+        self.maxSpeedyDown = 8
         self.accx = 2
         self.accy = 2
         self.jumpSpeed = -15
@@ -98,13 +98,14 @@ class PlayerPlatform(pygame.sprite.Sprite):
             self.life = self.lifeMax
 
     def loseLife(self):
-        if not self.isInvincible:
-            if self.life > 1:
-                self.life -= 1
-                self.invincibleOnHit()
-                self.visualFlash()
-            elif self.life > 0:
-                self.life -= 1
+        self.kill()
+        # if not self.isInvincible:
+        #     if self.life > 1:
+        #         self.life -= 1
+        #         # self.invincibleOnHit()
+        #         # self.visualFlash()
+        #     elif self.life > 0:
+        #         self.life -= 1
 
 
     def gainLifeMax(self):
