@@ -74,7 +74,7 @@ class LogicHandlerPetScreen:
                     self.nothingHappened()
 
     def nothingHappened(self):
-        self.screenData.messageLog.message = 'Nothing happened.'
+        self.screenData.messageLog.line1 = 'Nothing happened.'
 
     def checkTrigger(self):
         if self.gameData.myPet.key == 'dog':
