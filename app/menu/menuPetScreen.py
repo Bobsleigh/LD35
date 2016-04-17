@@ -1,9 +1,9 @@
 import pygame
-from app.menu.optionImg import OptionImg
+from app.menu.optionPetScreen import OptionPetScreen
 from app.menu.selector import Selector
 
 
-class MenuImg():
+class MenuPetScreen():
     def __init__(self,dimension):
 
         # Menu center
@@ -21,7 +21,7 @@ class MenuImg():
         self.spritesMenu = pygame.sprite.Group()
 
     def addOption(self,item,method):
-        self.optionList.append(OptionImg(item,method))
+        self.optionList.append(OptionPetScreen(item,method))
         self.createMenu()
 
     def createMenu(self):
@@ -45,7 +45,7 @@ class MenuImg():
         spaceHeight = self.menuHeight / (self.optNum)
 
         for option in self.optionList:
-            option.image = pygame.Surface([spaceWidth * 0.9, spaceHeight * 0.7])
+            option.image = pygame.Surface([spaceWidth * 0.9, spaceHeight * 0.9])
             option.rect = option.image.get_rect()
 
             count = self.optionList.index(option)
@@ -59,7 +59,7 @@ class MenuImg():
 
             option.textPos = [option.image.get_width()/2,(option.image.get_height()-option.printedName.get_height())*0.5]
 
-            option.scalingDim(option.image.get_height() * 0.8)
+            option.scalingDim(option.image.get_height() * 0.7)
             option.iconPos = [option.image.get_width()/2-option.icon.get_width()*1.1, (option.image.get_height() - option.icon.get_height()) * 0.5]
 
 
