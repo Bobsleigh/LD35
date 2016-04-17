@@ -122,7 +122,7 @@
     <property name="StartPoint" value="OutLevelIndian"/>
    </properties>
   </object>
-  <object id="27" name="InZone" x="96" y="126" width="32" height="32">
+  <object id="27" name="InZone" x="96" y="192" width="32" height="32">
    <properties>
     <property name="StartPoint" value="OutLevelSheriff"/>
    </properties>

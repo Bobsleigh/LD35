@@ -4,6 +4,7 @@ import os
 from app.sprites.enemy.enemy import Enemy
 from app.bullet import HeartBullet
 from app.settings import *
+import random
 
 
 class EnemySaloon(Enemy):
@@ -29,7 +30,7 @@ class EnemySaloon(Enemy):
         self.isGravityApplied = True
         self.isCollisionApplied = True
 
-        self.imageIterShoot = 40
+        self.imageIterShoot = random.randint(10,70)
         self.imageWaitNextShoot = 80
 
     def setDirection(self, direction):
