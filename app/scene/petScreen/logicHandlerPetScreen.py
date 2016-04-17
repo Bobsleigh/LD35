@@ -33,10 +33,29 @@ class LogicHandlerPetScreen:
     def giveHorseshoe(self):
         self.give(self.gameData.itemInfoList.item["horseshoe"].key)
 
+    def giveBone(self):
+        self.give(self.gameData.itemInfoList.item["bone"].key)
+
+    def giveCarrot(self):
+        self.give(self.gameData.itemInfoList.item["carrot"].key)
+
+    def giveApple(self):
+        self.give(self.gameData.itemInfoList.item["apple"].key)
+
+    def giveGun(self):
+        self.give(self.gameData.itemInfoList.item["gun"].key)
+
+    def givePokerChip(self):
+        self.give(self.gameData.itemInfoList.item["pokerChip"].key)
+
+    def giveTotem(self):
+        self.give(self.gameData.itemInfoList.item["totem"].key)
+
+
     def give(self, givenItem):
         item = givenItem
         if self.gameData.itemInfoList.item[item].inventory == 0:
-            self.screenData.messageLog.message = 'You\'re out of ' + self.gameData.itemInfoList.item[item].inventory + '!'
+            self.screenData.messageLog.message = 'You\'re out of ' + self.gameData.itemInfoList.item[item].name + '!'
         elif self.gameData.itemInfoList.item[item].inventory > 0:
             self.gameData.itemInfoList.item[item].inventory += -1
 
