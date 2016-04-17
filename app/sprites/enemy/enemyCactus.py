@@ -29,8 +29,8 @@ class EnemyCactus(Enemy):
             self.speedx = -self.speedBase
             self.image = self.imageEnemy
 
-            self.isGravityApplied = True
-            self.isCollisionApplied = True
+        self.isGravityApplied = True
+        self.isCollisionApplied = True
 
     def set_direction(self, direction):
         self.direction = direction

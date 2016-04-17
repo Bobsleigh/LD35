@@ -20,10 +20,13 @@
 
 ## Other
 
-Git
+Files management : Git
 
-PyCharm
+IDE : PyCharm
 
-Tiled
+Maps : Tiled
 
-PhotoShop
+Graphics : PhotoShop, Paint.net
+
+Music : REAPER
+Music keyboard : AKAI MPK 49

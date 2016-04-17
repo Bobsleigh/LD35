@@ -10,7 +10,7 @@ class LogicHandlerWorldMap:
         self.newMapData = None
         self.mapData = mapData
 
-    def handle(self, player, gameMemory):
+    def handle(self, player):
         # self.handleObjectCollision(player, self.mapData)
         self.handleZoneCollision(player)
         self.mapData.allSprites.update()

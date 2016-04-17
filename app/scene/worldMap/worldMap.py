@@ -40,7 +40,7 @@ class WorldMap:
         while self.sceneRunning:
             self.eventHandlerWorldMap.eventHandle(self.player)
 
-            self.logicHandler.handle(self.player, self.gameData)
+            self.logicHandler.handle(self.player)
             self.checkNewMap(self.logicHandler.newMapData)
 
             self.drawer.draw(self.screen, self.mapData.camera, self.mapData.spritesHUD, self.player)

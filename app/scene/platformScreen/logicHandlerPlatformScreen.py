@@ -13,7 +13,7 @@ class LogicHandlerPlatformScreen:
         self.newMapData = None
         self.mapData = mapData
 
-    def handle(self, player, mapData):
+    def handle(self, player):
         self.applyGravity(self.mapData.allSprites)
         self.applyFriction(self.mapData.allSprites)
         self.collisionChecker.collisionAllSprites(player, self.mapData)
