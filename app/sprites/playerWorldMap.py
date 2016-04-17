@@ -25,9 +25,11 @@ class Player(pygame.sprite.Sprite):
         self.tileX = x / TILE_WIDTH
         self.tileY = y / TILE_HEIGHT
 
+        self.isPhysicsApplied = True
+
     def update(self):
         self.rect.x = self.tileX * TILE_WIDTH
-        self.rect.y = self.tileY * TILE_HEIGHT
+        self.rect.y = self.tileY * TILE_HEIGHT - self.rect.height
 
         if self.facingSide == RIGHT:
             self.image = self.imageShapeRight

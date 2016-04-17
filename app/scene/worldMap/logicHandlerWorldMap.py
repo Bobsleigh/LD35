@@ -1,23 +1,23 @@
 from app.mapData import MapData
 from app.settings import *
+from app.scene.worldMap.collisionPlayerWorldMap import CollisionPlayerWorldMap
 
 class LogicHandlerWorldMap:
-    def __init__(self, mapData):
+    def __init__(self, player, mapData):
         self.sceneRunning = True
         self.endState = None
         # self.spawmPointPlayerx = 0
         # self.spawmPointPlayery = 0
         self.newMapData = None
         self.mapData = mapData
+        self.collisionChecker = CollisionPlayerWorldMap(player, self.mapData)
 
-    def handle(self, player):
-        # self.handleObjectCollision(player, self.mapData)
+    def handle(self, player, oldX, oldY):
+        self.collisionChecker.collisionAllSprites(player, self.mapData, oldX, oldY)
         self.handleZoneCollision(player)
         self.mapData.allSprites.update()
 
-
     def handleZoneCollision(self, player):
-
         for obj in self.mapData.tmxData.objects:
             if self.isPlayerIsInZone(player, obj) == True:
                 if obj.name == "OutZone":
@@ -34,7 +34,6 @@ class LogicHandlerWorldMap:
     #             sprite.rect.y = SCREEN_HEIGHT - sprite.rect.height
     #             sprite.speedy = 0
     #             sprite.jumpState = GROUNDED
-
 
     def isPlayerIsInZone(self, player, object):
 

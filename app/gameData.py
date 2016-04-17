@@ -15,7 +15,7 @@ class GameData:
         self.inventory["cupcake"] = 10
         self.inventory["goldBar"] = 10
         self.inventory["horseshoe"] = 10
-        self.inventory["item4"] = 0
+        self.inventory["bone"] = 0
         self.inventory["item5"] = 0
         self.inventory["item6"] = 0
         self.inventory["item7"] = 0
@@ -42,8 +42,9 @@ class GameData:
         self.mapUnlock["map4"] = True
 
         #My pet: rabbit at first
-        petList = PetList()
-        self.myPet = petList.pet['rabbit']
+        self.petList = PetList()
+        self.myPet = self.petList.pet['rabbit']
+        self.myPet.loadImage()
 
 
         self.scene = scene
