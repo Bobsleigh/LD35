@@ -2,7 +2,7 @@ import pygame
 import os
 
 from app.sprites.enemy.enemy import Enemy
-from app.bullet import Bullet
+from app.bullet import BeerBullet
 from app.settings import *
 
 
@@ -43,9 +43,9 @@ class EnemyShooter(Enemy):
         if self.imageIterShoot > self.imageWaitNextShoot:
 
             if self.direction == "Right":
-                bullet = Bullet(self.rect.x + self.rect.width + 1, self.rect.centery, RIGHT, False)
+                bullet = BeerBullet(self.rect.x + self.rect.width + 1, self.rect.centery, RIGHT, False)
             elif self.direction == "Left":
-                bullet = Bullet(self.rect.x - 1, self.rect.centery, LEFT, False)
+                bullet = BeerBullet(self.rect.x - 1, self.rect.centery, LEFT, False)
 
             self.theMap.camera.add(bullet)
             self.theMap.allSprites.add(bullet)

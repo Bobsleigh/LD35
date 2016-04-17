@@ -8,15 +8,15 @@ from app.scene.platformScreen.collisionPlayerPlatform import *
 
 class Bullet(Enemy):
     def __init__(self, x, y, direction=RIGHT, friendly=True):
-        super().__init__(x, y, os.path.join('img', 'biere32x32.png'))
+        super().__init__(x, y, os.path.join('img', 'Bullet.png'))
 
         self.name = "bullet"
 
         self.imageBulletRight = list()
-        self.imageBulletRight.append(pygame.image.load(os.path.join('img', 'biere32x32.png')))
+        self.imageBulletRight.append(pygame.image.load(os.path.join('img', 'Bullet.png')))
 
         self.imageBulletLeft = list()
-        self.imageBulletLeft.append(pygame.image.load(os.path.join('img', 'biere32x32.png')))
+        self.imageBulletLeft.append(pygame.image.load(os.path.join('img', 'Bullet.png')))
 
         self.image = self.imageBulletRight[0]
 
@@ -44,3 +44,49 @@ class Bullet(Enemy):
     def update(self):
         self.rect.x += self.speedx
         # self.animation.update(self)
+
+class HeartBullet(Bullet):
+    def __init__(self, x, y, direction=RIGHT, friendly=True):
+        super().__init__(x, y, os.path.join('img', 'HeartBullet.png'))
+
+        self.name = "bullet"
+
+        self.image = pygame.image.load(os.path.join('img', 'HeartBullet.png'))
+
+        self.direction = direction
+
+        self.rect = self.image.get_rect()
+        self.rect.y = y - self.rect.height / 2
+
+        if direction == RIGHT:
+            self.speedx = 10
+            self.rect.x = x
+        elif direction == LEFT:
+            self.speedx = -10
+            self.rect.x = x - self.rect.width
+        self.speedy = 0
+
+        self.friendly = friendly
+
+class BeerBullet(Bullet):
+    def __init__(self, x, y, direction=RIGHT, friendly=True):
+        super().__init__(x, y, os.path.join('img', 'biere32x32.png'))
+
+        self.name = "bullet"
+
+        self.image = pygame.image.load(os.path.join('img', 'biere32x32.png'))
+
+        self.direction = direction
+
+        self.rect = self.image.get_rect()
+        self.rect.y = y - self.rect.height / 2
+
+        if direction == RIGHT:
+            self.speedx = 10
+            self.rect.x = x
+        elif direction == LEFT:
+            self.speedx = -10
+            self.rect.x = x - self.rect.width
+        self.speedy = 0
+
+        self.friendly = friendly
