@@ -53,6 +53,13 @@ class PlayerPlatform(pygame.sprite.Sprite):
 
         self.isAlive = True
 
+        self.soundSpring = pygame.mixer.Sound(os.path.join('music_pcm', 'LvlUpFail.wav'))
+        self.soundBullet = pygame.mixer.Sound(os.path.join('music_pcm', 'Gun.wav'))
+        self.soundGetHit = pygame.mixer.Sound(os.path.join('music_pcm', 'brokenGlass.wav'))
+        self.soundSpring.set_volume(1)
+        self.soundBullet.set_volume(.3)
+        self.soundGetHit.set_volume(.3)
+
     def update(self):
         self.capSpeed()
         self.rect.x += self.speedx
@@ -128,8 +135,8 @@ class PlayerPlatform(pygame.sprite.Sprite):
         self.visualFlash()
 
     def dead(self):
-        #self.isAlive = False
-        pass
+        self.isAlive = False
+        self.soundGetHit.play()
 
     def pickedPowerUpMaxHealth(self):
         self.gainLifeMax()
@@ -172,7 +179,10 @@ class PlayerPlatform(pygame.sprite.Sprite):
         self.mapData.camera.add(bullet)
         self.mapData.allSprites.add(bullet)
         self.mapData.friendlyBullet.add(bullet)
+        self.soundBullet.play()
 
     def spring(self):
         self.jumpState = JUMP
         self.speedy = -self.maxSpeedyUp
+        self.soundSpring.play()
+

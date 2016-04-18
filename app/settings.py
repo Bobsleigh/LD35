@@ -60,7 +60,7 @@ GRAVITY = 1
 FRICTION = 0.8
 
 
-# Dimension tile
+# Dimension tile base for icon
 TILEDIMX = 32
 TILEDIMY = 32
 

@@ -38,3 +38,4 @@ class GameData:
         if item.name in self.itemInfoList.item:
             numberOfItem = self.itemInfoList.item[item.name].inventory
             self.itemInfoList.item[item.name].inventory += max(numberOfItem+1, self.maxItemOfAType)
+            self.itemInfoList.item[item.name].unlock = True

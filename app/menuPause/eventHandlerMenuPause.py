@@ -28,6 +28,8 @@ class EventHandlerMenuPause():
                     self.optionList[self.selector.vPos].doOption()
                 elif event.key == pygame.K_BACKSPACE:
                     self.close()
+                    self.optionList[self.selector.vPos].selectQuit()
                 elif event.key == pygame.K_ESCAPE:
                     self.close()
+                    self.optionList[self.selector.vPos].selectQuit()
 

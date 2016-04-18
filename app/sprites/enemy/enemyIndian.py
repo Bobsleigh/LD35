@@ -71,3 +71,7 @@ class EnemyIndian(Enemy):
             self.direction = "Right"
         else:
             self.direction = "Left"
+
+    def dead(self):
+        self.soundDead.play()
+        self.kill()

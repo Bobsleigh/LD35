@@ -3,15 +3,23 @@ from app.bullet import *
 from app.settings import *
 from app.scene.platformScreen.collisionPlayerPlatform import CollisionPlayerPlatform
 from app.tools.functionTools import *
+from app.sprites.deadText import DeadText
+import pygame
 
 class LogicHandlerPlatformScreen:
-    def __init__(self, player, mapData):
+    def __init__(self, screen, player, mapData):
 
         self.sceneRunning = True
         self.endState = None
         self.collisionChecker = CollisionPlayerPlatform(player, mapData)
         self.newMapData = None
         self.mapData = mapData
+
+        self.deadText = DeadText(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
+        self.gameOverGroup = pygame.sprite.Group()
+        self.gameOverGroup.add(self.deadText)
+
+        self.screen = screen
 
     def handle(self, player, gameData):
         self.applyGravity(self.mapData.allSprites)
@@ -77,5 +85,8 @@ class LogicHandlerPlatformScreen:
 
     def gameOverCondition(self,player):
         if player.isAlive == False:
+            self.gameOverGroup.draw(self.screen)
+            pygame.display.flip()
+            pygame.time.wait(2000)
             self.newMapData = MapData('WorldMap', 'StartPointWorld')
             self.sceneRunning = False
