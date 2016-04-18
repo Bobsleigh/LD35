@@ -7,16 +7,15 @@ class ItemInfoList:
         self.item = {}
 
         #All item
-        self.item['cupcake'] = ItemInfo('cupcake', 'cupcake32x32.png')
-        self.item['goldBar'] = ItemInfo('goldBar', 'Gold32x32.png')
-        self.item['horseshoe'] = ItemInfo('horseshoe', 'Fer.png')
-        self.item['bone'] = ItemInfo('bone', 'bone.png')
-        self.item['carrot'] = ItemInfo('carrot', 'Carotte.png')
-        self.item['apple'] = ItemInfo('apple', 'Pomme.png')
-        self.item['apple'].name = 'alien apple'
-        self.item['gun'] = ItemInfo('gun', 'Gun32x32.png')
-        self.item['pokerChip'] = ItemInfo('pokerChip', 'Jetons.png')
-        self.item['totem'] = ItemInfo('totem', 'totem.png')
+        self.item['cupcake'] = ItemInfo('cupcake','cupcake','cupcake32x32.png')
+        self.item['goldBar'] = ItemInfo('goldBar', 'gold bar','Gold32x32.png')
+        self.item['horseshoe'] = ItemInfo('horseshoe', 'horseshoe','Fer.png')
+        self.item['bone'] = ItemInfo('bone', 'bone','bone.png')
+        self.item['carrot'] = ItemInfo('carrot', 'carrot','Carotte.png')
+        self.item['apple'] = ItemInfo('apple', 'mars apple','Pomme.png')
+        self.item['gun'] = ItemInfo('gun', 'pistol','Gun32x32.png')
+        self.item['pokerChip'] = ItemInfo('pokerChip', 'poker chip','Jetons.png')
+        self.item['totem'] = ItemInfo('totem', 'totem','totem.png')
 
         # Set Link
         #Tier 1 link

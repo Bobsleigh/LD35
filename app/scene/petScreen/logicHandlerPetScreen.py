@@ -10,20 +10,25 @@ class LogicHandlerPetScreen:
         self.updateFeedMenuPlease = False
         self.recreateFeedMenuPlease = False
 
+        self.winningCondition = None
+
+        #Sound
+        self.soundLvlUp = pygame.mixer.Sound('music_pcm/LvlUp.wav')
+        self.soundLvlUpFail = pygame.mixer.Sound('music_pcm/LvlUpFail.wav')
+
 
     def logicHandle(self):
-
         self.screenData.messageLog.updateText()
         self.screenData.allSprites.update()
 
     # Get rabbit back
     def getRabbit(self):
+        self.screenData.messageLog.newText()
         self.screenData.messageLog.textList.append('You killed your critter.')
         self.updatePet('rabbit')
 
     def updatePet(self, nextPet):
         self.screenData.allSprites.remove(self.gameData.myPet)
-        self.screenData.messageLog.newText()
 
         self.gameData.myPet = self.screenData.petTypeList.pet[nextPet]
         self.gameData.myPet.loadImage()
@@ -31,13 +36,26 @@ class LogicHandlerPetScreen:
         if self.gameData.myPet.eventTrigger:
             self.checkTrigger()
         self.screenData.allSprites.add(self.gameData.myPet)
+
+        self.gameData.petList.pet[nextPet].found = True
+        self.checkIfAllPetFound()
+
+
         if self.gameData.myPet.kind == DEAD_END:
-            self.screenData.messageLog.textList.append('This critter is done taking anything from you.')
+            self.screenData.messageLog.textList.append('This critter won\'t take anything else from you.')
         elif self.gameData.myPet.kind == KEY_ANIMAL:
                 self.screenData.messageLog.textList.append('What a cool new pet. Keep going!')
         elif self.gameData.myPet.kind == WINNER:
-            self.screenData.messageLog.textList.append('Congratulation! You won!')
+            self.screenData.messageLog.textList.append('Congratulation! You got your dragon!')
+            self.winningCondition = WIN_SCREEN
 
+    def checkIfAllPetFound(self):
+        numberPetFound = 0
+        for pet in self.gameData.petList.pet:
+            if self.gameData.petList.pet[pet].found:
+                numberPetFound += 1
+        if numberPetFound == len(self.gameData.petList.pet):
+            self.winningCondition = FOUND_ALL_PET_SCREEN
 
     def giveCupcake(self):
         self.give(self.gameData.itemInfoList.item["cupcake"].key)
@@ -69,26 +87,31 @@ class LogicHandlerPetScreen:
 
     def give(self, givenItem):
         item = givenItem
+        self.screenData.messageLog.newText()
         if self.gameData.itemInfoList.item[item].inventory == 0:
-            self.screenData.messageLog.textList.append('You\'re out of ' + self.gameData.itemInfoList.item[item].name + '!')
+            self.screenData.messageLog.textList.append('You have no ' + self.gameData.itemInfoList.item[item].name + ' left.')
+            self.screenData.messageLog.textList.append('Go get some!')
         elif self.gameData.itemInfoList.item[item].inventory > 0:
             self.gameData.itemInfoList.item[item].inventory += -1
             self.updateFeedMenuPlease = True
 
+            updateHappened = False
             for link in self.gameData.itemInfoList.item[givenItem].linkList:
                 if self.gameData.myPet.key == link[0]:
+                    self.soundLvlUp.play(0)
                     self.updatePet(link[1])
+                    updateHappened = True
                     break
-                else:
-                    self.nothingHappened()
+            if updateHappened == False:
+                self.nothingHappened()
 
     def nothingHappened(self):
-        self.screenData.messageLog.newText()
+        self.soundLvlUpFail.play(0)
         self.screenData.messageLog.textList.append('Nothing happened.')
         if self.gameData.myPet.kind == DEAD_END:
-            self.screenData.messageLog.textList.append('This critter is done taking anything from you.')
+            self.screenData.messageLog.textList.append('This critter won\'t take anything else from you.')
         elif self.gameData.myPet.kind == NORMAL:
-            self.screenData.messageLog.textList.append('Try something else or get other item.')
+            self.screenData.messageLog.textList.append('Try something else or find more items.')
 
     def checkTrigger(self):
         if self.gameData.myPet.key == 'dog':
@@ -105,10 +128,10 @@ class LogicHandlerPetScreen:
     def obtain(self,key):
         if self.gameData.itemInfoList.item[key].unlock == False:
             self.gameData.itemInfoList.item[key].unlock = True
+            self.recreateFeedMenuPlease = True
         numberOfItem = 4
         self.gameData.itemInfoList.item[key].inventory += numberOfItem
-        self.screenData.messageLog.textList.append('You got ' + str(numberOfItem) + (' ') + self.gameData.itemInfoList.item[key].name + '!')
-        self.recreateFeedMenuPlease = True
+        self.screenData.messageLog.textList.append('He brings you ' + str(numberOfItem) + (' ') + self.gameData.itemInfoList.item[key].name + 's!')
         self.updateFeedMenuPlease = True
 
     def unlockMap(self,map):
@@ -117,10 +140,8 @@ class LogicHandlerPetScreen:
         if map == 'map2':
             self.screenData.messageLog.textList.append('That much gold is enough to buy your way into the desert.')
         if map == 'map3':
-            self.screenData.messageLog.textList.append(
-                'Your ' + self.gameData.myPet.name + 'wants to go somewhere nice. Visit the saloon.')
+            self.screenData.messageLog.textList.append('Your ' + self.gameData.myPet.name + ' wants to go someplace nice. Visit the saloon.')
         if map == 'map4':
-            self.screenData.messageLog.textList.append(
-                'The indian are impressed by your ' + self.gameData.myPet.name + '. Pay the a visit.')
+            self.screenData.messageLog.textList.append('The indian are impressed by your ' + self.gameData.myPet.name + '. Pay them a visit.')
 
 

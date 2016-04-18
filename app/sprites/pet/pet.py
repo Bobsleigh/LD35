@@ -19,6 +19,8 @@ class Pet(pygame.sprite.Sprite):
         self.kind = kind
         self.eventTrigger = eventTrigger
 
+        self.found = False
+
     def update(self):
         self.rect = self.image.get_rect()
         self.rect.midbottom = (SCREEN_WIDTH / 3, 2 * SCREEN_HEIGHT / 3)

@@ -32,9 +32,9 @@ class PetScreen:
 
 
         #Create feedMenu
-        self.menuFeedWidth = 1* SCREEN_WIDTH / 7
+        self.menuFeedWidth = 1* SCREEN_WIDTH / 6
         self.realMenuFeedHeight = 7 * SCREEN_HEIGHT / 9
-        self.menuFeedPosx = 4* SCREEN_WIDTH / 5
+        self.menuFeedPosx = 5* SCREEN_WIDTH / 6
         self.realMenuFeedPosy = 2*SCREEN_HEIGHT / 5
         self.createFeedMenu()
 
@@ -77,6 +77,19 @@ class PetScreen:
                 self.updateMenuFeed()
 
             self.draw()  # Drawer in THIS file, below
+
+            #check win condition
+            if self.nextScene == None:
+                if self.logicHandler.winningCondition == WIN_SCREEN:
+                    self.nextScene = self.logicHandler.winningCondition
+                    self.sceneRunning = False  # To stop petScreen running
+                    self.logicHandler.winningCondition = None
+                elif self.logicHandler.winningCondition == FOUND_ALL_PET_SCREEN:
+                    if self.gameData.showFoundAllPet: #We want to show foundAllPetScreen only once.
+                        self.nextScene = self.logicHandler.winningCondition
+                        self.sceneRunning = False  # To stop petScreen running
+                        self.gameData.showFoundAllPet = False
+                    self.logicHandler.winningCondition = None
 
     def draw(self):
         self.screen.blit(self.background, (0, 0))

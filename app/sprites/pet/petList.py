@@ -44,4 +44,4 @@ class PetList:
         self.pet["dragonUnicorn"] = Pet('dragonUnicorn', 'winged unicorn', 'licorne-dragon.png', 325)
         self.pet["pimpUnicorn"] = Pet('pimpUnicorn', 'badass unicorn', 'licorne-pimp.png', 325,kind=DEAD_END,eventTrigger=True)
 
-        self.pet["dragon"] = Pet('dragon', 'dragon', 'dragon.png', 400,kind=WINNER)
+        self.pet["dragon"] = Pet('dragon', 'dragon', 'dragon.png', 450,kind=WINNER)

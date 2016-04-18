@@ -7,7 +7,7 @@ from app.textLine import TextLine
 #For a very short message only
 
 class MessageBox(pygame.sprite.Sprite):
-    def __init__(self, width, height, centerx, centery, fontSize=24):
+    def __init__(self, width, height, centerx, centery, fontSize=20):
         super().__init__()
 
         self.textList = []

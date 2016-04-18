@@ -10,7 +10,7 @@ class OptionPetScreen(pygame.sprite.Sprite):
 
         self.item = item
 
-        self.optFont = pygame.font.SysFont(FONT_NAME, 30)
+        self.optFont = pygame.font.SysFont(FONT_NAME, 24)
         self.number = self.item.inventory
         self.name = ' = ' + str(self.number)
         self.printedName = self.optFont.render(self.name, True, COLOR_MENU_FONTS)
@@ -67,7 +67,6 @@ class OptionPetScreen(pygame.sprite.Sprite):
         self.isSelected = False
 
     def doOption(self):
-        self.soundSelect.play(0)
         self.method()
 
 

@@ -5,11 +5,11 @@ from app.settings import *
 
 
 class ItemInfo(pygame.sprite.Sprite):
-    def __init__(self, key, imageNamePNG='cochon.png', resizeSize=32):
+    def __init__(self, key, name, imageNamePNG='cochon.png', resizeSize=32):
         super().__init__()
 
         self.key = key
-        self.name = key
+        self.name = name
 
         self.image = pygame.Surface((1, 1))
         self.imageNamePNG = imageNamePNG

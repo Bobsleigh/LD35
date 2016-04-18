@@ -18,19 +18,22 @@ class GameData:
         #Was map unlocked? TODO: To set 3 last to false for opt code
         self.mapUnlock = {}
         self.mapUnlock["map1"] = True
-        self.mapUnlock["map2"] = True
-        self.mapUnlock["map3"] = True
-        self.mapUnlock["map4"] = True
+        self.mapUnlock["map2"] = False
+        self.mapUnlock["map3"] = False
+        self.mapUnlock["map4"] = False
 
         #My pet: rabbit at first
         self.petList = PetList()
         self.myPet = self.petList.pet['rabbit']
+        self.petList.pet[self.myPet.key].found = True
         self.myPet.loadImage()
 
         self.maxItemOfAType = 99
 
 
         self.scene = scene
+        self.showFoundAllPet = True  # We want to show foundAllPetScreen only once.
+
         self.mapData = None
 
     # When u pick up  and item, add it to the item list
