@@ -15,12 +15,12 @@ class GameData:
         #Go see ItemInfo class in sprite to look at lock, and inventory
         self.itemInfoList = ItemInfoList()
 
-        #Was map unlocked? TODO: To set 3 last to false for opt code
+        #Was map unlocked?
         self.mapUnlock = {}
         self.mapUnlock["map1"] = True
-        self.mapUnlock["map2"] = True
-        self.mapUnlock["map3"] = True
-        self.mapUnlock["map4"] = True
+        self.mapUnlock["map2"] = False
+        self.mapUnlock["map3"] = False
+        self.mapUnlock["map4"] = False
 
         #My pet: rabbit at first
         self.petList = PetList()
