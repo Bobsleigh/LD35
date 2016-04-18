@@ -135,7 +135,7 @@ class PlayerPlatform(pygame.sprite.Sprite):
         self.visualFlash()
 
     def dead(self):
-        #self.isAlive = False
+        self.isAlive = False
         self.soundGetHit.play()
 
     def pickedPowerUpMaxHealth(self):
