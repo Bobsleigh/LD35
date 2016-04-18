@@ -8,7 +8,7 @@
 
 # Rules
 
-Colect item and feed your rabbit to get your own Dragon!
+Collect  item and feed your rabbit to get your own Dragon!
 
 
 

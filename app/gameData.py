@@ -15,7 +15,7 @@ class GameData:
         #Go see ItemInfo class in sprite to look at lock, and inventory
         self.itemInfoList = ItemInfoList()
 
-        #Was map unlocked? TODO: To set 3 last to false for opt code
+        #Was map unlocked?
         self.mapUnlock = {}
         self.mapUnlock["map1"] = True
         self.mapUnlock["map2"] = False
@@ -40,5 +40,5 @@ class GameData:
     def registerItemPickedUp(self, item):
         if item.imageName in self.itemInfoList.item:
             numberOfItem = self.itemInfoList.item[item.imageName].inventory
-            self.itemInfoList.item[item.imageName].inventory += min(numberOfItem+1, self.maxItemOfAType)
+            self.itemInfoList.item[item.imageName].inventory = min(numberOfItem+1, self.maxItemOfAType)
             self.itemInfoList.item[item.imageName].unlock = True
