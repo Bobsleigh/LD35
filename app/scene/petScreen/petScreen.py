@@ -38,15 +38,16 @@ class PetScreen:
         self.realMenuFeedPosy = 2*SCREEN_HEIGHT / 5
         self.createFeedMenu()
 
-        #Get rabbit button
-        self.getRabbitButton = Menu(
-            pygame.Rect(1*SCREEN_WIDTH / 2, 3*SCREEN_HEIGHT / 4, SCREEN_WIDTH / 4, self.realMenuFeedHeight/9))
-        self.getRabbitButton.addOption('Get rabbit', self.logicHandler.getRabbit)
-        self.screenData.allSprites.add(self.getRabbitButton.spritesMenu) #Add sprite
+        #Create pet menu
+        self.menuPetWidth = SCREEN_WIDTH / 4
+        self.realMenuPetHeight = 2 * SCREEN_HEIGHT / 9
+        self.menuPetPosx = 3 * SCREEN_WIDTH / 5
+        self.realMenuPetPosy = 1 * SCREEN_HEIGHT / 8
+        self.createMenuPet()
 
         #Back to world button
         self.backToWorldMap = Menu(
-            pygame.Rect(1 * SCREEN_WIDTH / 4, 3*SCREEN_HEIGHT / 4, SCREEN_WIDTH / 4, self.realMenuFeedHeight/9))
+            pygame.Rect(1 * SCREEN_WIDTH / 4, self.realMenuFeedPosy-self.realMenuFeedHeight/2+self.realMenuFeedHeight/16, SCREEN_WIDTH / 4, self.realMenuFeedHeight/9))
         self.backToWorldMap.addOption('Go find item', self.goToWorldMap)
         self.screenData.allSprites.add(self.backToWorldMap.spritesMenu) #Add sprite
 
@@ -72,6 +73,14 @@ class PetScreen:
                 self.screenData.allSprites.remove(self.menuFeed.spritesMenu)
                 self.createFeedMenu()
                 self.groupAllMenu(self.eventHandler.hPos,0)
+            if self.logicHandler.recreatePetMenuPlease:
+                self.logicHandler.recreatePetMenuPlease = False
+                self.screenData.allSprites.remove(self.menuPet.spritesMenu)
+                self.createMenuPet()
+                if self.gameData.myPet.key == 'tiger':
+                    self.groupAllMenu(self.eventHandler.hPos, 0)
+                if self.gameData.myPet.key == 'unicorn':
+                    self.groupAllMenu(self.eventHandler.hPos, 2)
             if self.logicHandler.updateFeedMenuPlease:
                 self.logicHandler.updateFeedMenuPlease = False
                 self.updateMenuFeed()
@@ -138,6 +147,29 @@ class PetScreen:
         for key in self.gameData.itemInfoList.item:
             self.menuFeed.updateName(self.gameData.itemInfoList.item[key])
 
+    def createMenuPet(self):
+        optForNow = 1
+        if self.gameData.petList.pet['tiger'].found:
+            optForNow += 1
+        if self.gameData.petList.pet['unicorn'].found:
+            optForNow += 1
+
+        realOptNum = 3
+        self.menuPetHeight = self.realMenuPetHeight * (optForNow) / realOptNum
+        self.menuPetPosy = self.realMenuPetPosy - self.realMenuPetHeight / 2 + self.menuPetHeight / 2
+
+        self.menuPet = Menu(
+            pygame.Rect(self.menuPetPosx, self.menuPetPosy, self.menuPetWidth, self.menuPetHeight),fontSize=30,spaceHeightFactor=0.9)
+
+        self.menuPet.addOption('Get rabbit', self.logicHandler.getRabbit)
+
+        if self.gameData.petList.pet['tiger'].found:
+            self.menuPet.addOption('Get tiger', self.logicHandler.getTiger)
+
+        if self.gameData.petList.pet['unicorn'].found:
+            self.menuPet.addOption('Get unicorn', self.logicHandler.getUnicorn)
+        self.screenData.allSprites.add(self.menuPet.spritesMenu)  # Add sprite
+
     def setDefaultPos(self,hPos,vPos):  # Goes with 2D selector
         for optionColumn in self.optionList:
             for option in optionColumn:
@@ -157,11 +189,11 @@ class PetScreen:
 
     def groupAllMenu(self,selectorHPos,selectorVPos):
         if self.optForNow == 0:
-            self.optionList = [self.backToWorldMap.optionList, self.getRabbitButton.optionList]
-            self.selectorList = [self.backToWorldMap.selector, self.getRabbitButton.selector]
+            self.optionList = [self.backToWorldMap.optionList, self.menuPet.optionList]
+            self.selectorList = [self.backToWorldMap.selector, self.menuPet.selector]
         else:
-            self.optionList = [self.backToWorldMap.optionList, self.getRabbitButton.optionList,self.menuFeed.optionList]
-            self.selectorList = [self.backToWorldMap.selector, self.getRabbitButton.selector, self.menuFeed.selector]
+            self.optionList = [self.backToWorldMap.optionList, self.menuPet.optionList,self.menuFeed.optionList]
+            self.selectorList = [self.backToWorldMap.selector, self.menuPet.selector, self.menuFeed.selector]
         self.setDefaultPos(selectorHPos,selectorVPos)
 
     def close(self):

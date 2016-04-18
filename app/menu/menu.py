@@ -4,7 +4,7 @@ from app.menu.selector import Selector
 
 
 class Menu():
-    def __init__(self,dimension):
+    def __init__(self,dimension,fontSize=30,spaceHeightFactor=0.7):
 
         # Menu center
         self.x = dimension.left
@@ -13,6 +13,8 @@ class Menu():
         # Menu dimension
         self.menuWidth = dimension.width
         self.menuHeight = dimension.height
+        self.menuFontSize = fontSize
+        self.spaceHeightFactor = spaceHeightFactor
 
         # Menu list
         self.optionList = []
@@ -21,7 +23,7 @@ class Menu():
         self.spritesMenu = pygame.sprite.Group()
 
     def addOption(self,name,method):
-        self.optionList.append(Option(name,method))
+        self.optionList.append(Option(name,method,self.menuFontSize))
         self.createMenu()
 
     def createMenu(self):
@@ -45,7 +47,7 @@ class Menu():
         spaceHeight = self.menuHeight / (self.optNum)
 
         for option in self.optionList:
-            option.image = pygame.Surface([spaceWidth*0.9,spaceHeight*0.7])
+            option.image = pygame.Surface([spaceWidth*0.9,spaceHeight*self.spaceHeightFactor])
             option.rect = option.image.get_rect()
 
             count = self.optionList.index(option)

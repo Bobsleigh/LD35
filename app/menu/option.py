@@ -4,10 +4,10 @@ from app.settings import *
 
 #Objets
 class Option(pygame.sprite.Sprite):
-    def __init__(self,name,method):
+    def __init__(self,name,method,fontSize=30):
         super().__init__()
 
-        self.optFont = pygame.font.SysFont(FONT_NAME, 30)
+        self.optFont = pygame.font.SysFont(FONT_NAME, fontSize)
         self.name = name
         self.printedName = self.optFont.render(self.name, True, COLOR_MENU_FONTS)
         self.textPos = [0,0] #Par rapport au bouton

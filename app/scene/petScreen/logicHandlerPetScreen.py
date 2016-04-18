@@ -9,6 +9,9 @@ class LogicHandlerPetScreen:
         self.screenData = data
         self.updateFeedMenuPlease = False
         self.recreateFeedMenuPlease = False
+        self.recreatePetMenuPlease = False
+
+        self.canEvolve = True
 
         self.winningCondition = None
 
@@ -27,6 +30,26 @@ class LogicHandlerPetScreen:
         self.screenData.messageLog.textList.append('You killed your critter.')
         self.updatePet('rabbit')
 
+    def getTiger(self):
+        self.canEvolve = True
+        self.screenData.messageLog.newText()
+        self.checkInventory('cupcake')
+        self.checkInventory('goldBar')
+        if self.canEvolve:
+            self.screenData.messageLog.textList.append('You killed your critter.')
+            self.updatePet('tiger')
+
+    def getUnicorn(self):
+        self.canEvolve = True
+        self.screenData.messageLog.newText()
+        self.checkInventory('cupcake')
+        self.checkInventory('goldBar')
+        self.checkInventory('apple')
+        self.checkInventory('horseshoe')
+        if self.canEvolve:
+            self.screenData.messageLog.textList.append('You killed your critter.')
+            self.updatePet('unicorn')
+
     def updatePet(self, nextPet):
         self.screenData.allSprites.remove(self.gameData.myPet)
 
@@ -37,7 +60,13 @@ class LogicHandlerPetScreen:
             self.checkTrigger()
         self.screenData.allSprites.add(self.gameData.myPet)
 
+        # need to recreate pat menu
+        if self.gameData.petList.pet[nextPet].kind == KEY_ANIMAL:
+            if self.gameData.petList.pet[nextPet].found == False:
+                self.recreatePetMenuPlease = True
+
         self.gameData.petList.pet[nextPet].found = True
+
         self.checkIfAllPetFound()
 
 
@@ -86,15 +115,11 @@ class LogicHandlerPetScreen:
 
 
     def give(self, givenItem):
-        item = givenItem
         self.screenData.messageLog.newText()
-        if self.gameData.itemInfoList.item[item].inventory == 0:
-            self.screenData.messageLog.textList.append('You have no ' + self.gameData.itemInfoList.item[item].name + ' left.')
-            self.screenData.messageLog.textList.append('Go get some!')
-        elif self.gameData.itemInfoList.item[item].inventory > 0:
-            self.gameData.itemInfoList.item[item].inventory += -1
-            self.updateFeedMenuPlease = True
+        self.canEvolve = True
+        self.checkInventory(givenItem)
 
+        if self.canEvolve:
             updateHappened = False
             for link in self.gameData.itemInfoList.item[givenItem].linkList:
                 if self.gameData.myPet.key == link[0]:
@@ -104,6 +129,16 @@ class LogicHandlerPetScreen:
                     break
             if updateHappened == False:
                 self.nothingHappened()
+
+    def checkInventory(self,item):
+        if self.gameData.itemInfoList.item[item].inventory == 0:
+            self.screenData.messageLog.textList.append(
+                'You have no ' + self.gameData.itemInfoList.item[item].name + ' left. Go get some!')
+            self.canEvolve = False
+
+        elif self.gameData.itemInfoList.item[item].inventory > 0:
+            self.gameData.itemInfoList.item[item].inventory += -1
+            self.updateFeedMenuPlease = True
 
     def nothingHappened(self):
         self.soundLvlUpFail.play(0)
