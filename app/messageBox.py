@@ -10,6 +10,8 @@ class MessageBox(pygame.sprite.Sprite):
     def __init__(self, width, height, centerx, centery, fontSize=24):
         super().__init__()
 
+        self.textList = []
+
         self.msgFont = pygame.font.SysFont(FONT_NAME,fontSize)
 
         self.image = pygame.Surface([width, height])
@@ -54,7 +56,10 @@ class MessageBox(pygame.sprite.Sprite):
         for line in self.lines:
             self.image.blit(line.printedLine, line.position)
 
-    def updateText(self,textList):
+    def updateText(self):
         self.lines = []
-        for text in textList:
+        for text in self.textList:
             self.lines.append(TextLine(text))
+
+    def newText(self):
+        self.textList = []

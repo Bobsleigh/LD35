@@ -47,7 +47,7 @@ class PetScreen:
         #Back to world button
         self.backToWorldMap = Menu(
             pygame.Rect(1 * SCREEN_WIDTH / 4, 3*SCREEN_HEIGHT / 4, SCREEN_WIDTH / 4, self.realMenuFeedHeight/9))
-        self.backToWorldMap.addOption('Back to world', self.goToWorldMap)
+        self.backToWorldMap.addOption('Go find item', self.goToWorldMap)
         self.screenData.allSprites.add(self.backToWorldMap.spritesMenu) #Add sprite
 
         #all option and 2D selector for Pet Screen
