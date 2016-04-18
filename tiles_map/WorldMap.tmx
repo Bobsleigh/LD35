@@ -66,7 +66,7 @@
  </layer>
  <layer name="Terrain" width="32" height="24">
   <data encoding="base64" compression="zlib">
-   eJy9lkkOwjAMRXsn5nmeFr0AUBbcAiG2LEBihvPyKzVSFKWWUxu+9KQorfPd1k4aRflaENe0VQFVULPmYmu8JmKpa1zVQQM0rbmNwrp5cnNugTboWHNbBZ9EELsCS4UcJPpXDlQN5fVB9xeJeCSpwwu4gptgDUkd3sEDPANi3Jotug+l3/QF3uBTcI1U0hr09WDonvWvPihZuNI+D3aB/rFnTrL3h/prnAdlC58/JU4fUvt9kvmacai/Rg2aZ48y/2M25n5HqgapNXzvxfZP1QN9MGDmIpXrPwQjMGbGS852n/8ETMGMiNH8J3L9OSp6Fpl3NRf6a8n03wmcA4kY9+wZHMAX9zo1Aw==
+   eJy9lUkKAjEQRftO4jzPuugLqO3CW4i4daHgrOf1BxRCSBeVVNkfHoSkK7/oVCVJkq85saatMqiAqjWXWuMVEUutcVUDddCw5tYK++bJzbkJWqBtzW0UfDJB7BIsFHKQqKgcqBrK64POPxLxSFKHZ3ABV8Eekjq8gTt4BMS4NRt7D5kzfYIXeEfuYSStQV8Pht5ZRfVBycKV9nuwDfRPPXOSuz/UX/s98PlT4vQhdd9nzjjUX7sGjf/hO+aeI1WD1B6+/2L7G3VBD/SZuUjl+g/AEIyY8ZK33ec/BhMwJWKkPTAj/DmKfYs451+kfv13BKdAEsY3OwZ78AEQvjPL
   </data>
  </layer>
  <layer name="Sprite_Layer" width="32" height="24">
@@ -99,7 +99,7 @@
     <property name="LevelZone" value="LevelIndian"/>
    </properties>
   </object>
-  <object id="24" name="OutZone" x="921.667" y="655.667" width="44.6663" height="48.6667">
+  <object id="24" name="OutZone" x="917.667" y="657.667" width="44.6663" height="48.6667">
    <properties>
     <property name="InZone" value="StartPointDesert"/>
     <property name="LevelZone" value="LevelDesert"/>
@@ -112,7 +112,7 @@
     <property name="StartPoint" value="StartPointWorld"/>
    </properties>
   </object>
-  <object id="19" name="InZone" x="853" y="661" width="50" height="50">
+  <object id="19" name="InZone" x="832" y="651" width="50" height="50">
    <properties>
     <property name="StartPoint" value="OutLevelDesert"/>
    </properties>
