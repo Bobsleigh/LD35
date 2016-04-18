@@ -4,7 +4,13 @@
 
 # I want my dragon
 
-![alt tag](https://github.com/Bobsleigh/LD35/blob/master/img/dragon.png)
+![alt tag](https://github.com/Bobsleigh/LD35/blob/master/img/menu.png)
+
+# Rules
+
+Colect item and feed your rabbit to get your own Dragon!
+
+
 
 # Tools used
 
