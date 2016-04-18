@@ -37,5 +37,5 @@ class GameData:
     def registerItemPickedUp(self, item):
         if item.imageName in self.itemInfoList.item:
             numberOfItem = self.itemInfoList.item[item.imageName].inventory
-            self.itemInfoList.item[item.imageName].inventory += min(numberOfItem+1, self.maxItemOfAType)
+            self.itemInfoList.item[item.imageName].inventory = min(numberOfItem+1, self.maxItemOfAType)
             self.itemInfoList.item[item.imageName].unlock = True
