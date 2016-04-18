@@ -7,15 +7,10 @@ from app.textLine import TextLine
 #For a very short message only
 
 class MessageBox(pygame.sprite.Sprite):
-    def __init__(self, textList, width, height, centerx, centery,line2='123'):
+    def __init__(self, width, height, centerx, centery, fontSize=24):
         super().__init__()
 
-        self.msgFont = pygame.font.SysFont(FONT_NAME,24)
-
-        self.lines = []
-
-        for text in textList:
-            self.lines.append(TextLine(text))
+        self.msgFont = pygame.font.SysFont(FONT_NAME,fontSize)
 
         self.image = pygame.Surface([width, height])
         self.rect = self.image.get_rect()
@@ -53,9 +48,13 @@ class MessageBox(pygame.sprite.Sprite):
         numberLine = len(self.lines)
         count = 0
         for line in self.lines:
-            line.position = [(self.image.get_width() - self.textWidth) * 0.5,
+            line.position = [(self.image.get_width() - line.printedLine.get_width()) * 0.5,
                         (self.image.get_height() - self.textHeight) * 0.5 + self.textHeight * (count / numberLine)]
+            count += 1
         for line in self.lines:
             self.image.blit(line.printedLine, line.position)
-    def addLine(self):
-        pass
+
+    def updateText(self,textList):
+        self.lines = []
+        for text in textList:
+            self.lines.append(TextLine(text))
