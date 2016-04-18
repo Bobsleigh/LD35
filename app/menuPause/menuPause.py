@@ -7,7 +7,7 @@ from app.menu.menu import Menu
 from app.settings import *
 
 class MenuPause():
-    def __init__(self, screen,backToMain):
+    def __init__(self, screen,backToMain,backToWorldMap = None):
 
         self.screen = screen
 
@@ -15,7 +15,11 @@ class MenuPause():
         self.menuPause = Menu(
                               pygame.Rect(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3))
         self.menuPause.addOption('Resume', self.close)
-        self.menuPause.addOption('Back to Main Menu', backToMain)
+
+        if backToWorldMap != None:
+            self.menuPause.addOption('Back to world map', backToWorldMap)
+
+        self.menuPause.addOption('Back to title screen', backToMain)
         self.menuPause.addOption('Exit', sys.exit)
 
         self.eventHandler = EventHandlerMenuPause()

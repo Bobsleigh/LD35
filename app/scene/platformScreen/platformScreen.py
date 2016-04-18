@@ -7,6 +7,9 @@ from app.settings import *
 from app.sprites.playerPlatform import PlayerPlatform
 from app.scene.musicFactory import MusicFactory
 
+from app.mapData import MapData
+
+
 
 class PlatformScreen:
     def __init__(self, screen, gameData):
@@ -26,7 +29,7 @@ class PlatformScreen:
         self.drawer = Drawer()
 
         #Menu
-        self.menuPause = MenuPause(screen, self.backToMain)
+        self.menuPause = MenuPause(screen, self.backToMain,backToWorldMap=self.backToWorldMap)
         self.eventHandler.menuPause = self.menuPause
 
         MusicFactory(PLATFORM_SCREEN, self.mapData.nameMap)
@@ -54,5 +57,11 @@ class PlatformScreen:
 
     def backToMain(self):
         self.nextScene = TITLE_SCREEN
+        self.gameData.typeScene = TITLE_SCREEN
         self.menuPause.close()
         self.close()
+
+    def backToWorldMap(self):
+        newMapData = MapData('WorldMap', 'StartPointWorld')
+        self.checkNewMap(newMapData)
+        self.menuPause.close()

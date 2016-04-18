@@ -54,7 +54,7 @@ class PetScreen:
         self.groupAllMenu(0,0)
 
         #Menu pause
-        self.menuPause = MenuPause(screen,self.backToMain)
+        self.menuPause = MenuPause(screen,self.backToMain,backToWorldMap=self.goToWorldMapFromMenuPause)
         self.eventHandler.menuPause = self.menuPause
 
         MusicFactory(PET_SCREEN)
@@ -165,7 +165,6 @@ class PetScreen:
         self.setDefaultPos(selectorHPos,selectorVPos)
 
     def close(self):
-        self.nextScene = TITLE_SCREEN
         self.sceneRunning = False #To stop petScreen running
 
     def goToWorldMap(self):
@@ -175,5 +174,11 @@ class PetScreen:
         self.gameData.mapData = MapData("WorldMap", "StartPointWorld")
 
     def backToMain(self):
+        self.nextScene = TITLE_SCREEN
+        self.gameData.typeScene = TITLE_SCREEN
         self.menuPause.close()
         self.close()
+
+    def goToWorldMapFromMenuPause(self):
+        self.menuPause.close()
+        self.goToWorldMap()

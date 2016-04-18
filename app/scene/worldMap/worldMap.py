@@ -88,5 +88,6 @@ class WorldMap:
 
     def backToMain(self):
         self.nextScene = TITLE_SCREEN
+        self.gameData.typeScene = TITLE_SCREEN
         self.menuPause.close()
         self.close()
