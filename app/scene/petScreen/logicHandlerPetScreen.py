@@ -17,7 +17,7 @@ class LogicHandlerPetScreen:
 
     # Get rabbit back
     def getRabbit(self):
-        self.screenData.messageLog.message = 'You killed your ' + self.gameData.myPet.name + ' and took another rabbit.'
+        self.screenData.messageLog.updateText(['You killed your critter and took another rabbit.'])
         self.updatePet('rabbit')
 
     def updatePet(self, nextPet):
@@ -59,7 +59,7 @@ class LogicHandlerPetScreen:
     def give(self, givenItem):
         item = givenItem
         if self.gameData.itemInfoList.item[item].inventory == 0:
-            self.screenData.messageLog.message = 'You\'re out of ' + self.gameData.itemInfoList.item[item].name + '!'
+            self.screenData.messageLog.updateText(['You\'re out of ' + self.gameData.itemInfoList.item[item].name + '!'])
         elif self.gameData.itemInfoList.item[item].inventory > 0:
             self.gameData.itemInfoList.item[item].inventory += -1
             self.updateFeedMenuPlease = True
@@ -67,24 +67,38 @@ class LogicHandlerPetScreen:
             for link in self.gameData.itemInfoList.item[givenItem].linkList:
                 if self.gameData.myPet.key == link[0]:
                     self.updatePet(link[1])
-                    self.screenData.messageLog.message = 'You got a ' + self.gameData.myPet.name + '!'
+                    self.screenData.messageLog.updateText(['You got a ' + self.gameData.myPet.name + '!'])
                     break
 
                 else:
                     self.nothingHappened()
 
     def nothingHappened(self):
-        self.screenData.messageLog.message = 'Nothing happened.'
+        self.screenData.messageLog.updateText(['Nothing happened.'])
 
     def checkTrigger(self):
+        if self.gameData.myPet.key == 'dog':
+            self.obtain('carrot')
         if self.gameData.myPet.key == 'carrotRabbit':
-            self.obtainApple()
+            self.obtain('apple')
+        if self.gameData.myPet.key == 'alienRabbit':
+            self.unlockMap('map2')
+        if self.gameData.myPet.key == 'muscularHorse':
+            self.unlockMap('map3')
+        if self.gameData.myPet.key == 'pimpUnicorn':
+            self.unlockMap('map4')
 
-    def obtainApple(self):
-        if self.gameData.itemInfoList.item['apple'].unlock == False:
-            self.gameData.itemInfoList.item['apple'].unlock = True
-        self.gameData.itemInfoList.item['apple'].inventory += 1
+    def obtain(self,key):
+        if self.gameData.itemInfoList.item[key].unlock == False:
+            self.gameData.itemInfoList.item[key].unlock = True
+
+        self.gameData.itemInfoList.item[key].inventory += 4
         self.recreateFeedMenuPlease = True
         self.updateFeedMenuPlease = True
+
+    def unlockMap(self,map):
+        if self.gameData.mapUnlock[map] == False:
+            self.gameData.mapUnlock[map] = True
+
 
 

@@ -67,3 +67,6 @@ class EnemyCactus(Enemy):
     def dead(self):
         self.soundDead.play()
         self.kill()
+
+    def spring(self):
+        self.speedy = -15
