@@ -10,7 +10,13 @@ class PetScreenData:
         self.allSprites = pygame.sprite.Group()
 
         self.messageLog = MessageBox(3*SCREEN_WIDTH/4,SCREEN_HEIGHT/6,SCREEN_WIDTH/2,8*SCREEN_HEIGHT/9)
+
         self.messageLog.textList.append('Your pet is hungry. Get him something.')
+        if self.gameData.petList.pet['dragon'].found:
+            self.messageLog.newText()
+            self.messageLog.textList.append('Congratulation! You got your dragon!')
+            self.messageLog.textList.append('Did you also found all the pet?')
+
         self.allSprites.add(self.messageLog)  # Add sprite
 
         #All item
@@ -23,7 +29,7 @@ class PetScreenData:
         #For testing purpose
         #for item in self.gameData.itemInfoList.item:
         #    self.gameData.itemInfoList.item[item].unlock = True
-        #      self.itemInfoList.item[item].inventory = 10
+        #    self.itemInfoList.item[item].inventory = 15
         # self.gameData.itemInfoList.item['apple'].unlock = False
         # self.gameData.itemInfoList.item['carrot'].unlock = False
         # self.gameData.itemInfoList.item['gun'].unlock = False
