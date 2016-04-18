@@ -17,7 +17,7 @@ class LogicHandlerPetScreen:
 
     # Get rabbit back
     def getRabbit(self):
-        self.screenData.messageLog.message = 'You killed your critter and took another rabbit.'
+        self.screenData.messageLog.updateText(['You killed your critter and took another rabbit.'])
         self.updatePet('rabbit')
 
     def updatePet(self, nextPet):
@@ -59,7 +59,7 @@ class LogicHandlerPetScreen:
     def give(self, givenItem):
         item = givenItem
         if self.gameData.itemInfoList.item[item].inventory == 0:
-            self.screenData.messageLog.message = 'You\'re out of ' + self.gameData.itemInfoList.item[item].name + '!'
+            self.screenData.messageLog.updateText(['You\'re out of ' + self.gameData.itemInfoList.item[item].name + '!'])
         elif self.gameData.itemInfoList.item[item].inventory > 0:
             self.gameData.itemInfoList.item[item].inventory += -1
             self.updateFeedMenuPlease = True
@@ -67,14 +67,14 @@ class LogicHandlerPetScreen:
             for link in self.gameData.itemInfoList.item[givenItem].linkList:
                 if self.gameData.myPet.key == link[0]:
                     self.updatePet(link[1])
-                    self.screenData.messageLog.message = 'You got a ' + self.gameData.myPet.name + '!'
+                    self.screenData.messageLog.updateText(['You got a ' + self.gameData.myPet.name + '!'])
                     break
 
                 else:
                     self.nothingHappened()
 
     def nothingHappened(self):
-        self.screenData.messageLog.line1 = 'Nothing happened.'
+        self.screenData.messageLog.updateText(['Nothing happened.'])
 
     def checkTrigger(self):
         if self.gameData.myPet.key == 'dog':
