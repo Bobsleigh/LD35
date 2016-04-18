@@ -97,7 +97,7 @@ class SpiritBullet(Bullet):
 
         self.name = "bullet"
 
-        self.image = pygame.image.load(os.path.join('img', 'Bullet.png'))
+        self.image = pygame.image.load(os.path.join('img', 'BulletBlue.png'))
 
         self.direction = direction
 
