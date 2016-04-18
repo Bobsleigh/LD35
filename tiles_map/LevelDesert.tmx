@@ -152,14 +152,10 @@
     <property name="direction" value="Left"/>
    </properties>
   </object>
-  <object id="11" name="enemyCactus" type="enemy" x="1461" y="202" width="64" height="50">
+  <object id="11" name="enemyCactus" type="enemy" x="1565" y="208" width="64" height="50">
    <properties>
     <property name="direction" value="Left"/>
-   </properties>
-  </object>
-  <object id="12" name="enemyCactus" type="enemy" x="1618.34" y="198" width="74" height="54">
-   <properties>
-    <property name="direction" value="Left"/>
+    <property name="distanceMax" value="50"/>
    </properties>
   </object>
   <object id="13" name="enemyCactus" type="enemy" x="2614" y="560" width="46" height="40">
@@ -170,12 +166,10 @@
   <object id="30" name="horseshoe" type="item" x="2970.67" y="558.667" width="32" height="40"/>
   <object id="31" name="horseshoe" type="item" x="2417.33" y="600" width="32" height="40"/>
   <object id="32" name="horseshoe" type="item" x="2137.33" y="542.667" width="32" height="40"/>
-  <object id="33" name="horseshoe" type="item" x="674.666" y="638.667" width="32" height="40"/>
   <object id="34" name="bone" type="item" x="1034.33" y="614" width="30" height="28"/>
   <object id="35" name="bone" type="item" x="1339.67" y="300.667" width="30" height="28"/>
   <object id="36" name="bone" type="item" x="267.666" y="614" width="30" height="28"/>
-  <object id="37" name="bone" type="item" x="2058.33" y="528.667" width="30" height="28"/>
-  <object id="38" name="bone" type="item" x="2547.67" y="647.333" width="30" height="28"/>
+  <object id="37" name="bone" type="item" x="1716.33" y="254.667" width="30" height="28"/>
  </objectgroup>
  <objectgroup name="itemLayer" offsetx="0" offsety="-1">
   <object id="17" name="bone" type="item" x="780" y="643.333" width="30" height="28"/>
