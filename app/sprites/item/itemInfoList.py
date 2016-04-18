@@ -13,6 +13,7 @@ class ItemInfoList:
         self.item['bone'] = ItemInfo('bone', 'bone.png')
         self.item['carrot'] = ItemInfo('carrot', 'Carotte.png')
         self.item['apple'] = ItemInfo('apple', 'Pomme.png')
+        self.item['apple'].name = 'alien apple'
         self.item['gun'] = ItemInfo('gun', 'Gun32x32.png')
         self.item['pokerChip'] = ItemInfo('pokerChip', 'Jetons.png')
         self.item['totem'] = ItemInfo('totem', 'totem.png')

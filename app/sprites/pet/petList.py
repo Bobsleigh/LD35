@@ -18,10 +18,10 @@ class PetList:
         self.pet["muscularRabbit"] = Pet('muscularRabbit','douchebag rabbit','lapin-steroide.png', 250)
 
         #Tier3
-        self.pet["chocoRabbit"] = Pet('chocoRabbit','rabbit made of chocolate','lapin-chocolat.png', 250,kind=DEAD_END)
-        self.pet["carrotRabbit"] = Pet('carrotRabbit','playful rabbit','lapin-carotte.png', 250,kind=DEAD_END,eventTrigger=True)
+        self.pet["chocoRabbit"] = Pet('chocoRabbit','rabbit made of gold','lapin-chocolat.png', 250,kind=DEAD_END,eventTrigger=True)
+        self.pet["carrotRabbit"] = Pet('carrotRabbit','playful rabbit','lapin-carotte.png', 250,kind=DEAD_END)
         self.pet["orangeRabbit"] = Pet('orangeRabbit','weird orange rabbit', 'lapin-tigre-carotte.png', 250,kind=DEAD_END)
-        self.pet["alienRabbit"] = Pet('alienRabbit','rabbit form outer space','lapin-alien.png', 250,kind=DEAD_END,eventTrigger=True)
+        self.pet["alienRabbit"] = Pet('alienRabbit','rabbit from outer space','lapin-alien.png', 250,kind=DEAD_END,eventTrigger=True)
         self.pet["pimpRabbit"] = Pet('pimpRabbit','rapper rabbit', 'lapin-pimp.png', 250,kind=DEAD_END)
 
         #Tier10
@@ -37,7 +37,7 @@ class PetList:
         self.pet["muscularHorse"] = Pet('muscularHorse','powerful horse', 'cheval-pomme.png', 325,kind=DEAD_END,eventTrigger=True)
         self.pet["cosmicLion"] = Pet('cosmicLion','lion from another dimension', 'lion-cosmique.png', 300,kind=DEAD_END)
         self.pet["smartLion"] = Pet('smartLion','smart lion', 'lion-savant.png', 300,kind=DEAD_END)
-        self.pet["saberToothTiger"] = Pet('saberToothTiger','saber\-toothed cat', 'tigre_a_dent_sabre.png', 275,kind=DEAD_END)
+        self.pet["saberToothTiger"] = Pet('saberToothTiger','saber-toothed cat', 'tigre_a_dent_sabre.png', 275,kind=DEAD_END)
 
         #Tier100
         self.pet["unicorn"] = Pet('unicorn', 'legendary unicorn', 'licorne.png', 325,kind=KEY_ANIMAL)

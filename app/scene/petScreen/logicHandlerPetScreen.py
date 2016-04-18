@@ -34,7 +34,7 @@ class LogicHandlerPetScreen:
         if self.gameData.myPet.kind == DEAD_END:
             self.screenData.messageLog.textList.append('This critter is done taking anything from you.')
         elif self.gameData.myPet.kind == KEY_ANIMAL:
-                self.screenData.messageLog.textList.append('What a cool new pet.')
+                self.screenData.messageLog.textList.append('What a cool new pet. Keep going!')
         elif self.gameData.myPet.kind == WINNER:
             self.screenData.messageLog.textList.append('Congratulation! You won!')
 
@@ -87,15 +87,15 @@ class LogicHandlerPetScreen:
         self.screenData.messageLog.textList.append('Nothing happened.')
         if self.gameData.myPet.kind == DEAD_END:
             self.screenData.messageLog.textList.append('This critter is done taking anything from you.')
-        elif self.gameData.myPet.kind == DEAD_END:
+        elif self.gameData.myPet.kind == NORMAL:
             self.screenData.messageLog.textList.append('Try something else or get other item.')
 
     def checkTrigger(self):
         if self.gameData.myPet.key == 'dog':
             self.obtain('carrot')
-        if self.gameData.myPet.key == 'carrotRabbit':
-            self.obtain('apple')
         if self.gameData.myPet.key == 'alienRabbit':
+            self.obtain('apple')
+        if self.gameData.myPet.key == 'chocoRabbit':
             self.unlockMap('map2')
         if self.gameData.myPet.key == 'muscularHorse':
             self.unlockMap('map3')
@@ -115,7 +115,7 @@ class LogicHandlerPetScreen:
         if self.gameData.mapUnlock[map] == False:
             self.gameData.mapUnlock[map] = True
         if map == 'map2':
-            self.screenData.messageLog.textList.append('Now that you\'ve met an alien, you\'re not afraid of the desert anymore.')
+            self.screenData.messageLog.textList.append('That much gold is enough to buy your way into the desert.')
         if map == 'map3':
             self.screenData.messageLog.textList.append(
                 'Your ' + self.gameData.myPet.name + 'wants to go somewhere nice. Visit the saloon.')
