@@ -20,10 +20,10 @@ class PetScreenData:
         self.petTypeList = gameData.petList
 
         # TODO: comment all following
-        #or testing purpose
+        #For testing purpose
         #for item in self.gameData.itemInfoList.item:
         #    self.gameData.itemInfoList.item[item].unlock = True
-        #    self.itemInfoList.item[item].inventory = 5
+        #      self.itemInfoList.item[item].inventory = 10
         # self.gameData.itemInfoList.item['apple'].unlock = False
         # self.gameData.itemInfoList.item['carrot'].unlock = False
         # self.gameData.itemInfoList.item['gun'].unlock = False

@@ -41,7 +41,7 @@ class PetScreen:
         #Create pet menu
         self.menuPetWidth = SCREEN_WIDTH / 4
         self.realMenuPetHeight = 2 * SCREEN_HEIGHT / 9
-        self.menuPetPosx = 3 * SCREEN_WIDTH / 5
+        self.menuPetPosx = 3 * SCREEN_WIDTH / 5 + SCREEN_WIDTH/30
         self.realMenuPetPosy = 1 * SCREEN_HEIGHT / 8
         self.createMenuPet()
 
