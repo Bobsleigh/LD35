@@ -16,12 +16,12 @@ class PetScreenData:
         #All item
         self.itemInfoList = gameData.itemInfoList
 
-        #For testing purpose
-        #for item in self.gameData.itemInfoList.item:
-        #    self.gameData.itemInfoList.item[item].unlock = True
-        #    self.itemInfoList.item[item].inventory = 10
-        #self.gameData.itemInfoList.item['apple'].unlock = True
-        #self.gameData.itemInfoList.item['carrot'].unlock = True
+        # #For testing purpose
+        # for item in self.gameData.itemInfoList.item:
+        #     self.gameData.itemInfoList.item[item].unlock = True
+        #     self.itemInfoList.item[item].inventory = 10
+        # #self.gameData.itemInfoList.item['apple'].unlock = True
+        # #self.gameData.itemInfoList.item['carrot'].unlock = True
 
         #All pet
         self.petTypeList = gameData.petList

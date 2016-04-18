@@ -82,9 +82,11 @@ class PetScreen:
         self.screen.blit(self.background, (0, 0))
 
         # For testing only
-        self.testFont = pygame.font.SysFont('arial', 36)
-        test = self.testFont.render('map2: ' + str(self.gameData.mapUnlock['map2']), True, (0, 0, 0))
-        self.screen.blit(test, (0, 0))
+        #self.testFont = pygame.font.SysFont('arial', 36)
+        #test = self.testFont.render('goldBar lock: ' + str(self.gameData.itemInfoList.item['goldBar'].unlock), True, (0, 0, 0))
+        #test2 = self.testFont.render('goldBar nb: ' + str(self.gameData.itemInfoList.item['goldBar'].inventory), True,(0, 0, 0))
+        #self.screen.blit(test, (0, 0))
+        #self.screen.blit(test2, (0, 40))
 
         self.screenData.allSprites.draw(self.screen)
         pygame.display.flip()
