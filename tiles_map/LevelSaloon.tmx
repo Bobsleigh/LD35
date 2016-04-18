@@ -508,7 +508,7 @@
     <property name="direction" value="Right"/>
    </properties>
   </object>
-  <object id="59" name="gun" type="item" x="115.333" y="3099.33" width="21.3333" height="21.3333"/>
+  <object id="59" name="gun" type="item" x="97.9997" y="2878" width="21.3333" height="21.3333"/>
   <object id="60" name="gun" type="item" x="623.333" y="2091.33" width="21.3333" height="21.3333"/>
   <object id="61" name="gun" type="item" x="829.333" y="1571.33" width="21.3333" height="21.3333"/>
  </objectgroup>
