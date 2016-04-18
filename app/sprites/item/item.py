@@ -15,8 +15,12 @@ class Item(pygame.sprite.Sprite):
         listItemInfo = ItemInfoList()
         if imageName in listItemInfo.item:
             imageNamePNG = listItemInfo.item[imageName].imageNamePNG
+            resizeSizeY = listItemInfo.item[imageName].resizeSize
             linkImage = os.path.join('img', imageNamePNG)
             self.image = pygame.image.load(linkImage)
+            # resize, of obvious reason...
+            imageSizeX = self.image.get_width() * resizeSizeY / self.image.get_height()
+            self.image = pygame.transform.scale(self.image, (int(imageSizeX), int(resizeSizeY)))
         else:
             # null surface
             self.image = pygame.Surface((1,1), pygame.SRCALPHA)

@@ -5,7 +5,7 @@ from app.settings import *
 
 
 class ItemInfo(pygame.sprite.Sprite):
-    def __init__(self, key, imageNamePNG='cochon.png'):
+    def __init__(self, key, imageNamePNG='cochon.png', resizeSize=32):
         super().__init__()
 
         self.key = key
@@ -13,6 +13,7 @@ class ItemInfo(pygame.sprite.Sprite):
 
         self.image = pygame.Surface((1, 1))
         self.imageNamePNG = imageNamePNG
+        self.resizeSize = resizeSize
 
         self.wantedHeight = 32
 

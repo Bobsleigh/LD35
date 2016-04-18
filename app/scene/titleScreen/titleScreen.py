@@ -48,13 +48,13 @@ class TitleScreen:
 
         pygame.display.flip()
 
-    # Only for debug
     def startGame(self):
         self.nextScene = PET_SCREEN
         self.sceneRunning = False
         self.gameData.typeScene = PET_SCREEN
         self.gameData.mapData = None
 
+    # Only for debug
     def startWorldMap(self):
         self.nextScene = WORLD_MAP
         self.sceneRunning = False

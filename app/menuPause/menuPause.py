@@ -20,9 +20,21 @@ class MenuPause():
 
         self.eventHandler = EventHandlerMenuPause()
 
+        # some sound
+        soundUnPause = pygame.mixer.Sound('music_pcm/unpause.wav')
+        soundUnPause.set_volume(.4)
+        self.menuPause.optionList[0].soundSelect = soundUnPause
+        self.menuPause.optionList[1].soundSelect = soundUnPause
+        self.menuPause.optionList[2].soundSelect = soundUnPause
 
     def mainLoop(self):
         self.menuRunning = True
+
+        # some sound
+        soundPause = pygame.mixer.Sound('music_pcm/pause.wav')
+        soundPause.set_volume(.4)
+        soundPause.play(0)
+
         while self.menuRunning:
             self.eventHandler.eventHandle(self.menuPause.optionList, self.menuPause.selector, self.close)
             self.menuPause.spritesMenu.update()  # This would be in the logic
@@ -34,4 +46,5 @@ class MenuPause():
         pygame.display.flip()
 
     def close(self):
+
         self.menuRunning = False

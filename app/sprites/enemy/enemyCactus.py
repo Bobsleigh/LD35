@@ -65,4 +65,5 @@ class EnemyCactus(Enemy):
         self.distance = math.fabs(self.initx - self.rect.x)
 
     def dead(self):
+        self.soundDead.play()
         self.kill()

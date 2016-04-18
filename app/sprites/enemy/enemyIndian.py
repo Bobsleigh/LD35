@@ -39,3 +39,7 @@ class EnemyIndian(Enemy):
             + (self.inity - self.yCenter) * math.sin(self.angle)
         self.rect.y = self.yCenter - (self.initx - self.xCenter) * math.sin(self.angle) \
             + (self.inity - self.yCenter) * math.cos(self.angle)
+
+    def dead(self):
+        self.soundDead.play()
+        self.kill()

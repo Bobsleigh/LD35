@@ -63,4 +63,5 @@ class EnemySaloon(Enemy):
             self.rect.y += self.speedy
 
     def dead(self):
+        self.soundDead.play()
         self.kill()

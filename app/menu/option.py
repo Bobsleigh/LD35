@@ -49,6 +49,9 @@ class Option(pygame.sprite.Sprite):
         self.isSelected = True
         self.soundChange.play(0)
 
+    def selectQuit(self):
+        self.soundSelect.play(0)
+
     def deselect(self):
         self.isSelected = False
 
