@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="103" height="24" tilewidth="32" tileheight="32" nextobjectid="41">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="103" height="24" tilewidth="32" tileheight="32" nextobjectid="43">
  <tileset firstgid="1" name="bleu" tilewidth="32" tileheight="32" tilecount="1">
   <image source="img/bleu.png" width="32" height="32"/>
  </tileset>
@@ -178,6 +178,8 @@
   <object id="36" name="bone" type="item" x="202.333" y="616.667" width="30" height="28"/>
   <object id="37" name="bone" type="item" x="2058.33" y="528.667" width="30" height="28"/>
   <object id="38" name="bone" type="item" x="2547.67" y="647.333" width="30" height="28"/>
+  <object id="41" name="bone" type="item" x="52" y="507" width="30" height="28"/>
+  <object id="42" name="bone" type="item" x="53" y="402" width="30" height="28"/>
  </objectgroup>
  <objectgroup name="itemLayer" offsetx="0" offsety="-1">
   <object id="14" name="horseshoe" type="item" x="3071" y="181" width="32" height="40"/>
@@ -193,7 +195,7 @@
   <object id="27" name="Money" type="item" x="2268" y="548" width="26" height="24"/>
   <object id="28" name="Money" type="item" x="2322" y="542" width="28" height="34"/>
   <object id="29" name="Money" type="item" x="1958" y="446" width="32" height="34"/>
-  <object id="39" name="OutZone" x="311.5" y="574.5" width="70.3333" height="75">
+  <object id="39" name="OutZone" x="3118.5" y="490.5" width="70.3333" height="75">
    <properties>
     <property name="InZone" value="OutLevelDesert"/>
     <property name="LevelZone" value="WorldMap"/>

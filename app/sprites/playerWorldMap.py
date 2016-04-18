@@ -27,6 +27,14 @@ class Player(pygame.sprite.Sprite):
 
         self.isPhysicsApplied = True
 
+        self.rightPressed = False
+        self.leftPressed = False
+        self.upPressed = False
+        self.downPressed = False
+
+        self.repeatKeyCounter = 1
+        self.repeatKeyCounterMax = 8
+
     def update(self):
         self.rect.x = self.tileX * TILE_WIDTH
         self.rect.y = self.tileY * TILE_HEIGHT - self.rect.height
@@ -51,3 +59,39 @@ class Player(pygame.sprite.Sprite):
     def moveDown(self):
         self.tileY += 1
         self.facingSide = DOWN
+
+    def updateSpeedRight(self):
+        if self.repeatKeyCounter == 0:
+            self.repeatKeyCounter += 1
+            self.moveRight()
+        elif self.repeatKeyCounter >= self.repeatKeyCounterMax:
+            self.repeatKeyCounter = 0
+        else:
+            self.repeatKeyCounter += 1
+
+    def updateSpeedLeft(self):
+        if self.repeatKeyCounter == 0:
+            self.repeatKeyCounter += 1
+            self.moveLeft()
+        elif self.repeatKeyCounter >= self.repeatKeyCounterMax:
+            self.repeatKeyCounter = 0
+        else:
+            self.repeatKeyCounter += 1
+
+    def updateSpeedUp(self):
+        if self.repeatKeyCounter == 0:
+            self.repeatKeyCounter += 1
+            self.moveUp()
+        elif self.repeatKeyCounter >= self.repeatKeyCounterMax:
+            self.repeatKeyCounter = 0
+        else:
+            self.repeatKeyCounter += 1
+
+    def updateSpeedDown(self):
+        if self.repeatKeyCounter == 0:
+            self.repeatKeyCounter += 1
+            self.moveDown()
+        elif self.repeatKeyCounter >= self.repeatKeyCounterMax:
+            self.repeatKeyCounter = 0
+        else:
+            self.repeatKeyCounter += 1

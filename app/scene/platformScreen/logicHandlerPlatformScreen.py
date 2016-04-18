@@ -68,7 +68,10 @@ class LogicHandlerPlatformScreen:
                 collisionBulletWall(bullet, mapData)
                 collisionBulletEnemy(bullet, mapData)
         for bullet in mapData.enemyBullet:
-            collisionBulletWall(bullet, mapData)
+            if type(bullet) == SpiritBullet:
+                pass
+            else:
+                collisionBulletWall(bullet, mapData)
 
         collisionBulletPlayer(mapData, player)
 
