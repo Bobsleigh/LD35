@@ -35,7 +35,7 @@ class GameData:
 
     # When u pick up  and item, add it to the item list
     def registerItemPickedUp(self, item):
-        if item.name in self.itemInfoList.item:
-            numberOfItem = self.itemInfoList.item[item.name].inventory
-            self.itemInfoList.item[item.name].inventory += max(numberOfItem+1, self.maxItemOfAType)
-            self.itemInfoList.item[item.name].unlock = True
+        if item.imageName in self.itemInfoList.item:
+            numberOfItem = self.itemInfoList.item[item.imageName].inventory
+            self.itemInfoList.item[item.imageName].inventory += min(numberOfItem+1, self.maxItemOfAType)
+            self.itemInfoList.item[item.imageName].unlock = True

@@ -21,6 +21,7 @@ class Item(pygame.sprite.Sprite):
             # resize, of obvious reason...
             imageSizeX = self.image.get_width() * resizeSizeY / self.image.get_height()
             self.image = pygame.transform.scale(self.image, (int(imageSizeX), int(resizeSizeY)))
+            self.imageName = imageName
         else:
             # null surface
             self.image = pygame.Surface((1,1), pygame.SRCALPHA)
