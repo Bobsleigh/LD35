@@ -75,31 +75,31 @@
   </data>
  </layer>
  <objectgroup name="outZoneLayer">
-  <object id="4" name="OutZone" x="93.3333" y="62.6667" width="34.6667" height="33.3333">
+  <object id="4" name="OutZone" x="58" y="37" width="98" height="88">
    <properties>
     <property name="InZone" value="StartPointSheriff"/>
     <property name="LevelZone" value="LevelSheriff"/>
    </properties>
   </object>
-  <object id="11" name="OutZone" x="512" y="221" width="37.5" height="37.1667">
+  <object id="11" name="OutZone" x="480" y="118" width="95" height="140">
    <properties>
     <property name="InZone" value="StartPointSaloon"/>
     <property name="LevelZone" value="LevelSaloon"/>
    </properties>
   </object>
-  <object id="12" name="OutZone" x="800" y="292" width="32" height="26">
+  <object id="12" name="OutZone" x="789" y="255" width="59" height="63">
    <properties>
     <property name="InZone" value="StartPointHome"/>
     <property name="LevelZone" value="LevelHome"/>
    </properties>
   </object>
-  <object id="21" name="OutZone" x="130" y="634" width="30" height="40">
+  <object id="21" name="OutZone" x="99" y="593" width="81" height="81">
    <properties>
     <property name="InZone" value="StartPoint"/>
     <property name="LevelZone" value="LevelIndian"/>
    </properties>
   </object>
-  <object id="24" name="OutZone" x="917.667" y="657.667" width="44.6663" height="48.6667">
+  <object id="24" name="OutZone" x="895" y="575" width="91" height="131.334">
    <properties>
     <property name="InZone" value="StartPointDesert"/>
     <property name="LevelZone" value="LevelDesert"/>
